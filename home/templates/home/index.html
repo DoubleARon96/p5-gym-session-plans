@@ -4,4 +4,16 @@
 
 {% block content %}
 <h1>home</h1>
+<div class="container">
+    <div class="row md-8 center">
+        <div class="col col-md-12 text-center">
+{% for content in contents %}
+<h2 class="">{{content.title}}</h2>
+<hr />
+<p class="">{{content.content|safe}}</p>
+<p class="text-muted">{{content.updated_on}}</p>
+{% endfor %}
+</div>
+</div>
+</div>
 {% endblock %}
