@@ -9,5 +9,6 @@ h1 {
 /*---------------------------------------------------------home*/
 .news-block {
     border: 2px solid black !important;
-    box-shadow: 2px 2px white;
+    box-shadow: 2px 2px green !important;
+    border-radius: 15px !important;
 }
