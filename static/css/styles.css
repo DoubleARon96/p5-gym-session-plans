@@ -1,0 +1,13 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    color: blue;
+}
+
+/*---------------------------------------------------------home*/
+.news-block {
+    border: 2px solid black !important;
+    box-shadow: 2px 2px white;
+}
