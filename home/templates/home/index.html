@@ -11,6 +11,12 @@
             <hr />
             <p class="">{{content.content|safe}}</p>
             <p class="text-muted">{{content.updated_on}}</p>
+            {% if user.is_authenticated %}
+            <button class="btn btn-delete" data-homenews_id="{{ homenews.id }}">Delete</button>
+            <button class="btn btn-edit" data-homenews_id="{{ homenews.id }}">Edit</button>
+            <button id="submitButton" type="submit" class="btn-lg">Submit</button>
+            {% endif %}
+            
             {% endfor %}
         </div>
     </div>
