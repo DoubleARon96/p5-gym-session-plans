@@ -37,8 +37,17 @@ def showView(request):
     context = {'show': storyShow}
     return render(request, template_name, context)
 
-def updateView(request):
-    queryset = HomeNews.objects.get()
+def deleteView(request, f_oid):
+    queryset = HomeNews.objects.get(oid=f_oid)
+    if request.method == 'POST':
+        queryset.delete()
+        return redirect('show_url')
+    template_name = 'home/confirmation.html'
+    context = {'deleteview': queryset}
+    return render(request, template_name, context)
+
+def updateView(request, f_oid):
+    queryset = HomeNews.objects.get(id = f_oid)
     form = NewsForm(instance=queryset)
     if request.method == 'POST':
         form = NewsForm(request.POST, instance=queryset)

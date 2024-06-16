@@ -14,8 +14,9 @@
             <p class="">{{content.content|safe}}</p>
             <p class="text-muted">{{content.updated_on}}</p>
             {% if user.is_authenticated %}
-            <button class="btn btn-delete" data-homenews_id="{{ homenews.id }}">Delete</button>
-            <button class="btn btn-edit" data-homenews_id="{{ homenews.id }}">Edit</button>
+            <button class="btn btn-warning"><a href="{% url 'update_url' HomeNews.id %}">Update</a></button>
+            <button class="btn btn-danger"><a href="{% url 'delete_url' i.oid %}">Delete</a></button>
+       
             <button id="submitButton" type="submit" class="btn-lg">Upadate</button>
             {% endif %}
             {% endfor %}
