@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import admin
 from django.http import HttpResponse
 from django.views import generic
 from django.views.generic import ListView
+from .forms import NewsForm
 from .models import HomeNews
 
 #class HomeContent(generic.ListView):
@@ -20,12 +21,30 @@ def index(request):
     return render (request, "home/index.html",viewbag)
 
 def NewsFormView(request):
-    form = OrderForm()
+    form = NewsForm()
     if request.method == 'POST':
-        form = OrderForm(request.POST)
+        form = NewsForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('show_url')
-    template_name = 'crudapp/order.html'
+    template_name = 'home/index.html'
     context = {'form': form}
+    return render(request, template_name, context)
+
+def showView(request):
+    storyShow = HomeNews.objects.all()
+    template_name = 'home/show.html'
+    context = {'show': storyShow}
+    return render(request, template_name, context)
+
+def updateView(request):
+    queryset = HomeNews.objects.get()
+    form = NewsForm(instance=queryset)
+    if request.method == 'POST':
+        form = NewsForm(request.POST, instance=queryset)
+        if form.is_valid():
+            form.save()
+            return redirect('show_url')
+    template_name = 'home/list_homenews.html'
+    context = {'updateview': form}
     return render(request, template_name, context)
