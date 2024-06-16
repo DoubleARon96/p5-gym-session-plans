@@ -27,7 +27,7 @@ def NewsFormView(request):
         if form.is_valid():
             form.save()
             return redirect('show_url')
-    template_name = 'home/index.html'
+    template_name = 'home/crud.html'
     context = {'form': form}
     return render(request, template_name, context)
 

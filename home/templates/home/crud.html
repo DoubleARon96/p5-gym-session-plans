@@ -1,0 +1,13 @@
+{% load crispy_forms_tags %}
+{% extends 'index.html' %}
+
+{% block crudform %}
+{% if user.is_authenticated %}
+<div class="container">
+    <form method="post" class="jumbotron">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Update" class="btn btn-success">
+    </form>
+{% endif %}
+{% endblock %}

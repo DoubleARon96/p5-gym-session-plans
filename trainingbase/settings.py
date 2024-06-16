@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'home',
     'userprograms',
     'ptsessions',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -96,6 +98,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 WSGI_APPLICATION = 'trainingbase.wsgi.application'
 

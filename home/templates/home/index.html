@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+
 {% block content %}
 <h1>home</h1>
 <div class="container">
@@ -14,26 +16,38 @@
             {% if user.is_authenticated %}
             <button class="btn btn-delete" data-homenews_id="{{ homenews.id }}">Delete</button>
             <button class="btn btn-edit" data-homenews_id="{{ homenews.id }}">Edit</button>
-            <button id="submitButton" type="submit" class="btn-lg">Submit</button>
+            <button id="submitButton" type="submit" class="btn-lg">Upadate</button>
             {% endif %}
             {% endfor %}
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="row text-center">
-        <div class="col col-12 col-md-4">
-            <h3>h</h3>
-            <img src="{% static '/images/assest-images-workouts/leg-session.gif' %}" class="img-fluid" alt="Legs Programs">
-        </div>
-        <div class="col col-12 col-md-4">
-            <h3>t</h3>
-            <img src="{% static '/images/assest-images-workouts/chest-and-back.gif' %}" class="img-fluid" alt=" chest and back">
-        </div>
-        <div class="col col-12 col-md-4">
-            <h3>y</h3>
-            <img src="{% static '/images/assest-images-workouts/arms-and-shoulders.gif' %}" class="img-fluid" alt=" arms and shoulders">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% block crudform %}
+
+            {% endblock %}
         </div>
     </div>
 </div>
-{% endblock %}
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col col-12 col-md-4">
+                <h3>h</h3>
+                <img src="{% static '/images/assest-images-workouts/leg-session.gif' %}" class="img-fluid"
+                    alt="Legs Programs">
+            </div>
+            <div class="col col-12 col-md-4">
+                <h3>t</h3>
+                <img src="{% static '/images/assest-images-workouts/chest-and-back.gif' %}" class="img-fluid"
+                    alt=" chest and back">
+            </div>
+            <div class="col col-12 col-md-4">
+                <h3>y</h3>
+                <img src="{% static '/images/assest-images-workouts/arms-and-shoulders.gif' %}" class="img-fluid"
+                    alt=" arms and shoulders">
+            </div>
+        </div>
+    </div>
+    {% endblock %}
