@@ -54,6 +54,6 @@ def updateView(request, ids):
         if form.is_valid():
             form.save()
             return redirect('show_url')
-    template_name = 'home/list_homenews.html'
+    template_name = 'home/crud.html'
     context = {'updateview': form}
     return render(request, template_name, context)
