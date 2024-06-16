@@ -9,11 +9,13 @@ class NewsForm (forms.ModelForm):
         fields = '__all__'
 
         labels = {
+            'id': 'Identification',
             'title':'Title',
             'content':'Content'
         }
 
         widgets  ={
+            'id' : forms.NumberInput(attrs={'placeholder': 'eg. 1'}),
             'title' : forms.TextInput(attrs={'placeholder': 'eg. Welcome'}),
             'content' : forms.TextInput(attrs={'placeholder': 'eg. lets begin a story'}),
         }
