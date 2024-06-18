@@ -52,8 +52,6 @@ def updateView(request, ids):
     if request.method == 'POST':
         form = NewsForm(request.POST, instance=queryset)
         if form.is_valid():
-            title = form.title
-            content = form.content
             form.save()
             return redirect('show_url')
     template_name = 'home/crud.html'

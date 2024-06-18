@@ -3,16 +3,26 @@
 
 {% block stories%}
 {% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Update page</h1>
+        </div>
+    </div>
+</div>
 
 {% block crudform %}
-{% if user.is_authenticated %}
 <div class="container">
-    <form method="post" class="jumbotron">
-        {% csrf_token %}
-        {{form.title|as_crispy_field}}
-        {{form.content|as_crispy_field}}
-        {{form|crispy}}
-        <input type="submit" value="Update" class="btn btn-success">
-    </form>
-{% endif %}
+    <div class="row">
+        <div class="col">
+            {% if user.is_authenticated %}
+            <form method="post" class="jumbotron">
+                {% csrf_token %}
+                {{form|crispy}}
+                <input type="submit" value="Update" class="btn btn-success">
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}

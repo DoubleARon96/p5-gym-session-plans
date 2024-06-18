@@ -14,11 +14,10 @@
             <p class="">{{content.content|safe}}</p>
             <p class="text-muted">{{content.updated_on}}</p>
             {% if user.is_authenticated %}
-            {% for i in obj %}
-            <button class="btn btn-warning"><a href="{% url 'update_url' i.ids %}">Update</a></button>
-            <button class="btn btn-danger"><a href="{% url 'delete_url' i.ids%}">Delete</a></button>
+            {% for i in contents %}
+            <button class="btn btn-warning"><a href="{% url 'update_url' ids=content.id %}">Update</a></button>
             {% endfor %}
-            <button id="submitButton" type="submit" class="btn-lg">Update</button>
+           
             {% endif %}
             {% endfor %}
         </div>
