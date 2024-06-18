@@ -9,6 +9,8 @@
 <div class="container">
     <form method="post" class="jumbotron">
         {% csrf_token %}
+        {{form.title|as_crispy_field}}
+        {{form.content|as_crispy_field}}
         {{form|crispy}}
         <input type="submit" value="Update" class="btn btn-success">
     </form>
