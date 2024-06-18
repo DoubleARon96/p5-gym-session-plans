@@ -3,24 +3,31 @@
 
 {% block stories%}
 {% endblock %}
-<div class="container">
+
+
+{% block crudform %}
+<div class="container d">
     <div class="row">
-        <div class="col">
+        <div class="col text-center">
             <h1>Update page</h1>
         </div>
     </div>
 </div>
-
-{% block crudform %}
-<div class="container">
+<div class="container text-center">
     <div class="row">
         <div class="col">
             {% if user.is_authenticated %}
+            
             <form method="post" class="jumbotron">
                 {% csrf_token %}
                 {{form|crispy}}
+                
                 <input type="submit" value="Update" class="btn btn-success">
+                {% for i in contents %}
+                <button class="btn btn-danger"><a href="{% url 'delete_url' ids=content.id %}">Delete</a></button>
+                {% endfor %}
             </form>
+                
             {% endif %}
         </div>
     </div>

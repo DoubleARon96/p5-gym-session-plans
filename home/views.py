@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import admin
 from django.http import HttpResponse
 from django.views import generic
@@ -38,23 +38,24 @@ def showView(request):
     return render(request, template_name, context)
 
 def deleteView(request, ids):
-    queryset = HomeNews.objects.get(id = ids)
+    queryset = get_object_or_404(HomeNews, id=ids)
     if request.method == 'POST':
         queryset.delete()
         return redirect('show_url')
     template_name = 'home/confirmation.html'
-    context = {'deleteview': queryset}
+    context = {'object_to_delete': queryset}
     return render(request, template_name, context)
 
 def updateView(request, ids):
-    queryset = HomeNews.objects.get(id = ids)
+    queryset =  get_object_or_404 (HomeNews, id=ids)
     form = NewsForm(instance=queryset)
     if request.method == 'POST':
         form = NewsForm(request.POST, instance=queryset)
         if form.is_valid():
             form.save()
             return redirect('show_url')
+        else:
+            form = NewsForm(instance=queryset)
     template_name = 'home/crud.html'
-    context = {'updateview': NewsForm}
-    return render(request, template_name, context)
+    return render(request, template_name, {'form':form})
     
