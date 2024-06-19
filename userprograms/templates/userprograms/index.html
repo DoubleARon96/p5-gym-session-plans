@@ -1,39 +1,42 @@
 {% extends "base.html" %}
 {% load static %}
 
-
-{% block ptsessions %}
+{% block usersessions %}
 
 <div class="container">
     <div class="row md-8 center">
         <div class="col col-md-12 text-center news-block">
-            <h1>PT Sessions Availble</h1>
+            <h1>User Sessions Availble</h1>
         </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="search-bar-container text-center">
+            <div class="search-bar-container">
                 <form action="/">
                   <input type="text" placeholder="Search.." name="search" id="search-bar">
                   <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
         </div>    
-    </div>    
+    </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col">
-            <p>Place marker for personal trainer sessions</p>
+            <p>This Is where you make and plan out your own sessions from back day to leg day lets get training</p>
             <img src="/" alt="image will be uploaded by pt">
         </div>
     </div>
 </div>
     <div class="container-fluid">
         <div class="row text-center">
-            <div class="col col-12 col-md-4">
+            <div class="col col-12 d-inline">
+                <form action="">
+                    <input type="text" placeholder="Exercise Name e.g squats"> : <input type="text" placeholder="reps e.g 5"> x <input type="text" placeholder="sets e.g 3">
+                </form>
+            </div>
         </div>
-    </div>
+    </div>    
     {% endblock %}

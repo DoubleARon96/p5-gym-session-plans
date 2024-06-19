@@ -12,3 +12,12 @@ h1 {
     box-shadow: 2px 2px green !important;
     border-radius: 15px !important;
 }
+.search-bar-container{
+    margin: 5px;
+}
+
+#search-bar {
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 14px;
+}
