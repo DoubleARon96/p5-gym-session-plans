@@ -1,1 +1,1 @@
-web: gunicorn trainingbase.wsgi
+web: gunicorn trainingbase.wsgi --log-file -
