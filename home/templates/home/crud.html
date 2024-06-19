@@ -23,9 +23,6 @@
                 {{form|crispy}}
                 
                 <input type="submit" value="Update" class="btn btn-success">
-                {% for i in contents %}
-                <button class="btn btn-danger"><a href="{% url 'delete_url' ids=content.id %}">Delete</a></button>
-                {% endfor %}
             </form>
                 
             {% endif %}

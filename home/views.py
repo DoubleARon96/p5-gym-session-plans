@@ -37,14 +37,6 @@ def showView(request):
     context = {'show': storyShow}
     return render(request, template_name, context)
 
-def deleteView(request, ids):
-    queryset = get_object_or_404(HomeNews, id=ids)
-    if request.method == 'POST':
-        queryset.delete()
-        return redirect('show_url')
-    template_name = 'home/confirmation.html'
-    context = {'object_to_delete': queryset}
-    return render(request, template_name, context)
 
 def updateView(request, ids):
     queryset =  get_object_or_404 (HomeNews, id=ids)
@@ -53,7 +45,7 @@ def updateView(request, ids):
         form = NewsForm(request.POST, instance=queryset)
         if form.is_valid():
             form.save()
-            return redirect('show_url')
+            return redirect('home')
         else:
             form = NewsForm(instance=queryset)
     template_name = 'home/crud.html'

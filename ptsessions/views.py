@@ -2,4 +2,11 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 
 def index(request):
-    return HttpResponse("PT Sessions")
+    """
+    view to show template
+    """
+    #queryset = HomeNews.objects.all()
+    #content = queryset
+    #viewbag = {"contents": content}
+        
+    return render (request, "ptsessions/index.html")
