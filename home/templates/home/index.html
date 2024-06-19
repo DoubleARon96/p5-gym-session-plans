@@ -14,7 +14,7 @@
             <p class="text-muted">{{content.updated_on}}</p>
             {% if user.is_authenticated %}
             {% for i in contents %}
-            <button class="btn btn-warning"><a href="{% url 'update_url' ids=content.id %}">Update</a></button>
+            <button class="button"><a href="{% url 'update_url' ids=content.id %}" class="button-font">Update</a></button>
             {% endfor %}
            
             {% endif %}
