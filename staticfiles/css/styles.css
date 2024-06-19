@@ -2,8 +2,27 @@ html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h1 {
+h1,h2,h3,h4 {
     color: blue;
+    text-transform: capitalize;
+}
+.button{
+    border: 2px inset black;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px black;
+    margin: 2px;
+    background-color: rgb(5, 206, 5);
+    
+}
+.button-font {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+.button:hover,
+.button-font:hover {
+    color: white;
+    background-color: rgb(0, 67, 0);
 }
 
 /*---------------------------------------------------------home*/
@@ -11,4 +30,14 @@ h1 {
     border: 2px solid black !important;
     box-shadow: 2px 2px green !important;
     border-radius: 15px !important;
+}
+/*---------------------------------------------------------search bar*/
+.search-bar-container{
+    margin: 5px;
+}
+
+#search-bar {
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 14px;
 }
