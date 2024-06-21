@@ -120,6 +120,13 @@ Happy coding!
 the home page is aimed to welcome new people to the app/site so they understand what we as the developers can previde the user
 
 # Plans
+![home page plan ](assets/readme-images/home-page-plan.jpg)
+![image of data plan ](assets/readme-images/home-data-plan.png)
+
+# Thoughts 
+this is a basic model i set up thinking that it would be nice to be able to edit for super users but i thought if i keep it to only one and make it so only devs and the client can change.
+
+i also made it so its crud function is only to be updated so its easy to track and make sure not to much writing is on the home.
 
 # issues
 1. the first issue i has was getting the static files to work on the deployed version. 
