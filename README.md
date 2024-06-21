@@ -112,3 +112,52 @@ Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` f
 ---
 
 Happy coding!
+
+
+### Home Page
+
+# Breife description
+the home page is aimed to welcome new people to the app/site so they understand what we as the developers can previde the user
+
+# Plans
+
+# issues
+1. the first issue i has was getting the static files to work on the deployed version. 
+is would have the bootstrap styles but no css, js or media I had made. 
+* Solution
+I forgot to download and set up whitenoise to the middle ware   
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+#   'whitenoise.middleware.WhiteNoiseMiddleware', 
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
+]
+
+2. update / edit the new story
+*  I had an issue with getting the news story to upadate so i had to do some research and the problem was i had the urls set up wrong so it was using the wrong views function
+
+>Urls.py
+path('sv/', views.showView, name='show_url'),
+
+>views.py
+
+def updateView(request, ids):
+    queryset =  get_object_or_404 (HomeNews, id=ids)
+    form = NewsForm(instance=queryset)
+    if request.method == 'POST':
+        form = NewsForm(request.POST, instance=queryset)
+        if form.is_valid():
+            form.save()
+#            return redirect('home')
+        else:
+            form = NewsForm(instance=queryset)
+    template_name = 'home/crud.html'
+    return render(request, template_name, {'form':form})
+
+instead of having the redirect to home it was using the show View one and this confused me going through and wondering why the form didn't appear
