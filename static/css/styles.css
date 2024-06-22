@@ -41,3 +41,22 @@ h1,h2,h3,h4 {
     border: 2px solid black;
     border-radius: 14px;
 }
+/*-------------------------------------------------------mail chimp*/
+#mc_embed_shell {
+    margin: 10px;
+    justify-content: center !important;
+    display: flex !important;
+    border: 2px solid black !important;
+    box-shadow: 2px 2px green !important;
+    border-radius: 15px !important;
+}
+#mc_embed_signup {
+    background: #fff;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    width: 600px;
+    
+                    }
+
+                    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
