@@ -26,17 +26,14 @@ h1,h2,h3,h4 {
 }
 
 /*---------------------------------------------------------home*/
-.news-block {
-    border: 2px solid black !important;
-    box-shadow: 2px 2px green !important;
-    border-radius: 15px !important;
-}
-/*---------------------------------------------------------pt sessions page*/
+.news-block,
 .ptsessions {
     border: 2px solid black !important;
     box-shadow: 2px 2px green !important;
     border-radius: 15px !important;
 }
+/*---------------------------------------------------------pt sessions page*/
+
 /*---------------------------------------------------------search bar*/
 .search-bar-container{
     margin: 5px;

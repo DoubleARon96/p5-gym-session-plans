@@ -23,5 +23,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path("", include('ptsessions.urls'), name='ptsessions' ),
     path("", include('userprograms.urls'), name='userprograms' ),
+    path("", include('profile_page.urls'), name='profile_page' ),
     path('admin/', admin.site.urls),
 ]

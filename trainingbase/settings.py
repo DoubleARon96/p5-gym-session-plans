@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'home',
     'userprograms',
     'ptsessions',
+    'profile_page',
     'crispy_forms',
     'crispy_bootstrap5',
 ]
