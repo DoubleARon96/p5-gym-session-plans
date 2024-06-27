@@ -18,7 +18,7 @@ class PtSessions(models.Model):
     session_name = models.TextField()
     program = models.TextField(max_length=2000)
     user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='user_sessions')
-    game = models.CharField(max_length=40, choices=BODY_PART,
+    body_part = models.CharField(max_length=40, choices=BODY_PART,
                             default='All Body')
     client = models.ForeignKey(User, on_delete=models.CASCADE, related_name='client_sessions')
     #image

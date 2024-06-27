@@ -31,6 +31,12 @@ h1,h2,h3,h4 {
     box-shadow: 2px 2px green !important;
     border-radius: 15px !important;
 }
+/*---------------------------------------------------------pt sessions page*/
+.ptsessions {
+    border: 2px solid black !important;
+    box-shadow: 2px 2px green !important;
+    border-radius: 15px !important;
+}
 /*---------------------------------------------------------search bar*/
 .search-bar-container{
     margin: 5px;
