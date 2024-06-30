@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block profile %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% for content in contents %}
+            <h1>Test</h1>
+            <h3>Welcome {{user.username}}</h3>
+            <h4>Email Address {{user.email}}</h4>
+            <h4>{{content.date_of_birth}}</h4>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1> ffffffffffffffffffffffffffffffffff</h1>
+        </div>
+    </div>
+</div>
+{% endblock %}
