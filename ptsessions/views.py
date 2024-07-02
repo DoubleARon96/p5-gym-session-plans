@@ -11,6 +11,6 @@ def index(request):
     content = queryset
     viewbag = {"contents": content,
                "price": price,
-               "client": PtSessions.client}
+               "client": PtSessions.objects.first().client}
         
     return render (request, "ptsessions/index.html",viewbag)
