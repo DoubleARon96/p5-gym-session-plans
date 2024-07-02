@@ -37,14 +37,14 @@
             {% for content in contents %}
             <h2 class="">{{content.session_name}}</h2>
             <hr />
-            <p class="">{{content.program|safe}}</p>
-            <p>{{content.body_part}}</p>
-            <p class="text-muted">{{content.user}}</p>
-            {% if user.is_authenticated %}
-            {% for i in contents %}
-            {% endfor %}
-
-            {% endif %}
+            <p>Price: £{{ item.price }}</p>
+                {% if user.is_authenticated and username == 'client' %}
+                <p class="">{{content.program|safe}}</p>
+                <p>{{content.body_part}}</p>
+                <p class="text-muted">{{content.user}}</p>
+                {% else %}
+                <p class="text-muted">You Do Not Have Access to this program</p>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
