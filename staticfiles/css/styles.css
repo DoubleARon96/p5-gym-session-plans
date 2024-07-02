@@ -63,3 +63,9 @@ h1,h2,h3,h4 {
 
                     /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
              We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+/*------------------------------------------------------------------- profile page*/
+.profile-img {
+    border: 1px sold black;
+    border-radius: 20px;
+    margin: 10px;
+}

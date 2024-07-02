@@ -1,18 +1,17 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import admin
-from django.http import HttpResponse
-from django.views import generic
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Profile
+from ptsessions.models import PtSessions
 
 # Create your views here.
+
+
+@login_required
 def index(request):
-    """
-    view to show template
-    """
-    #queryset = get_object_or_404(Profile)
-    queryset = User.objects.all()
-    content = queryset
-    viewbag = {"contents": content}
-        
-    return render (request, "profile_page/index.html",viewbag)
+    try:
+        profile = User.objects.get(username=request.user.username)
+    except User.DoesNotExist:
+        profile = None
+
+    context = {'profile': profile}
+    return render(request, "profile_page/index.html", context)

@@ -9,5 +9,7 @@ class Profile(models.Model):
     username = User.username
     email = User.email
     date_of_birth = models.DateField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.username
+    

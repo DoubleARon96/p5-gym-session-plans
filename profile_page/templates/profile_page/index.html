@@ -4,24 +4,26 @@
 {% block profile %}
 <div class="container">
     <div class="row">
-        <div class="col">
-            {% for content in contents %}
-            <h1>Test</h1>
-            <h3>Welcome {{content.username}}</h3>
-            <h4>Email Address {{content.email}}</h4>
-            <h4>{{content.date_of_birth}}</h4>
-            {% endfor %}
+        <div class="col profile-img text-center">
+            <img src="" alt="profile">
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <h1> ffffffffffffffffffffffffffffffffff</h1>
+    <div class="row text-center">
+        <div class="col ptsessions">
+            {% if profile %}
+        <h1>Welcome, {{ request.user.username }}!</h1>
+        <p>Email {{request.user.email}}</p>
+        <p>Programs: {{ profile.points }}</p>
+        <!-- Add other profile fields as needed -->
+    {% else %}
+        <h1>No profile found for {{ request.user.username }}</h1>
+    {% endif %}
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col">
             
