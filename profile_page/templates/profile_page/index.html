@@ -25,11 +25,11 @@
 <div class="container">
     <div class="row">
         <div class="col ptsessions">
-            {% if pt_sessions %}
-                {% if request.user.username == client_sessions %}
+            {% if sessions %}
+                {% if request.user.username == client %}
                     <h1>Client Sessions for {{ client_sessions }}</h1>
                     <ul>
-                        {% for session in pt_sessions %}
+                        {% for session in sessions %}
                             <li>{{ session.session_name }} - {{ session.date }}</li>
                         {% endfor %}
                     </ul>

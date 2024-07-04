@@ -31,6 +31,7 @@ h1,h2,h3,h4 {
     border: 2px solid black !important;
     box-shadow: 2px 2px green !important;
     border-radius: 15px !important;
+    margin: 5px;
 }
 /*---------------------------------------------------------pt sessions page*/
 
