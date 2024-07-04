@@ -13,5 +13,9 @@ def index(request):
     except User.DoesNotExist:
         profile = None
 
-    context = {'profile': profile}
+    sessions = PtSessions.objects.all() 
+
+    context = {'profile': profile,
+                'sessions': sessions}
     return render(request, "profile_page/index.html", context)
+

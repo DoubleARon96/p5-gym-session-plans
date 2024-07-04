@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col profile-img text-center">
-            <img src="" alt="profile">
+            <img src="{% static 'path/to/profile-image.jpg' %}" alt="profile">
         </div>
     </div>
 </div>
@@ -13,20 +13,32 @@
     <div class="row text-center">
         <div class="col ptsessions">
             {% if profile %}
-        <h1>Welcome, {{ request.user.username }}!</h1>
-        <p>Email {{request.user.email}}</p>
-        <p>Programs: {{ profile.points }}</p>
-        <!-- Add other profile fields as needed -->
-    {% else %}
-        <h1>No profile found for {{ request.user.username }}</h1>
-    {% endif %}
+                <h1>Welcome, {{ request.user.username }}!</h1>
+                <p>Email: {{ request.user.email }}</p>
+                <p>Programs: {{ profile.points }}</p>
+            {% else %}
+                <h1>No profile found for {{ request.user.username }}</h1>
+            {% endif %}
         </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col">
-            
+        <div class="col ptsessions">
+            {% if pt_sessions %}
+                {% if request.user.username == client_sessions %}
+                    <h1>Client Sessions for {{ client_sessions }}</h1>
+                    <ul>
+                        {% for session in pt_sessions %}
+                            <li>{{ session.session_name }} - {{ session.date }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>You are not authorized to view sessions for this client.</p>
+                {% endif %}
+            {% else %}
+                <p>No sessions found for this client.</p>
+            {% endif %}
         </div>
     </div>
 </div>

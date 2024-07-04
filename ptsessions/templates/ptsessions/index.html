@@ -34,18 +34,16 @@
 <div class="container">
     <div class="row">
         <div class="col ptsessions">
-            {% for content in contents %}
-            <h2 class="">{{content.session_name}}</h2>
-            <hr />
-            <p>Price: £{{ item.price }}</p>
-                {% if user.is_authenticated and username == '{{ client }}' %}
-                <p class="">{{content.program|safe}}</p>
-                <p>{{content.body_part}}</p>
-                <p class="text-muted">{{content.user}}</p>
-                {% else %}
-                <p class="text-muted">You Do Not Have Access to this program</p>
-                {% endif %}
-            {% endfor %}
+            {% if sessions %}
+                <h1>Sessions</h1>
+                <ul>
+                    {% for session in sessions %}
+                        <li>{{ session.session_name }} - {{ session.date }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No sessions found.</p>
+            {% endif %}
         </div>
     </div>
 </div>
