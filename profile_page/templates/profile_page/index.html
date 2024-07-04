@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col ptsessions">
             {% if sessions %}
-                {% if request.user.username == client %}
+                {% if request.user.username == client_sessions %}
                     <h1>Client Sessions for {{ client_sessions }}</h1>
                     <ul>
                         {% for session in sessions %}
