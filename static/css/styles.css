@@ -24,15 +24,32 @@ h1,h2,h3,h4 {
     color: white;
     background-color: rgb(0, 67, 0);
 }
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.7s ease;
+    background-color: #339c57;
+}
 
 /*---------------------------------------------------------home*/
 .news-block,
-.ptsessions
+.ptsessions,
 .border {
     border: 2px solid black !important;
     box-shadow: 2px 2px green !important;
     border-radius: 15px !important;
     margin: 5px;
+}
+/*--------------------------------------------------------- user sessions*/
+.image-banner {
+    display: block;
+    width: 100%;
 }
 /*---------------------------------------------------------pt sessions page*/
 

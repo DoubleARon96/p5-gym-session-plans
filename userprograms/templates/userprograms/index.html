@@ -4,19 +4,19 @@
 
 {% block mainsessions %}
 
-<div class="container">
+<div class="container-fluid">
     <div class="row md-8 center">
-        <div class="col col-md-12 text-center news-block">
-            <h1>User Sessions Availble</h1>
+        <div class="col col-md-12 text-center position-relative">
+            <img class="image-banner img-fluid" src="{% static '/images/assest-images/user-banner.png' %}" alt=" banner of a barbell and valkan training">
+            <h1 class="overlay">User Sessions Availble</h1>
         </div>
     </div>
 </div>
 <div class="container">
+    {% for content in contents %}
     <div class="row">
-        {% for content in contents %}
         <div class="col border">
-            <div class="search-bar-container">
-
+            <div class="text-center">
                 <h2 class="">{{content.session_name}}</h2>
                 <hr />
                 <p class="">{{content.body_part}}</p>
@@ -30,7 +30,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <p>This Is where you make and plan out your own sessions from back day to leg day lets get training</p>
+            <p></p>
             <img src="/" alt="image will be uploaded by pt">
         </div>
     </div>
