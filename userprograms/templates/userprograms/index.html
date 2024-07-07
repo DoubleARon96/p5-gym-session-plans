@@ -4,36 +4,38 @@
 
 {% block mainsessions %}
 
-<div class="container-fluid m-1 d-block">
-    <div class="row md-8 center">
-        <div class="col col-md-12 text-center position-relative">
-            <img class="image-banner position-absolute z-0 img-fluid" src="{% static '/images/assest-images/user-banner.png' %}" alt=" banner of a barbell">
-            <img class="float-start position-absolute z-1 img-fluid" src="{% static '/images/assest-images/valkan-training.png' %}" alt="valkan training logo">
-            <h1 class="overlay z-3">User Sessions Availble</h1>
-        </div>
-    </div>
-</div>
-<div class="container position-relative">
-    {% for content in contents %}
+<div class="container-fluid img-container img-content">
     <div class="row">
-        <div class="col border">
-            <div class="text-center">
-                <h2 class="">{{content.session_name}}</h2>
-                <hr />
-                <p class="">{{content.body_part}}</p>
-                <p class="text-muted">{{content.user}} Date Made on : {{content.created_on}}</p>
-
-        {% endfor %}
+        <div class="col-md-12 text-center">
+            <div class=" position-relative">
+                <img class=" float-start z-1 img-fluid logo-my-session-page"
+                    src="{% static '/images/assest-images/valkan-training.png' %}" alt="Valkan Training logo">
+                <h1 class="title float-end z-3">User Sessions Available</h1>
             </div>
         </div>
     </div>
 </div>
 <div class="container">
+    {% for content in contents %}
+    <div class="row">
+        <div class="col border">
+            <div class="text-center">
+                <a class="fs-1 session-title" href="/"><strong>{{content.session_name}}</strong></a>
+                <hr />
+                <p>{{content.body_part}}</p>
+                <p class="text-muted">{{content.user}} Date Made on: {{content.created_on}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="container">
     <div class="row">
         <div class="col">
             <p></p>
-            <img src="/" alt="image will be uploaded by pt">
+            <img src="/" alt="Image will be uploaded by PT">
         </div>
     </div>
 </div>
+
 {% endblock %}

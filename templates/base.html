@@ -70,15 +70,27 @@
           {% endif %}
           </li>
           <li class="nav-item ">
-            <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}" aria-current="page"
-              href="{% url 'profile_page' %}">Profile</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}"
+              aria-current="page" href="{% url 'profile_page' %}">Profile</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   {% endblock %}
-  <header class="container-fluid fixed-top"></header>
+  <header>
+    <div class="container-fluid img-container img-content">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class=" position-relative">
+            <img class=" float-start z-1 img-fluid logo-my-session-page"
+              src="{% static '/images/assest-images/valkan-training.png' %}" alt="Valkan Training logo">
+            <h1 class="title float-end z-3">Page name</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
   {% block page_header %}
   {% endblock %}
   {% block content %}
