@@ -4,11 +4,12 @@
 
 {% block mainsessions %}
 
-<div class="container-fluid">
+<div class="container-fluid m-1 d-block">
     <div class="row md-8 center">
         <div class="col col-md-12 text-center position-relative">
-            <img class="image-banner img-fluid" src="{% static '/images/assest-images/user-banner.png' %}" alt=" banner of a barbell and valkan training">
-            <h1 class="overlay">User Sessions Availble</h1>
+            <img class="image-banner position-absolute z-0 img-fluid" src="{% static '/images/assest-images/user-banner.png' %}" alt=" banner of a barbell">
+            <img class="float-start position-absolute z-1 img-fluid" src="{% static '/images/assest-images/valkan-training.png' %}" alt="valkan training logo">
+            <h1 class="overlay z-3">User Sessions Availble</h1>
         </div>
     </div>
 </div>
