@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{%load crispy_forms_tags %} 
 
 {% block usersessions %}
 
@@ -33,7 +34,9 @@
     <div class="container-fluid">
         <div class="row text-center">
             <div class="col col-12 d-inline">
-                <form action="">
+                <form id="usersessions-form" action="#" method="post">
+                    {{ usersessions_form | crispy }}
+                    {% csrf_token %}
                     <input type="text" placeholder="Exercise Name e.g squats"> : <input type="text" placeholder="reps e.g 5"> x <input type="text" placeholder="sets e.g 3">
                 </form>
             </div>
