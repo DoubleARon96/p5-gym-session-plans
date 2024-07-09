@@ -3,3 +3,4 @@ from .models import MainUserProgram, UserPrograme
 # Register your models here.
 
 admin.site.register(MainUserProgram)
+admin.site.register(UserPrograme)

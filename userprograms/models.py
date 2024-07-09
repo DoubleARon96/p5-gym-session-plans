@@ -25,6 +25,7 @@ class MainUserProgram(models.Model):
 
 class UserPrograme(models.Model):
     session = models.ForeignKey(MainUserProgram, on_delete=models.CASCADE)
+    exercise_name = models.TextField()
     reps = models.IntegerField()
     sets = models.IntegerField()
     weight = models.IntegerField()

@@ -3,18 +3,21 @@
 {%load crispy_forms_tags %}
 
 {% block mainsessions %}
-    {% for content in contents %}
-    <div class="row">
-        <div class="col border">
-            <div class="text-center">
-                <a class="fs-1 session-title" href="{% url 'mysessions' id.id %}"><strong>{{content.session_name}}</strong></a>
-                <hr />
-                <p>{{content.body_part}}</p>
-                <p class="text-muted">{{content.user}} Date Made on: {{content.created_on}}</p>
-            </div>
+{% for main_program in contents %}
+{% for content in contents %}
+<div class="row">
+    <div class="col border">
+        <div class="text-center">
+            <a class="fs-1 session-title"
+                href="{% url 'mysessions' id=main_program.id %}"><strong>{{content.session_name}}</strong></a>
+            <hr />
+            <p>{{content.body_part}}</p>
+            <p class="text-muted">{{content.user}} Date Made on: {{content.created_on}}</p>
         </div>
     </div>
-    {% endfor %}
+</div>
+{% endfor %}
+{% endfor %}
 </div>
 <div class="container">
     <div class="row">

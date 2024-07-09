@@ -22,11 +22,10 @@ def mysessions(request, id):
     """
     View to show template
     """
-    session = get_object_or_404(MainUserProgram, id=id)  # i need to get the id to work
+    session = get_object_or_404(MainUserProgram, id = id)
     usersessions_form = UserSessionsForm(request.POST or None)  
-    title = MainUserProgram.session_name
-    id = MainUserProgram.id
-
+    title = session.session_name
+    
     if request.method == "POST":
         if usersessions_form.is_valid():
             user_program = usersessions_form.save(commit=False)  
