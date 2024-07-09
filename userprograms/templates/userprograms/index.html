@@ -3,19 +3,6 @@
 {%load crispy_forms_tags %}
 
 {% block mainsessions %}
-
-<div class="container-fluid img-container img-content">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class=" position-relative">
-                <img class=" float-start z-1 img-fluid logo-my-session-page"
-                    src="{% static '/images/assest-images/valkan-training.png' %}" alt="Valkan Training logo">
-                <h1 class="title float-end z-3">User Sessions Available</h1>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
     {% for content in contents %}
     <div class="row">
         <div class="col border">

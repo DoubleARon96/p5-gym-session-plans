@@ -8,6 +8,7 @@ from ptsessions.models import PtSessions
 
 @login_required
 def index(request):
+    title = "Profile Page"
     try:
         profile = User.objects.get(username=request.user.username)
     except User.DoesNotExist:
@@ -16,6 +17,7 @@ def index(request):
     sessions = PtSessions.objects.all() 
 
     context = {'profile': profile,
-                'sessions': sessions}
+                'sessions': sessions,
+                "title" : title}
     return render(request, "profile_page/index.html", context)
 

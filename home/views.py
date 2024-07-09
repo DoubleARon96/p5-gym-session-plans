@@ -16,7 +16,9 @@ def index(request):
     """
     queryset = HomeNews.objects.all()
     content = queryset
-    viewbag = {"contents": content}
+    title = "Welcome To The Home"
+    viewbag = {"contents": content,
+               "title": title}
         
     return render (request, "home/index.html",viewbag)
 
@@ -24,11 +26,13 @@ def NewsFormView(request):
     form = NewsForm()
     if request.method == 'POST':
         form = NewsForm(request.POST)
+        title = "News Forms"
         if form.is_valid():
             form.save()
             return redirect('show_url')
     template_name = 'home/crud.html'
-    context = {'form': form}
+    context = {'form': form,
+               "title": title}
     return render(request, template_name, context)
 
 def showView(request):

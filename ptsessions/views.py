@@ -9,8 +9,10 @@ def index(request):
     queryset = PtSessions.objects.all()
     price = Price.objects.all()
     content = queryset
+    title = "PT Sessions For Purchase"
     viewbag = {"contents": content,
                "price": price,
-               "client": PtSessions.objects.first().client}
+               "client": PtSessions.objects.first().client,
+               "title": title}
         
     return render (request, "ptsessions/index.html",viewbag)

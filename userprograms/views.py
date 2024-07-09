@@ -8,7 +8,9 @@ def index(request):
     """
     queryset = MainUserProgram.objects.all()
     content = queryset
-    viewbag = {"contents": content}
+    title = "My Sessions"
+    viewbag = {"contents": content,
+               "title" : title}
         
     return render (request, "userprograms/index.html",viewbag)
 
@@ -20,6 +22,7 @@ def mysessions(request, id):
     """
     session = get_object_or_404(MainUserProgram, id=id)  # i need to get the id to work
     usersessions_form = UserSessionsForm(request.POST or None)  
+    title = MainUserProgram.session_name
 
     if request.method == "POST":
         if usersessions_form.is_valid():
@@ -27,9 +30,10 @@ def mysessions(request, id):
             user_program.user = request.user  
             user_program.post = session
             user_program.save()
-            messages.success(request, 'Comment Is Just Going To Be Checked')
+            
 
     return render(request, "userprograms/index.html", {
         'main_program': session,
         'usersessions_form': usersessions_form,
+        "title" : title
     })
