@@ -1,6 +1,8 @@
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from .models import MainUserProgram, UserPrograme
+from .forms import UserSessionsForm
 
 def index(request):
     """
@@ -23,6 +25,7 @@ def mysessions(request, id):
     session = get_object_or_404(MainUserProgram, id=id)  # i need to get the id to work
     usersessions_form = UserSessionsForm(request.POST or None)  
     title = MainUserProgram.session_name
+    id = MainUserProgram.id
 
     if request.method == "POST":
         if usersessions_form.is_valid():

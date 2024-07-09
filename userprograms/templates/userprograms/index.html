@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col border">
             <div class="text-center">
-                <a class="fs-1 session-title" href="/"><strong>{{content.session_name}}</strong></a>
+                <a class="fs-1 session-title" href="{% url 'mysessions' id.id %}"><strong>{{content.session_name}}</strong></a>
                 <hr />
                 <p>{{content.body_part}}</p>
                 <p class="text-muted">{{content.user}} Date Made on: {{content.created_on}}</p>
