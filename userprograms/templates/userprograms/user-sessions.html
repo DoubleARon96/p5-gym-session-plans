@@ -52,6 +52,12 @@
                         <td>{{ content.sets }}</td>
                         <td>{{ content.weight }}</td>
                         <td>{{ content.comment }}</td>
+                        <td>
+                            {% for i in contents %}
+                            <a class="button mt-1" href="{% url 'update_url' id=main_program.id %}">Change</a>
+                            {% endfor %}
+                            <a class="button mt-1">Delete</a>
+                        </td>
                     </tr>
                 </tbody>
                 {% endfor %}

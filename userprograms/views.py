@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from .models import MainUserProgram, UserPrograme
@@ -41,3 +41,17 @@ def mysessions(request, id):
         "title" : title,
         "mysessions" :mysessions
     })
+
+
+def updateView(request, ids):
+    queryset =  get_object_or_404 (MainUserProgram, id=ids)
+    form = UserSessionsForm(instance=queryset)
+    if request.method == 'POST':
+        form = UserSessionsForm(request.POST, instance=queryset)
+        if form.is_valid():
+            form.save()
+            return redirect('mysessions')
+        else:
+            form = UserSessionsForm(instance=queryset)
+    template_name = 'userprograms/user-sessions.html'
+    return render(request, template_name, {'form':form})
