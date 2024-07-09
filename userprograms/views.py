@@ -23,6 +23,7 @@ def mysessions(request, id):
     View to show template
     """
     session = get_object_or_404(MainUserProgram, id = id)
+    mysessions = UserPrograme.objects.all()
     usersessions_form = UserSessionsForm(request.POST or None)  
     title = session.session_name
     
@@ -34,8 +35,9 @@ def mysessions(request, id):
             user_program.save()
             
 
-    return render(request, "userprograms/index.html", {
+    return render(request, "userprograms/user-sessions.html", {
         'main_program': session,
         'usersessions_form': usersessions_form,
-        "title" : title
+        "title" : title,
+        "mysessions" :mysessions
     })
