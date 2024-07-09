@@ -1,7 +1,10 @@
 html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+.title {
+    color: white;
+    box-shadow: 1px 1px 1px rgb(5, 206, 5);
+}
 h1,h2,h3,h4 {
     color: blue;
     text-transform: capitalize;
@@ -27,11 +30,33 @@ h1,h2,h3,h4 {
 
 /*---------------------------------------------------------home*/
 .news-block,
-.ptsessions {
+.ptsessions,
+.border {
     border: 2px solid black !important;
     box-shadow: 2px 2px green !important;
     border-radius: 15px !important;
+    margin: 10px;
+}
+/*--------------------------------------------------------- user sessions*/
+.img-container {
+    width: 100%;
+    display: flex;
+    background-image: url("/static/images/assest-images/user-banner.png");
+    object-fit: fit;
+    background-repeat: no-repeat;
     margin: 5px;
+}
+.session-title {
+    color: black;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+.session-title:hover {
+    color: green;
+}
+
+.logo-my-session-page { 
+    height: 10rem !important;
 }
 /*---------------------------------------------------------pt sessions page*/
 
