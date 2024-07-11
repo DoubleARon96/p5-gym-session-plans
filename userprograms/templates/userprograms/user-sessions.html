@@ -70,6 +70,7 @@
             <form id="usersessions-form" action="#" method="post">
                 {{ usersessions_form | crispy }}
                 {% csrf_token %}
+                <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Add New</button>
             </form>
         </div>
     </div>

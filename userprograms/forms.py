@@ -4,4 +4,4 @@ from .models import MainUserProgram,UserPrograme
 class UserSessionsForm (forms.ModelForm):
     class Meta:
         model = UserPrograme
-        fields = ('reps','sets','weight','comment')
+        fields = ('session','exercise_name','reps','sets','weight','comment')

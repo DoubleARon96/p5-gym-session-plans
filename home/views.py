@@ -51,7 +51,7 @@ def updateView(request, ids):
             form.save()
             return redirect('home')
         else:
-            form = NewsForm(instance=queryset)
+            form = NewsForm(instance = queryset)
     template_name = 'home/crud.html'
     return render(request, template_name, {'form':form})
     

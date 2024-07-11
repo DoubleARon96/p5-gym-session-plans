@@ -50,8 +50,8 @@ def updateView(request, id):
         form = UserSessionsForm(request.POST, instance=queryset)
         if form.is_valid():
             form.save()
-            return redirect('mysessions')
+            return redirect('userprograms')
         else:
-            form = UserSessionsForm(instance=queryset)
-    template_name = 'userprograms/user-sessions.html'
-    return render(request, template_name, {'form':form})
+            form = UserSessionsForm(instance = queryset)
+    template_name = 'userprograms/user-sessions-upadate.html'
+    return render(request, template_name,{'form':form})
