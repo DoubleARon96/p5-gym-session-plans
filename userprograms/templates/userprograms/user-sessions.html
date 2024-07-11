@@ -53,9 +53,8 @@
                         <td>{{ content.weight }}</td>
                         <td>{{ content.comment }}</td>
                         <td>
-                            {% for i in contents %}
-                            <a class="button mt-1" href="{% url 'update_url' id=main_program.id %}">Change</a>
-                            {% endfor %}
+                            
+                            <a class="button mt-1" href="{% url 'userprograms_update_url' id=main_program.id %}">Change</a>
                             <a class="button mt-1">Delete</a>
                         </td>
                     </tr>

@@ -43,8 +43,8 @@ def mysessions(request, id):
     })
 
 
-def updateView(request, ids):
-    queryset =  get_object_or_404 (MainUserProgram, id=ids)
+def updateView(request, id):
+    queryset =  get_object_or_404 (MainUserProgram, id=id)
     form = UserSessionsForm(instance=queryset)
     if request.method == 'POST':
         form = UserSessionsForm(request.POST, instance=queryset)
