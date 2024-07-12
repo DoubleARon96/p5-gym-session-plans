@@ -53,10 +53,11 @@
                         <td>{{ content.weight }}</td>
                         <td>{{ content.comment }}</td>
                         <td>
-
+                        
                             <a class="button mt-1"
                                 href="{% url 'userprograms_update_url' id=main_program.id %}">Change</a>
                             <button class="button btn-delete" data-exercise_id="{{ exercise.id }}">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 </tbody>

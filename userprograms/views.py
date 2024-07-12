@@ -45,7 +45,7 @@ def mysessions(request, id):
 
 
 def updateView(request, id):
-    queryset =  get_object_or_404 (MainUserProgram, id=id)
+    queryset =  get_object_or_404 (UserPrograme, id=id)
     form = UserSessionsForm(instance=queryset)
     if request.method == 'POST':
         form = UserSessionsForm(request.POST, instance=queryset)
@@ -53,22 +53,32 @@ def updateView(request, id):
             form.save()
             return redirect('userprograms')
         else:
-            form = UserSessionsForm(instance = queryset)
+            form = UserSessionsForm(instance=queryset)
     template_name = 'userprograms/user-sessions-update.html'
-    return render(request, template_name,{'form':form})
+    return render(request, template_name, {'form':form})
 
 
-def deleteView(request, exercise_id, mainuserprogram_id):
-    main_program = get_object_or_404(MainUserProgram, id=mainuserprogram_id)
-    exercise = get_object_or_404(UserPrograme, id=exercise_id)
+
+#def deleteView(request, exercise_id, mainuserprogram_id):
+#    main_program = get_object_or_404(MainUserProgram, id=mainuserprogram_id)
+#    exercise = get_object_or_404(UserPrograme, id=exercise_id)
+#    if request.method == 'POST':
+#        exercise_id.delete()
+#        messages.success(request, 'Exercise deleted!')
+#    else:
+#        messages.error(request, "Exercise couldn't be deleted!")
+    
+#    return HttpResponseRedirect(reverse('mysessions', args=[mainuserprogram_id]))
+
+def deleteView(request, id):
+    queryset =  get_object_or_404 (UserPrograme, id=id)
+    form = UserSessionsForm(instance=queryset)
     if request.method == 'POST':
-        #form = UserSessionsForm(request.POST, instance=queryset)
-        #if form.is_valid():
-            exercise.delete()
-            messages.success(request, 'Exercise deleted!')
-        #else:
-            #messages.error(request, "Exercise couldn't be deleted!")
-
-
-    return HttpResponseRedirect(reverse('mysessions', id=id))
-
+        form = UserSessionsForm(request.POST, instance=queryset)
+        if form.is_valid():
+            form.delete()
+            return redirect('userprograms')
+        else:
+            messages.error(request, "Exercise couldn't be deleted!")
+    
+    return HttpResponseRedirect(reverse('mysessions', args=[id]))
