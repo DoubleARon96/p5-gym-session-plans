@@ -45,7 +45,7 @@
                     </tr>
                 </thead>
                 {% for content in mysessions %}
-                <tbody>
+                <tbody id="exercise id_exercise">
                     <tr>
                         <td>{{ content.exercise_name }}</td>
                         <td>{{ content.reps }}</td>
@@ -54,9 +54,13 @@
                         <td>{{ content.comment }}</td>
                         <td>
                         
-                            <a class="button mt-1"
-                                href="{% url 'userprograms_update_url' id=main_program.id %}">Change</a>
-                            <button class="button btn-delete" data-exercise_id="{{ exercise.id }}">Delete</button>
+                            
+                            <button class="button btn-edit" data-exercise_id="{{ exercise.id }}">
+                                <a class="button-font" href="{% url 'userprograms_update_url' id=content.id %}">
+                                    Change
+                                </a>
+                            </button>
+                            <button class="button button-font btn-delete" data-exercise_id="{{ exercise.id }}">Delete</button>
                             </form>
                         </td>
                     </tr>
