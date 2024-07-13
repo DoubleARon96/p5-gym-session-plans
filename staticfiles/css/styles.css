@@ -1,6 +1,9 @@
 html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+body {
+    background-color: lightslategray !important;
+}
 .title {
     color: white;
     box-shadow: 1px 1px 1px rgb(5, 206, 5);
@@ -32,10 +35,21 @@ h1,h2,h3,h4 {
 .news-block,
 .ptsessions,
 .border {
+    background-color: #fff;
     border: 2px solid black !important;
-    box-shadow: 2px 2px green !important;
+    box-shadow: 5px 5px green !important;
     border-radius: 15px !important;
     margin: 10px;
+}
+.button-sub-btn {
+    border: 2px inset black;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px black;
+    margin: 2px;
+    background-color: rgb(5, 206, 5);
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
 }
 /*--------------------------------------------------------- user sessions*/
 .img-container {
