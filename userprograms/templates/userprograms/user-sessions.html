@@ -31,7 +31,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container border">
     <div class="row">
         <div class="col">
             <table class="table">
@@ -90,13 +90,13 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container border">
     <div class="row text-center">
-        <div class="col col-6 d-inline center">
+        <div class="col col-6 d-inline text-center">
             <form id="usersessions-form" action="#" method="post">
                 {{ usersessions_form | crispy }}
                 {% csrf_token %}
-                <button id="submitButton" type="submit" class="btn button-font button btn-signup btn-lg">Add New</button>
+                <button id="submitButton" type="submit" class="btn button-font button-sub-btn btn-signup btn-lg">Add New</button>
             </form>
         </div>
     </div>

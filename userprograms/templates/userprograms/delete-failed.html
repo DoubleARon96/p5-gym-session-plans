@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{%load crispy_forms_tags %}
+
+{% block deletepage %}
+<div class="container">
+    <div class="row">
+        <div class="col border text-center">
+            <h1>Failed to Delete</h1>
+            <p>Please get incontact with our admin team</p>
+            <button class="button button-font"><a href="{% url 'userprograms' %}">Go Back</a></button>
+        </div>
+    </div>
+</div>
+{% endblock %}

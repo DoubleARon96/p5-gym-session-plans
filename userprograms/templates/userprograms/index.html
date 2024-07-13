@@ -3,20 +3,44 @@
 {%load crispy_forms_tags %}
 
 {% block mainsessions %}
-
 {% for content in contents %}
-<div class="row">
-    <div class="col border">
-        <div class="text-center">
-            <a class="fs-1 session-title"
-                href="{% url 'mysessions' id=content.id %}"><strong>{{content.session_name}}</strong></a>
-            <hr />
-            <p>{{content.body_part}}</p>
-            <p class="text-muted">{{content.user}} Date Made on: {{content.created_on}}</p>
+<div class="container border">
+    <div class="row row-8">
+        <div class="col ">
+            <div class="text-center">
+                <a class="fs-1 session-title"
+                    href="{% url 'mysessions' id=content.id %}"><strong>{{content.session_name}}</strong></a>
+                <hr />
+                <p>{{content.body_part}}</p>
+                <p class="text-muted">{{content.user}} Date Made on: {{content.created_on}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col">
+            <button class="button button-font btn-delete" data-main_id="{{ content.id }}">Delete</button>
         </div>
     </div>
 </div>
 
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Question?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete This Exercise?
+                This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endfor %}
 </div>
 <div class="container">
@@ -27,18 +51,21 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container border">
     <div class="row">
         <div class="col">
         </div>
     </div>
     <div class="row">
-        <form id="mainsessions-form" action="#" method="post">
-            {{ mainsessions_form | crispy }}
-            {% csrf_token %}
-            <button id="submitButton" type="submit" class="btn button-font button btn-signup btn-lg">Make New Session</button>
-        </form>
+        <div class="col text-center">
+            <form id="mainsessions-form" action="#" method="post">
+                {{ mainsessions_form | crispy }}
+                {% csrf_token %}
+                <button id="submitButton" type="submit" class="button-sub-btn btn-lg">Make New
+                    Session</button>
+            </form>
+        </div>
     </div>
 </div>
-
+<script src="{% static 'js/delete-exersice.js' %}"></script>
 {% endblock %}

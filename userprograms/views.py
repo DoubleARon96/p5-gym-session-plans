@@ -83,13 +83,20 @@ def updateView(request, id):
 
 def deleteView(request, id):
     queryset =  get_object_or_404 (UserPrograme, id=id)
-    #form = UserSessionsForm(instance=queryset)
-    if request.method == 'POST':
-        #form = UserSessionsForm(request.POST, instance=queryset)
-        #if form.is_valid():
+    if request.method == 'GET':
         queryset.delete()
         return redirect('userprograms')
     else:
          messages.error(request, "Exercise couldn't be deleted!")
     
-    return HttpResponseRedirect(reverse('mysessions', args=[id]))
+    return render (request, "userprograms/delete-failed.html")
+
+def mainDeleteView(request, id):
+    queryset =  get_object_or_404 (MainUserProgram, id=id)
+    if request.method == 'GET':
+        queryset.delete()
+        return redirect('userprograms')
+    else:
+         messages.error(request, "Exercise couldn't be deleted!")
+    
+    return render (request, "userprograms/delete-failed.html")
