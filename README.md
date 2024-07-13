@@ -168,3 +168,25 @@ def updateView(request, ids):
     return render(request, template_name, {'form':form})
 
 instead of having the redirect to home it was using the show View one and this confused me going through and wondering why the form didn't appear
+
+# User Sessions
+## js issues
+this issuse has been the hardest one so far the image below shows the debugging i was using the console logs where my best friend.
+![js-issue](assets/readme-images/js-issue-on-html.png)
+I realised the for loop wasnt correct on the html.
+![wrong-loop](assets/readme-images/right-loop.png)
+this is the change i had to do to make sure it worked 
+![correct-loop](assets/readme-images/right-loop.png)
+this shows that it wasnt collecting the delete number to add to the url.
+![url-issue](assets/readme-images/url-issue.png)
+
+## Breife description
+the aim for this page was so that customers can make up there own sessions and record what they have done.
+
+# Plans
+![usersession page plan ]()
+![image of data plan ](assets/readme-images/session-data-plan.png)
+
+# Thoughts 
+when making this i spent a long time trying to get the crud function to work on the exercise part because the urls and the java script just weren't working together well but its a great learning curve and will increase my skills by a lot.
+
