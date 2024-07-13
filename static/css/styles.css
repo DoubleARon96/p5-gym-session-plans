@@ -41,6 +41,9 @@ h1,h2,h3,h4 {
     border-radius: 15px !important;
     margin: 10px;
 }
+.img-row {
+    justify-content: space-evenly;
+}
 .button-sub-btn {
     border: 2px inset black;
     border-radius: 8px;

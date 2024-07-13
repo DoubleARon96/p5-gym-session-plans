@@ -53,14 +53,12 @@
                         <td>{{ content.weight }}</td>
                         <td>{{ content.comment }}</td>
                         <td>
-                        
-                            
-                            <button class="button btn-edit" data-exercise_id="{{ exercise.id }}">
+                            <button class="button btn-edit">
                                 <a class="button-font" href="{% url 'userprograms_update_url' id=content.id %}">
                                     Change
                                 </a>
                             </button>
-                            <button class="button button-font btn-delete" data-exercise_id="{{ content.exercise.id }}">Delete</button>
+                            <button class="btn-delete" data-exercise_id="{{ content.id }}">Delete</button>
                             </form>
                         </td>
                     </tr>
@@ -70,17 +68,16 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">Delete Question?</h5>
+                                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                Are you sure you want to delete This Exercise?
-                                This action cannot be undone.
+                                Are you sure you want to delete this exercise?
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <a id="deleteConfirm" class="btn btn-danger" href="#">Delete</a>
                             </div>
                         </div>
                     </div>
@@ -96,7 +93,8 @@
             <form id="usersessions-form" action="#" method="post">
                 {{ usersessions_form | crispy }}
                 {% csrf_token %}
-                <button id="submitButton" type="submit" class="btn button-font button-sub-btn btn-signup btn-lg">Add New</button>
+                <button id="submitButton" type="submit" class="btn button-font button-sub-btn btn-signup btn-lg">Add
+                    New</button>
             </form>
         </div>
     </div>

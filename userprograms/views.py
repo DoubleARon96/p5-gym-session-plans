@@ -34,7 +34,7 @@ def mysessions(request, id):
     View to show template
     """
     session = get_object_or_404(MainUserProgram, id = id)
-    mysessions = UserPrograme.objects.filter(session = id)
+    mysessions = UserPrograme.objects.filter(session_id = id)
     usersessions_form = UserSessionsForm(request.POST or None)  
     title = session.session_name
     
@@ -83,7 +83,7 @@ def updateView(request, id):
 
 def deleteView(request, id):
     queryset =  get_object_or_404 (UserPrograme, id=id)
-    if request.method == 'GET':
+    if request.method == 'POST':
         queryset.delete()
         return redirect('userprograms')
     else:
