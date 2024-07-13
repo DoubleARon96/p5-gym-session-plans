@@ -2,17 +2,28 @@ from django.shortcuts import render, get_object_or_404,redirect,reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import MainUserProgram, UserPrograme
-from .forms import UserSessionsForm
+from .forms import UserSessionsForm, MainUserProgramForm
 
 def index(request):
     """
     view to show template
     """
     queryset = MainUserProgram.objects.all()
+    mainsessions_form = MainUserProgramForm(request.POST or None)  
     content = queryset
     title = "My Sessions"
+
+    if request.method == "POST":
+        if mainsessions_form.is_valid():
+            user_session = mainsessions_form.save(commit=False)  
+            user_session.user = request.user  
+            user_session.post = content
+            user_session.save()
+            mainsessions_form = MainUserProgramForm()
+
     viewbag = {"contents": content,
-               "title" : title}
+               "title" : title,
+               'mainsessions_form':mainsessions_form}
         
     return render (request, "userprograms/index.html",viewbag)
 
@@ -23,7 +34,7 @@ def mysessions(request, id):
     View to show template
     """
     session = get_object_or_404(MainUserProgram, id = id)
-    mysessions = UserPrograme.objects.all()
+    mysessions = UserPrograme.objects.filter(session = id)
     usersessions_form = UserSessionsForm(request.POST or None)  
     title = session.session_name
     

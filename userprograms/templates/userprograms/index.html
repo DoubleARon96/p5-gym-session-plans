@@ -3,20 +3,20 @@
 {%load crispy_forms_tags %}
 
 {% block mainsessions %}
-{% for main_program in contents %}
+
 {% for content in contents %}
 <div class="row">
     <div class="col border">
         <div class="text-center">
             <a class="fs-1 session-title"
-                href="{% url 'mysessions' id=main_program.id %}"><strong>{{content.session_name}}</strong></a>
+                href="{% url 'mysessions' id=content.id %}"><strong>{{content.session_name}}</strong></a>
             <hr />
             <p>{{content.body_part}}</p>
             <p class="text-muted">{{content.user}} Date Made on: {{content.created_on}}</p>
         </div>
     </div>
 </div>
-{% endfor %}
+
 {% endfor %}
 </div>
 <div class="container">
@@ -25,6 +25,19 @@
             <p></p>
             <img src="/" alt="Image will be uploaded by PT">
         </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+    <div class="row">
+        <form id="mainsessions-form" action="#" method="post">
+            {{ mainsessions_form | crispy }}
+            {% csrf_token %}
+            <button id="submitButton" type="submit" class="btn button-font button btn-signup btn-lg">Make New Session</button>
+        </form>
     </div>
 </div>
 
