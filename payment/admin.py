@@ -3,7 +3,8 @@ from .models import Order, OrderLineProduct
 # Register your models here.
 
 class OrderAdmin(admin.ModelAdmin):
-    inlines = (OrderLineProductAdminInline,)
+
+    #inlines = (OrderLineProductAdminInline,)
 
     readonly_fields =('order_number','date',
                       'product_total', 'total')
