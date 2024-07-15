@@ -10,11 +10,11 @@ class PtSessions(models.Model):
         ('Shoulders', 'Shoulders'),
         ('All Body', 'All Body')
     )
-    session_name = models.TextField()
-    program = models.TextField(max_length=2000)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_sessions')
-    body_part = models.CharField(max_length=40, choices=BODY_PART, default='All Body')
-    client = models.ForeignKey(User, on_delete=models.CASCADE, related_name='client_sessions')
+    session_name = models.TextField(max_length=30, null=False, blank=False)
+    program = models.TextField(max_length=4000)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=False, blank=False, related_name='user_sessions')
+    body_part = models.CharField(max_length=40,null=False, blank=False, choices=BODY_PART, default='All Body')
+    client = models.ForeignKey(User, on_delete=models.CASCADE,null=False, blank=False, related_name='client_sessions')
     # Add other fields as needed
 
     def __str__(self):
