@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
-from .models import PtSessions,Price
+from .models import PtSessions
 
 def index(request):
     """
