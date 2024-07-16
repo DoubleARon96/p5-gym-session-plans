@@ -109,6 +109,8 @@
   {% endblock %}
   {% block deletepage %}
   {% endblock %}
+  {% block payments %}
+  {% endblock %}
   <footer>
     <div class="container-fluid">
       <div class="row">
@@ -117,12 +119,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="col col-4 d-inline">
-          <a href="">facebook</a>
-          <a href="">instagram</a>
-          <a href="">youtube</a>
+        <div class="col col-4 d-inline brands-logo text-start ">
+          <ul class="brands-logo-list">
+          <li><a href=""><i class="fa-brands fs-1 fa-square-facebook"></i></a></li>
+          <li><a href=""><i class="fa-brands fs-1 fa-instagram"></i></a></li>
+          <li><a href=""><i class="fa-brands fs-1 fa-youtube"></i></a></li>
+        </ul>
         </div>
-        <div class="col">
+        <div class="col border">
           <h4>About</h4>
           <p>this site was made to help both Personal trainers and people looking to train or track there progress, we
             also made it so the personal trainers can sell training sessions too</p>
@@ -137,7 +141,7 @@
 
   {% block load_js %}
   {% endblock %}
-
+  <script src="https://kit.fontawesome.com/3ec10b2c97.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

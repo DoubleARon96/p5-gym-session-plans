@@ -24,5 +24,6 @@ urlpatterns = [
     path("", include('ptsessions.urls'), name='ptsessions' ),
     path("", include('userprograms.urls'), name='userprograms' ),
     path("profile_page/", include('profile_page.urls'), name='profile_page' ),
+    path("payment/", include('payment.urls'), name='payment_page' ),
     path('admin/', admin.site.urls),
 ]

@@ -30,7 +30,20 @@ h1,h2,h3,h4 {
     color: white;
     background-color: rgb(0, 67, 0);
 }
-
+.brands-logo {
+    margin: auto;
+}
+.brands-logo-list {
+    list-style: none;
+}
+.fa-brands {
+    color: #fff;
+    margin: 5px;
+}
+.fa-brands:hover {
+    color: gray;
+    margin: 5px;
+}
 /*---------------------------------------------------------home*/
 .news-block,
 .ptsessions,
@@ -40,6 +53,9 @@ h1,h2,h3,h4 {
     box-shadow: 5px 5px green !important;
     border-radius: 15px !important;
     margin: 10px;
+}
+.img-row {
+    justify-content: space-evenly;
 }
 .button-sub-btn {
     border: 2px inset black;

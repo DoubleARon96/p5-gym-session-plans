@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{%load crispy_forms_tags %}
+
+{% block payments %}
+{% for content in contents %}
+
+{% endfor %}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p></p>
+            <img src="/" alt="Image will be uploaded by PT">
+        </div>
+    </div>
+</div>
+<div class="container border">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <form id="payment_form" action="#" method="post">
+                {{ payment_form | crispy }}
+                {% csrf_token %}
+        
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/delete-exersice.js' %}"></script>
+{% endblock %}
