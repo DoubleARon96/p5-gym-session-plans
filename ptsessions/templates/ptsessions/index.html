@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block ptsessions %}
 
 <div class="container">
@@ -33,18 +32,23 @@
 </div>
 <div class="container">
     <div class="row">
+        {% for content in contents %}
         <div class="col ptsessions">
-            {% if sessions %}
-                <h1>Sessions</h1>
-                <ul>
-                    {% for session in sessions %}
-                        <li>{{ session.session_name }} - {{ session.date }}</li>
-                    {% endfor %}
-                </ul>
+
+            {% if  contents %}
+            <h1>{{ content.session_name }}</h1>
+
+            <ul>
+                <li>{{ content.body_part }}</li>
+                <li>£{{ content.item_price }}</li>
+            </ul>
+
             {% else %}
-                <p>No sessions found.</p>
+            <p>No sessions found.</p>
             {% endif %}
+
         </div>
+        {% endfor %}
     </div>
 </div>
 <div class="container-fluid">
