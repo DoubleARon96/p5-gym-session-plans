@@ -31,9 +31,9 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row ">
         {% for content in contents %}
-        <div class="col ptsessions">
+        <div class="col ptsessions ">
 
             {% if  contents %}
             <h1>{{ content.session_name }}</h1>
@@ -46,14 +46,13 @@
             {% else %}
             <p>No sessions found.</p>
             {% endif %}
-
-        </div>
-        <div class="row">
-            <div class="col">
-                <form action="{% url 'add_to_basket' content.id %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="add-to-basket-btn">Add to Basket</button>
-                </form>
+            <div class="row text-center">
+                <div class="col">
+                    <form action="{% url 'add_to_basket' content.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="button add-to-basket-btn">Add to Basket</button>
+                    </form>
+                </div>
             </div>
         </div>
         {% endfor %}

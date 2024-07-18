@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from django.shortcuts import HttpResponse
+from django.shortcuts import render,get_object_or_404,redirect,HttpResponse
 from .models import PtSessions,Price
-#from basket.models import 
+from basket.models import Basket,BasketItem
 
 def index(request):
     """
@@ -18,5 +17,12 @@ def index(request):
     return render (request, "ptsessions/index.html",viewbag)
 
 def Add_to_basket (request, Ptsessions):
-    item = get_object_or_404(PtSessions, id=id)
-    #basket = 
+    item = get_object_or_404(PtSessions, id=Ptsessions)
+    basket, created = Basket.objects.get_or_create(user=request.user) 
+
+    item_in_basket, item_created = BasketItem.objects.get_or_create(user_basket=basket, item=item)
+    if not item_created:
+        #item_in_basket.quantity += 1
+        item_in_basket.save()
+        
+    return redirect('ptsessions')
