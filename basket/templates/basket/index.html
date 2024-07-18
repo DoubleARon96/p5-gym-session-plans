@@ -3,12 +3,22 @@
 {%load crispy_forms_tags %}
 
 {% block basket %}
-<div class="container">
+<div class="container border">
+    <div class="row ">
+        <h1>test</h1>
+        {% for itemline in itemlines %}
+        <div class="col col-8">
+            <p>{{ itemline.product.session_name}} = {{ itemline.product.item_price }}</p>
+            <form>
+                <button class="button button-font btn-delete" data-main_id="{{ itemline.id }}">Delete</button>
+            </form>
+        </div>
+        <hr/>
+        {% endfor %}
+    </div>
     <div class="row">
         <div class="col">
-            {% for content in contents %}
-            <p>{content.product} = {content.price}</p>
-            {% endfor %}
+            <p class="text-end">Total : </p>
         </div>
     </div>
 </div>

@@ -20,3 +20,13 @@ def basket_view(request):
                'itemlines': itemlines,
                 'title': title }
     return render(request, template,content)
+
+def delete_item(request, id):
+    queryset =  get_object_or_404 (BasketItem, id=id)
+    if request.method == 'POST':
+        queryset.delete()
+        return redirect('basket')
+    else:
+         messages.error(request, "Exercise couldn't be deleted!")
+    
+    return render (request, "userprograms/userprograms/delete-failed.html")
