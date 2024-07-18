@@ -3,5 +3,5 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-path("", views.Basket, name="basket"),
+path("", views.basket_view, name="basket"),
 ]

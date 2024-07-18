@@ -7,11 +7,16 @@ from ptsessions.models import PtSessions
 #from .forms import 
 
 # Create your views here.
-def Basket (request):
+def basket_view(request):
     
     items = Basket.objects.all()
-    itemlines = get_object_or_404(BasketItem)
+    itemlines = BasketItem.objects.all()
+    ptsessions = PtSessions.objects.all()
+    price = PtSessions.item_price
+    title = "Basket"
     template = 'basket/index.html'
     content = {'items':items,
-               'itemlines':itemlines }
+               'price': price,
+               'itemlines': itemlines,
+                'title': title }
     return render(request, template,content)

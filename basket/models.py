@@ -11,7 +11,7 @@ class BasketItem(models.Model):
     product = models.ForeignKey(PtSessions, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.product.name}"
+        return f"{self.product.session_name}"
     
 class Basket(models.Model):
     """

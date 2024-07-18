@@ -20,7 +20,7 @@ def Add_to_basket (request, Ptsessions):
     item = get_object_or_404(PtSessions, id=Ptsessions)
     basket, created = Basket.objects.get_or_create(user=request.user) 
 
-    item_in_basket, item_created = BasketItem.objects.get_or_create(user_basket=basket, item=item)
+    item_in_basket, item_created = BasketItem.objects.get_or_create(basket=basket, product=item)
     if not item_created:
         #item_in_basket.quantity += 1
         item_in_basket.save()
