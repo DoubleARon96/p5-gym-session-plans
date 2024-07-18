@@ -69,10 +69,20 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}"
               aria-current="page" href="{% url 'profile_page' %}">Profile</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'basket' %}active{% endif %}" aria-current="page"
-              href="{% url 'basket' %}">Blank</a>
-          </li>
+          <li class="list-inline-item">
+            <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link {% if request.resolver_match.url_name == 'basket' %}active{% endif %}" href="{% url 'basket' %}">
+                <div class="text-center">
+                    <div><i class=""></i></div>
+                    <p class="my-0">
+                        {% if grand_total %}
+                            ${{ grand_total|floatformat:2 }}
+                        {% else %}
+                            $0.00
+                        {% endif %}
+                    </p>
+                </div>
+            </a>
+        </li>
         </ul>
       </div>
     </div>

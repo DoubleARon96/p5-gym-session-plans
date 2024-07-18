@@ -48,6 +48,14 @@
             {% endif %}
 
         </div>
+        <div class="row">
+            <div class="col">
+                <form action="{% url 'add_to_basket' content.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="add-to-basket-btn">Add to Basket</button>
+                </form>
+            </div>
+        </div>
         {% endfor %}
     </div>
 </div>
