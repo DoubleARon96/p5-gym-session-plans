@@ -49,9 +49,6 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'ptsessions' %}active{% endif %}"
               aria-current="page" href="{% url 'ptsessions' %}">Personal Trainer Programs</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == '2' %}active{% endif %}" aria-current="page"
-              href="#">Blank</a>
             {% endif %}
             {% if user.is_authenticated %}
           <li class="nav-item">
@@ -68,10 +65,13 @@
               href="{% url 'account_login' %}">Login</a>
           </li>
           {% endif %}
-          </li>
           <li class="nav-item ">
             <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}"
               aria-current="page" href="{% url 'profile_page' %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'basket' %}active{% endif %}" aria-current="page"
+              href="{% url 'basket' %}">Blank</a>
           </li>
         </ul>
       </div>
