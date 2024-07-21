@@ -9,6 +9,7 @@ class BasketItem(models.Model):
     """
     basket = models.ForeignKey('Basket', on_delete=models.CASCADE)
     product = models.ForeignKey(PtSessions, on_delete=models.CASCADE)
+    
 
     def __str__(self):
         return f"{self.product.session_name}"

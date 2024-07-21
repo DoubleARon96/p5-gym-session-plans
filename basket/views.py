@@ -1,15 +1,18 @@
 from django.shortcuts import render, get_object_or_404,redirect,reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, permission_required
 from .models import BasketItem, Basket
 from ptsessions.models import PtSessions
 #from .models import 
 #from .forms import 
 
-# Create your views here.
+
+@login_required
+@permission_required('basket.view_basket', raise_exception=True)
 def basket_view(request):
     
-    items = Basket.objects.all()
+    items = Basket.objects.filter(user=request.user)
     itemlines = BasketItem.objects.all()
     ptsessions = PtSessions.objects.all()
     price = PtSessions.item_price

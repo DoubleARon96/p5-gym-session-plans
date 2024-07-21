@@ -8,7 +8,7 @@ class Profile(models.Model):
     #user image
     username = User.username
     email = User.email
-    date_of_birth = models.DateField(default= "0/00/0000")
+    date_of_birth = models.DateField(default= "0000/00/00")
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.username

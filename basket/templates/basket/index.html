@@ -6,6 +6,7 @@
 <div class="container border">
     <div class="row ">
         <h1>test</h1>
+        
         {% for itemline in itemlines %}
         <div class="col col-8">
             <p>{{ itemline.product.session_name}} = {{ itemline.product.item_price }}</p>
@@ -22,4 +23,5 @@
         </div>
     </div>
 </div>
+<script src="{% static '/js/delete-item.js' %}"></script>
 {% endblock %}

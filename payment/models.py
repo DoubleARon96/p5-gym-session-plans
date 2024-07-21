@@ -1,5 +1,6 @@
 from django.db import models
 from ptsessions.models import PtSessions
+from basket.models import BasketItem, Basket
 import uuid
 
 # Create your models here.
@@ -29,7 +30,7 @@ class Order (models.Model):
         this function will add up the total of 
         each product line
         """
-        self.total = self.line_price_total.aggregate(sum('line_price_total'))['line_price_total__sum']
+        self.total = self.BasketItem.aggregate(sum('line_price_total'))['line_price_total__sum']
         if self.total == self.product_total :
             self.save
     
@@ -46,7 +47,7 @@ class Order (models.Model):
         return self.order_number
 
 class OrderLineProduct(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name="product_lines")
+    order = models.ForeignKey(Basket, null=False, blank=False, on_delete=models.CASCADE, related_name="product_lines")
     product = models.ForeignKey(PtSessions, null=False, blank=False, on_delete=models.CASCADE)
     #access key?
     #access code?
