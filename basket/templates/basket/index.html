@@ -6,16 +6,35 @@
 <div class="container border">
     <div class="row ">
         <h1>test</h1>
-        
-        {% for itemline in itemlines %}
-        <div class="col col-8">
-            <p>{{ itemline.product.session_name}} = {{ itemline.product.item_price }}</p>
-            <form>
-                <button class="button button-font btn-delete" data-main_id="{{ itemline.id }}">Delete</button>
-            </form>
-        </div>
-        <hr/>
-        {% endfor %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Session Name</th>
+                    <th>Price</th>
+                    <th>Remove Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for itemline in itemlines %}
+                <tr>
+                    <td>{{ itemline.product.session_name}}</td>
+                    <td>{{ itemline.product.item_price }}</td>
+                    <td>
+                        <form>
+                            <button class="button button-font btn-delete"
+                                data-main_id="{{ itemline.id }}">Delete</button>
+                        </form>
+                    </td>
+                    <hr />
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>
+                        {% include "checkout-buttons.html" %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="row">
         <div class="col">

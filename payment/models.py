@@ -25,14 +25,14 @@ class Order (models.Model):
         """
         return uuid.uuid4().hex.upper()
     
-    def update_total(self):
+    #def update_total(self):
         """
         this function will add up the total of 
         each product line
         """
-        self.total = self.BasketItem.aggregate(sum('line_price_total'))['line_price_total__sum']
-        if self.total == self.product_total :
-            self.save
+        #self.total = self.BasketItem.aggregate(sum('basket_items'))['total__sum']
+       # if self.total == self.product_total :
+        #    self.save
     
     def save(self, *args, **kwargs):
         """
@@ -58,7 +58,7 @@ class OrderLineProduct(models.Model):
         this function over writes the save method and sets line price total
         and updates the total
         """
-        self.line_price_total = self.product.price
+        self.line_price_total = self.product.item_price
         super().save(*args, **kwargs)
 
     def __str__(self):

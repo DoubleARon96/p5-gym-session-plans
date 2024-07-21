@@ -17,3 +17,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ('order_number','date',
                     'product_total', 'total')
     ordering = ('-date',)
+
+    from .models import OrderLineProduct
+
+    admin.site.register(OrderLineProduct)
