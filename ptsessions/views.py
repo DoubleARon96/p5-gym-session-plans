@@ -22,7 +22,6 @@ def Add_to_basket (request, Ptsessions):
 
     item_in_basket, item_created = BasketItem.objects.get_or_create(basket=basket, product=item)
     if not item_created:
-        #item_in_basket.quantity += 1
         item_in_basket.save()
         
     return redirect('ptsessions')

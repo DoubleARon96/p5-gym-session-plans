@@ -12,9 +12,8 @@ from ptsessions.models import PtSessions
 @login_required
 #@permission_required('basket.view_basket', raise_exception=True)
 def basket_view(request):
-    
     items = Basket.objects.filter(user=request.user)
-    itemlines = BasketItem.objects.all()
+    itemlines = BasketItem.objects.filter(basket__in=items)
     ptsessions = PtSessions.objects.all()
     price = PtSessions.item_price
     title = "Basket"

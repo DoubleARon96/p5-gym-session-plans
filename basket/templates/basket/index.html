@@ -15,10 +15,10 @@
                 </tr>
             </thead>
             <tbody>
-                {% if itemline.product.user == user %}
                 {% for itemline in itemlines %}
+                {% if itemline.product.user == user %}
                 <tr>
-                    <td>{{ itemline.product.session_name}}</td>
+                    <td>{{ itemline.product.session_name }}</td>
                     <td>{{ itemline.product.item_price }}</td>
                     <td>
                         <form>
@@ -26,10 +26,12 @@
                                 data-main_id="{{ itemline.id }}">Delete</button>
                         </form>
                     </td>
-                    <hr />
                 </tr>
+                <hr />
+                {% else %}
+                <p>you have nothing in your basket</p>
+                {% endif %}
                 {% endfor %}
-                {% endif %} 
                 <tr>
                     <td>
                         {% include "checkout-buttons.html" %}
