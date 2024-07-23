@@ -5,7 +5,7 @@ import uuid
 
 # Create your models here.
 class Order (models.Model):
-    order_number = models.CharField(max_length=32 , editable=False, null=False)
+    order_number = models.CharField(max_length=32, editable=False, unique=True)
     full_name = models.CharField(max_length=50, blank=False, null=False)
     email = models.EmailField(max_length=300, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -34,6 +34,7 @@ class Order (models.Model):
        # if self.total == self.product_total :
         #    self.save
     
+    
     def save(self, *args, **kwargs):
         """
         this function over writes the save method to set a order number
@@ -41,7 +42,7 @@ class Order (models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
-        super.save(*args, **kwargs)
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return self.order_number

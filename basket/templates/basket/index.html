@@ -15,6 +15,7 @@
                 </tr>
             </thead>
             <tbody>
+                {% if itemline.product.user == user %}
                 {% for itemline in itemlines %}
                 <tr>
                     <td>{{ itemline.product.session_name}}</td>
@@ -28,6 +29,7 @@
                     <hr />
                 </tr>
                 {% endfor %}
+                {% endif %} 
                 <tr>
                     <td>
                         {% include "checkout-buttons.html" %}

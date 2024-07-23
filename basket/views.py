@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404,redirect,reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.models import User
 from .models import BasketItem, Basket
 from ptsessions.models import PtSessions
 #from .models import 
@@ -9,7 +10,7 @@ from ptsessions.models import PtSessions
 
 
 @login_required
-@permission_required('basket.view_basket', raise_exception=True)
+#@permission_required('basket.view_basket', raise_exception=True)
 def basket_view(request):
     
     items = Basket.objects.filter(user=request.user)
@@ -21,7 +22,10 @@ def basket_view(request):
     content = {'items':items,
                'price': price,
                'itemlines': itemlines,
-                'title': title }
+                'title': title,
+                'ptsessions': ptsessions,
+                'user': request.user,
+                }
     return render(request, template,content)
 
 def delete_item(request, id):
