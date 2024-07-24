@@ -36,3 +36,19 @@ def delete_item(request, id):
          messages.error(request, "Exercise couldn't be deleted!")
     
     return render (request, "userprograms/userprograms/delete-failed.html")
+
+def add_to_basket(request, session_id=id):
+    """ 
+    Add a quantity of the specified product to the basket
+    """
+
+    basket = request.session.get('basket', {})
+
+    request.session.get('basket', {})
+    if session_id in basket:
+        basket[session_id] += 1  
+    else:
+        basket[session_id] = 1  
+    request.session['basket'] = basket
+    print(request.session['basket'])  
+    return redirect('ptsessions')
