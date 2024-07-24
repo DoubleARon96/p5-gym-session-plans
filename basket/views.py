@@ -45,3 +45,18 @@ def add_to_basket(request, session_id=id):
         basket[session_id] = 1  
     request.session['basket'] = basket 
     return redirect('ptsessions')
+
+def adjust_basket(request, session_id=id):
+    """ 
+     delete a specified product from the basket
+    """
+    quantity = int(request.POST.get('quantity'))
+    basket = request.session.get('basket', {})
+
+    request.session.get('basket', {})
+    if quantity > 0:
+        basket[session_id] += 0  
+    else:
+        basket.pop[session_id]
+    request.session['basket']
+    

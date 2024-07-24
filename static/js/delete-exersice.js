@@ -4,11 +4,8 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 
 for (let button of deleteButtons) {
   button.addEventListener("click", (a) => {
-    console.log("1")
     let exerciseId = a.currentTarget.dataset.exercise_id;
-    console.log('Exercise ID:', exerciseId);
-    deleteConfirm.href = `userprograms_delete_url/${exerciseId}`;
-    console.log('Delete Confirm Href:', deleteConfirm.href); 
+    deleteConfirm.href = `userprograms_delete_url/${exerciseId}`; 
     myModal.show();
   });
 }
