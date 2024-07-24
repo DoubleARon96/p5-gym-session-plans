@@ -11,19 +11,23 @@
                 <tr>
                     <th>Session Name</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                     <th>Remove Item</th>
                 </tr>
             </thead>
             <tbody>
-                {% for itemline in itemlines %}
-                {% if itemline.product.user == user %}
+                {{ basket_items }}
+                {{ user }}
+                {% for item in basket_items %}
+                {% if item.session.user == user %}
                 <tr>
-                    <td>{{ itemline.product.session_name }}</td>
-                    <td>{{ itemline.product.item_price }}</td>
+                    <td>{{ item.session.session_name }}</td>
+                    <td>{{ item.session.item_price }}</td>
+                    <td>{{ item.quantity }}</td>
                     <td>
                         <form>
                             <button class="button button-font btn-delete"
-                                data-main_id="{{ itemline.id }}">Delete</button>
+                                data-main_id="{{ basket_item.id }}">Delete</button>
                         </form>
                     </td>
                 </tr>
@@ -42,7 +46,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <p class="text-end">Total : </p>
+            <p class="text-end">Total :£{{ grand_total|floatformat:2 }} </p>
         </div>
     </div>
 </div>

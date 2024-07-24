@@ -13,16 +13,10 @@ from ptsessions.models import PtSessions
 #@permission_required('basket.view_basket', raise_exception=True)
 def basket_view(request):
     items = Basket.objects.filter(user=request.user)
-    itemlines = BasketItem.objects.filter(basket__in=items)
-    ptsessions = PtSessions.objects.all()
-    price = PtSessions.item_price
     title = "Basket"
     template = 'basket/index.html'
     content = {'items':items,
-               'price': price,
-               'itemlines': itemlines,
                 'title': title,
-                'ptsessions': ptsessions,
                 'user': request.user,
                 }
     return render(request, template,content)
@@ -49,6 +43,5 @@ def add_to_basket(request, session_id=id):
         basket[session_id] += 1  
     else:
         basket[session_id] = 1  
-    request.session['basket'] = basket
-    print(request.session['basket'])  
+    request.session['basket'] = basket 
     return redirect('ptsessions')

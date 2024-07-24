@@ -17,6 +17,7 @@ def basket_contents(request):
                 'session_id': session_id,
                 'quantity': session_data,
                 'session': session,
+                'price' : session.item_price
             })
         else:
             product = get_object_or_404(PtSessions, id=session_id)
