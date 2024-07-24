@@ -101,6 +101,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'basket.contexts.basket_contents'
             ],
         },
     },
@@ -191,5 +192,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
 
-
+STRIPE_PUBLIC_KEY = "pk_live_51PYAVrRuH3vGLiluUYMZtauaSAs835iPb5Rn1rE0H25xF9g8fXJcR0TbyqBPhZ2WXjixD5iAfll8zhbSSji0CQud00m9jPqxoR"
 

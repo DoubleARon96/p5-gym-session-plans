@@ -30,6 +30,14 @@
             </form>
         </div>
     </div>
+    <div class="row">
+        <div class="col border">
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit">Purchase!</button>
+              </form>
+        </div>
+    </div>
 </div>
 <script src="{% static 'js/delete-exersice.js' %}"></script>
 {% endblock %}
