@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404,redirect,reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.models import User
 from .models import MainUserProgram, UserPrograme
 from .forms import UserSessionsForm, MainUserProgramForm
 
@@ -11,7 +12,7 @@ def index(request):
     queryset = MainUserProgram.objects.all()
     mainsessions_form = MainUserProgramForm(request.POST or None)  
     content = queryset
-    user = MainUserProgram.user
+    maker_user = MainUserProgram.user
     title = "My Sessions"
 
     if request.method == "POST":
@@ -24,7 +25,7 @@ def index(request):
 
     viewbag = {"contents": content,
                "title" : title,
-               "user" : user,
+               "maker_user" : maker_user,
                'mainsessions_form':mainsessions_form}
         
     return render (request, "userprograms/index.html",viewbag)

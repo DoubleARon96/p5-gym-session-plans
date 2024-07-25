@@ -3,7 +3,9 @@
 {%load crispy_forms_tags %}
 
 {% block mainsessions %}
+
 {% for content in contents %}
+{% if content.user == user %}
 <div class="container border">
     <div class="row row-8">
         <div class="col ">
@@ -40,7 +42,9 @@
         </div>
     </div>
 </div>
-
+{% else %}
+<p>No Programs Made Yet</p>
+{% endif %}
 {% endfor %}
 </div>
 <div class="container">
