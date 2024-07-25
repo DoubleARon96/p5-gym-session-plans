@@ -59,9 +59,10 @@ def adjust_basket(request, session_id=id):
 
     request.session.get('basket', {})
     if quantity > 0:
-        basket[session_id] = basket.get(session_id, 0) 
+        basket[session_id] = basket.get(session_id, 0)
+        
     else:
-        basket.pop(session_id, None)
+        basket.pop (session_id)
     request.session['basket']=basket
     return redirect('basket')
     

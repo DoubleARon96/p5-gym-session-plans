@@ -49,8 +49,8 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'ptsessions' %}active{% endif %}"
               aria-current="page" href="{% url 'ptsessions' %}">Personal Trainer Programs</a>
           </li>
-            {% endif %}
-            {% if user.is_authenticated %}
+          {% endif %}
+          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
               href="{% url 'account_logout' %}">Logout</a>
@@ -70,19 +70,20 @@
               aria-current="page" href="{% url 'profile_page' %}">Profile</a>
           </li>
           <li class="list-inline-item">
-            <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link {% if request.resolver_match.url_name == 'basket' %}active{% endif %}" href="{% url 'basket' %}">
-                <div class="text-center">
-                    <div><i class=""></i></div>
-                    <p class="my-0">
-                        {% if grand_total %}
-                            £{{ grand_total|floatformat:2 }}
-                        {% else %}
-                            $0.00
-                        {% endif %}
-                    </p>
-                </div>
+            <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link {% if request.resolver_match.url_name == 'basket' %}active{% endif %}"
+              href="{% url 'basket' %}">
+              <div class="text-center">
+                <div><i class=""></i></div>
+                <p class="my-0">
+                  {% if grand_total %}
+                  £{{ grand_total|floatformat:2 }}
+                  {% else %}
+                  $0.00
+                  {% endif %}
+                </p>
+              </div>
             </a>
-        </li>
+          </li>
         </ul>
       </div>
     </div>
@@ -133,10 +134,10 @@
       <div class="row">
         <div class="col col-4 d-inline brands-logo text-start ">
           <ul class="brands-logo-list">
-          <li><a href=""><i class="fa-brands fs-1 fa-square-facebook"></i></a></li>
-          <li><a href=""><i class="fa-brands fs-1 fa-instagram"></i></a></li>
-          <li><a href=""><i class="fa-brands fs-1 fa-youtube"></i></a></li>
-        </ul>
+            <li><a href=""><i class="fa-brands fs-1 fa-square-facebook"></i></a></li>
+            <li><a href=""><i class="fa-brands fs-1 fa-instagram"></i></a></li>
+            <li><a href=""><i class="fa-brands fs-1 fa-youtube"></i></a></li>
+          </ul>
         </div>
         <div class="col border">
           <h4>About</h4>
@@ -154,6 +155,8 @@
   {% block load_js %}
   {% endblock %}
   <script src="https://kit.fontawesome.com/3ec10b2c97.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
 
 </html>
