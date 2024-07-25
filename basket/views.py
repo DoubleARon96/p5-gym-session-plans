@@ -43,7 +43,8 @@ def add_to_basket(request, session_id=id):
         basket[session_id] += 1  
     else:
         basket[session_id] = 1  
-    request.session['basket'] = basket 
+    request.session['basket'] = basket
+    messages.success(request, f'Product Was Added')
     return redirect('ptsessions')
 
 def adjust_basket(request, session_id=id):

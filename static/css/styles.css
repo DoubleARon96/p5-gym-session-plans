@@ -122,3 +122,10 @@ h1,h2,h3,h4 {
     border-radius: 20px;
     margin: 10px;
 }
+/*------------------------------------------------------------------Toast styles*/
+.my-toast {
+    z-index: 99;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+}
