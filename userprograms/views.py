@@ -11,6 +11,7 @@ def index(request):
     queryset = MainUserProgram.objects.all()
     mainsessions_form = MainUserProgramForm(request.POST or None)  
     content = queryset
+    user = MainUserProgram.user
     title = "My Sessions"
 
     if request.method == "POST":
@@ -23,6 +24,7 @@ def index(request):
 
     viewbag = {"contents": content,
                "title" : title,
+               "user" : user,
                'mainsessions_form':mainsessions_form}
         
     return render (request, "userprograms/index.html",viewbag)
