@@ -70,7 +70,7 @@ MIDDLEWARE = [
     
 ]
 
-
+#MESSAGE_STORAGE = 'django.contrib.messages.storage.sessions.SessionStorage'
 
 ROOT_URLCONF = 'trainingbase.urls'
 
@@ -82,6 +82,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
+                'django.contrib.messages.context_processors.messages'
             ],
         },
     },
