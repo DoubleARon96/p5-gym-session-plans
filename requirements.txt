@@ -6,6 +6,7 @@ django-allauth==0.63.2
 django-crispy-forms==2.2
 gunicorn==22.0.0
 oauthlib==3.2.2
+pillow==10.4.0
 psycopg2==2.9.9
 psycopg2-binary==2.9.9
 PyJWT==2.8.0

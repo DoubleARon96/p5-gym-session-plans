@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("userprograms/", views.index, name="userprograms"),
+    path("", views.index, name="userprograms"),
     # test
     path('<int:id>/', views.mysessions, name='mysessions'),
     path('userprogramsupdate/<int:id>/', views.updateView, name='userprograms_update_url'),
