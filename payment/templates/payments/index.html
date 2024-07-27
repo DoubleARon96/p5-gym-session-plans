@@ -17,17 +17,14 @@
 </div>
 <div class="container border">
     <div class="row">
-        <div class="col">
+        <div class="col col-12 col-md-5 m-1">
             {% include "basket/index.html" %}
         </div>
-    </div>
-    <div class="row">
-        <div class="col text-center">
+        <div class="col text-center col-12 col-md-6 m-1">
             <h3>Please Fill Out Form</h3>
             <form id="payment_form" action="#" method="post">
-                {{ payment_form | crispy }}
+                {{ order_form | crispy }}
                 {% csrf_token %}
-        
             </form>
         </div>
     </div>
@@ -36,7 +33,7 @@
             <form method="post">
                 {% csrf_token %}
                 <button type="submit">Purchase!</button>
-              </form>
+            </form>
         </div>
     </div>
 </div>
