@@ -27,14 +27,16 @@ class Order (models.Model):
         """
         return uuid.uuid4().hex.upper()
     
-    #def update_total(self):
+    def update_total(self):
         """
         this function will add up the total of 
         each product line
         """
-        #self.total = self.BasketItem.aggregate(sum('basket_items'))['total__sum']
-       # if self.total == self.product_total :
-        #    self.save
+        self.total = self.product.aggregate(sum('product'))['total__sum']
+        if self.total == self.product_total :
+            self.save
+        else:
+            self.grand_total = self.product_total
     
     
     def save(self, *args, **kwargs):
@@ -50,7 +52,7 @@ class Order (models.Model):
         return self.order_number
 
 class OrderLineProduct(models.Model):
-    order = models.ForeignKey(Basket, null=False, blank=False, on_delete=models.CASCADE, related_name="product_lines")
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name="product_lines")
     product = models.ForeignKey(PtSessions, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     #access key?
@@ -62,7 +64,7 @@ class OrderLineProduct(models.Model):
         this function over writes the save method and sets line price total
         and updates the total
         """
-        self.line_price_total = self.product.item_price
+        self.line_price_total = self.product.item_price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
