@@ -32,11 +32,10 @@ class Order (models.Model):
         this function will add up the total of 
         each product line
         """
-        self.total = self.product.aggregate(sum('product'))['total__sum']
-        if self.total == self.product_total :
-            self.save
-        else:
-            self.grand_total = self.product_total
+        self.product_total = self.product.aggregate(sum('product'))['total__sum']
+            
+        self.total = self.product_total
+        self.save()
     
     
     def save(self, *args, **kwargs):
