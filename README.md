@@ -114,16 +114,16 @@ Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` f
 Happy coding!
 
 
-### Home Page
+# Home Page
 
-# Breife description
-the home page is aimed to welcome new people to the app/site so they understand what we as the developers can previde the user
+### Brief description
+the home page is aimed to welcome new people to the app/site so they understand what we as the developers can provide the user.
 
-# Plans
+### Plans
 ![home page plan ](assets/readme-images/home-page-plan.jpg)
 ![image of data plan ](assets/readme-images/home-data-plan.png)
 
-# Thoughts 
+### Thoughts 
 this is a basic model i set up thinking that it would be nice to be able to edit for super users but i thought if i keep it to only one and make it so only devs and the client can change.
 
 i also made it so its crud function is only to be updated so its easy to track and make sure not to much writing is on the home.
@@ -170,23 +170,67 @@ def updateView(request, ids):
 instead of having the redirect to home it was using the show View one and this confused me going through and wondering why the form didn't appear
 
 # User Sessions
-## js issues
-this issuse has been the hardest one so far the image below shows the debugging i was using the console logs where my best friend.
+### js issues
+this issues has been the hardest one so far the image below shows the debugging i was using the console logs where my best friend.
 ![js-issue](assets/readme-images/js-issue-on-html.png)
-I realised the for loop wasnt correct on the html.
+I realised the for loop wasn't correct on the html.
 ![wrong-loop](assets/readme-images/right-loop.png)
 this is the change i had to do to make sure it worked 
 ![correct-loop](assets/readme-images/right-loop.png)
-this shows that it wasnt collecting the delete number to add to the url.
+this shows that it wasn't collecting the delete number to add to the url.
 ![url-issue](assets/readme-images/url-issue.png)
 
-## Breife description
+### Brief description
 the aim for this page was so that customers can make up there own sessions and record what they have done.
 
-# Plans
+### Plans
 ![usersession page plan ]()
 ![image of data plan ](assets/readme-images/session-data-plan.png)
 
-# Thoughts 
+### Thoughts 
 when making this i spent a long time trying to get the crud function to work on the exercise part because the urls and the java script just weren't working together well but its a great learning curve and will increase my skills by a lot.
+### Test
+The Tests i did manually : 
+1. add new program
+![Adding New Program](assets/readme-images/adding-session.png)
+Session Added
+![program added](assets/readme-images/session-added.png)
+2. View Full Session
+this view shows that the link on the session open up to the exercise page
+![exercise View](assets/readme-images/view-in-session.png)
+3. add Exercises 
+This image shows the form to add a program to the exercise page 
+![Adding Session](assets/readme-images/adding-session.png)
+4. Edit Session
+this shows the editing form for the exercise and auto fills with the old information.
+![edit form](assets/readme-images/editing-exercise.png)
+this shows that after editing it dose update the exercise.
+![edited exercise](assets/readme-images/exercise-edited.png)
+5. Delete Exercise
+![]()
 
+
+# Pt sessions
+### Brief description
+This app is for the Pts/admins so they can sell their training sessions and maintain the updates for the clients so they will always have new sessions and learn new ways to try all the time.
+### issues
+![wrong syntax](assets/readme-images/add-to-basket-wrong.png)
+when trying to debug i couldn't understand why it wasn't adding anything but!!!
+![correct syntax](assets/readme-images/adding-to-basket-correct.png)
+then i was reviewing the walkthrough i saw they have the "+= 1" and thought, that makes sense how can you add nothing to nothing and then boom it worked.
+### Testing
+The Tests i did where 
+1. Add Item To Basket
+2. Test Link to the full Session Page
+
+# Basket
+### Brief description
+this app is designed to be for all clients looking to by any sessions the PT/Admins make. it also only keeps the clients items when they keep the page open.
+### issues
+### Testing
+
+# Payments
+### Brief description
+this app is to help integrate stripe and make it easier for the users to know exactly what items they are buying 
+### issues
+### Testing
