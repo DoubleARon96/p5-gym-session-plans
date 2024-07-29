@@ -17,6 +17,8 @@ def Checkout (request):
     content = {
         'order_form': order_form,
         'basket': items,
+        'stripe_public_key':'pk_test_51PYAVrRuH3vGLiluqmFwPFwQFUcDh7cIsRPfr3nzrHPexlLKtpLwZ7m7WrQN0ivL0CFRIUvxJ4KOLDBe9c3QXiCr00vTttPSBj',
+        'client_secret' : '1'
     }
     return render(request, template, content)
 
