@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import stripe
 if os.path.isfile('env.py'):import env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -198,6 +199,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
-
-STRIPE_PUBLIC_KEY = "pk_live_51PYAVrRuH3vGLiluUYMZtauaSAs835iPb5Rn1rE0H25xF9g8fXJcR0TbyqBPhZ2WXjixD5iAfll8zhbSSji0CQud00m9jPqxoR"
-
+# Stripe
+STRIPE_CURRENTCY = 'gbp'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY' , '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY' , '')
