@@ -32,8 +32,7 @@ class Order (models.Model):
         this function will add up the total of 
         each product line
         """
-        self.product_total = self.product.aggregate(sum('product'))['total__sum']
-            
+        self.product_total = self.product_lines.aggregate(Sum('line_price_total'))['line_price_total__sum'] or 0
         self.total = self.product_total
         self.save()
     

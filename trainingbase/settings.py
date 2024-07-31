@@ -200,6 +200,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
 # Stripe
-STRIPE_CURRENTCY = 'gbp'
+STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY' , '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY' , '')
