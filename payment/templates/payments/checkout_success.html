@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{%load crispy_forms_tags %}
+
+{% block payments %}
+{% for content in contents %}
+
+{% endfor %}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>test</p>
+            <img src="/" alt="Image will be uploaded by PT">
+        </div>
+    </div>
+</div>
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    
+{% endblock %}
+<script src="{% static 'payment/js/stripe-elements.js' %}"></script>
+<script src="{% static 'js/delete-exersice.js' %}"></script>
+{% endblock %}
+

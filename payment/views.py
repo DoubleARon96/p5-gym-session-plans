@@ -39,7 +39,6 @@ def Checkout(request):
                             line_price_total=product.item_price * session_data  # Use the correct field name
                         )
                         order_line_item.save()
-                        return redirect(reverse('basket'))
                     else:
                         for product_id, quantity in session_data.items():
                             order_line_item = OrderLineProduct(
@@ -53,7 +52,8 @@ def Checkout(request):
                     messages.error(request, 'Sorry, we could not find this session.')
                     order.delete()
                     return redirect(reverse('basket'))
-
+        request.session['save_info'] = 'save_info' in request.POST       
+        return redirect(reverse('payment_success', args=[order.order_number]))  
     else:
         if not items:
             messages.error(request, "You have an empty basket.")
@@ -80,3 +80,22 @@ def Checkout(request):
             'client_secret': intent.client_secret,
         }
         return render(request, template, context)
+    
+def Checkout_success (request, order_number):
+    """
+    this handles successful transactions
+    """
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(request, f'Your purchase has been processed! \
+                     Your order number is {order_number}. \
+                        You will receive a confirmation Email to {order.email}.')
+    if 'basket' in request.session:
+        del request.session['basket']
+
+    template = 'payments/checkout_success.html'
+    content = {
+        'order': order,
+        'title': 'Thank You'
+    }
+    return render(request, template, content)    
