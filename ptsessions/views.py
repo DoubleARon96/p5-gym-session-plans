@@ -16,3 +16,16 @@ def index(request):
                "title": title}
         
     return render (request, "ptsessions/index.html",viewbag)
+
+def ptsession_view (request):
+    queryset = get_object_or_404(PtSessions, id = id)
+    mysessions = PtSessions.objects.filter(session_id = id)
+    title = queryset.session_name
+
+    viewbag = {
+        'title': title,
+        'content': queryset,
+        'session': mysessions
+    }
+    return render (request, viewbag)
+    

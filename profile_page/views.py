@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 from ptsessions.models import PtSessions
 
 # Create your views here.
@@ -14,10 +15,16 @@ def index(request):
     except User.DoesNotExist:
         profile = None
 
-    sessions = PtSessions.objects.all() 
+    
+    sessions = PtSessions.objects.filter(client=request.user)
 
-    context = {'profile': profile,
-                'sessions': sessions,
-                "title" : title}
+    if not sessions.exists():
+        messages.warning(request, 'You have no Sessions')
+
+    context = {
+        'profile': profile,
+        'sessions': sessions,
+        'title': title,
+        'client_sessions': request.user.username,
+    }
     return render(request, "profile_page/index.html", context)
-
