@@ -96,6 +96,6 @@ def Checkout_success (request, order_number):
     template = 'payments/checkout_success.html'
     content = {
         'order': order,
-        'title': 'Thank You'
+        'title': 'Thank You',
     }
     return render(request, template, content)    

@@ -2,26 +2,25 @@
 {% load static %}
 {%load crispy_forms_tags %}
 
-{% block payments %}
-{% for content in contents %}
-
-{% endfor %}
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <p>test</p>
-            <img src="/" alt="Image will be uploaded by PT">
+{% block content %}
+    <div class="container border">
+        <div class="row">
+            <div class="col">
+                <h1>test</h1>
+                <br>
+                <h3>Order Number: {{ order.order_number }}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <p>Thank you for you're order!</p>
+            <p>You're Programme will be sent to your profile page and you will have access on the sessions page too</p>
         </div>
     </div>
-</div>
-{% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+                {{product.product}}
+            </div>
+        </div>
+    </div>
 {% endblock %}
-<script src="{% static 'payment/js/stripe-elements.js' %}"></script>
-<script src="{% static 'js/delete-exersice.js' %}"></script>
-{% endblock %}
-
