@@ -234,3 +234,64 @@ this app is designed to be for all clients looking to by any sessions the PT/Adm
 this app is to help integrate stripe and make it easier for the users to know exactly what items they are buying 
 ### issues
 ### Testing
+
+### Key Words
+
+## main subjects
+
+* Gym Sessions
+![gym-session-search](assets/readme-images/key-word-search-gym-sessions.png)
+
+* Programs 
+![programs search](assets/readme-images/key-word-search-programs.png)
+
+* Training
+![rival app](assets/readme-images/key-word-search-rival-app.png)
+
+## Short Tail Key Words:
+~ Fitness ~
+Training 
+~ Muscles ~
+Exercises
+Personal Training
+~ Chest ~
+~ Back ~
+~ Legs ~
+~ Biceps ~
+~ Triceps ~
+~ Full Body ~
+Hit Training
+Health
+Goals
+Sessions
+weight loss
+cutting weight
+~ lose weight ~
+~gym~ 
+
+Long tail Key Words:
+
+~Personal Training Sessions~
+Custom-made sessions and free recording of sessions
+many Different styles of training e.g Hit, Full Body and Steady State
+Sessions for any needs or goals 
+~buy personal training sessions~
+record my gym program
+
+
+
+## All Key Words That Will Be On The Site:
+
+Custom-made sessions and free recording of sessions
+many Different styles of training e.g Hit, Full Body and Steady State
+Sessions for any needs or goals 
+Record My Gym Program
+Hit Training
+Health
+Goals
+Sessions
+weight loss
+cutting weight
+Exercises
+Personal Training
+
