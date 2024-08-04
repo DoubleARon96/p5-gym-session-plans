@@ -5,7 +5,7 @@ from django.conf import settings
 
 
 class HomeNews(models.Model):
-    title = models.TextField(max_length=30,)
+    title = models.TextField(max_length=100,)
     content = models.TextField(max_length=2000)
     updated_on = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE,)
