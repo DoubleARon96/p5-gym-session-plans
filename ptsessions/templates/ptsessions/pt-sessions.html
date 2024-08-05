@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block ptsessions %}
+
+<div class="container">
+    <div class="row md-8 center">
+        <div class="col col-md-12 text-center news-block">
+            <h1>PT Sessions : {{title}}</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col col-8">
+            <img class="img-fluid" src="/" alt="image will be uploaded by pt">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row border">
+        {% for session in sessions %}
+        <div class="col ptsessions text-center">
+            <h1>{{ session.session_name }}</h1>
+            <h3>{{ session.body_part }}</h3>
+            <div class="row">
+                <div class="col">
+                    {{ session.program |safe}}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <p>No sessions found.</p>
+</div>
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col col-12 col-md-4">
+        </div>
+    </div>
+    {% endblock %}

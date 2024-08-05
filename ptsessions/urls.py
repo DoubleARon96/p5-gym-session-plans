@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="ptsessions"),
-    #path("add_to_basket/<int:Ptsessions>", views.Add_to_basket, name="add_to_basket")
+    path("<int:session_id>/", views.ptsession_view, name="ptsession_view")
 ]

@@ -14,7 +14,7 @@ class PtSessions(models.Model):
     program = models.TextField(max_length=4000)
     user = models.ForeignKey(User, on_delete=models.CASCADE,null=False, blank=False, related_name='user_sessions')
     body_part = models.CharField(max_length=40,null=False, blank=False, choices=BODY_PART, default='All Body')
-    client = models.ForeignKey(User, on_delete=models.CASCADE,null=False, blank=False, related_name='client_sessions')
+    client = models.ManyToManyField(User, blank=True, related_name='client_sessions')
     item_price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0)
     # Add other fields as needed
 

@@ -30,7 +30,7 @@
                     <h1>Client Sessions for {{ client_sessions }}</h1>
                     <ul>
                         {% for session in sessions %}
-                            <li>{{ session.session_name }} - {{ session.date }}</li>
+                            <li><a href="{% url 'ptsession_view' session_id=session.id %}">{{ session.session_name }}</a> - {{ session.date }}</li>
                         {% endfor %}
                     </ul>
                 {% else %}

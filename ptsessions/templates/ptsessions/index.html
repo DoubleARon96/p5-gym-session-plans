@@ -34,9 +34,12 @@
     <div class="row ">
         {% for content in contents %}
         <div class="col ptsessions ">
-
             {% if  contents %}
-            <h1>{{ content.session_name }}</h1>
+                {% if content.client == user %}
+                <h1><a href="{% url 'ptsession_view' session_id=content.id %}">{{ content.session_name }}</a></h1>
+                {% else %}
+                <h1>{{ content.session_name }}</h1>
+                {% endif %}
 
             <ul>
                 <li>{{ content.body_part }}</li>
