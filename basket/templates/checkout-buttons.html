@@ -5,9 +5,18 @@
     </span>
     <span class="text-uppercase">Keep Shopping</span>
 </a>
+{% if grand_total > 0 %}
 <a href="{% url 'payment' %}" class="button">
         <span class="text-uppercase">Secure Checkout</span>
         <span class="icon">
             <i class="fas fa-lock"></i></button>
         </span>
 </a>
+{% else %}
+<a href="{% url 'ptsessions' %}" class="button">
+    <span class="text-uppercase">Empty Basket</span>
+    <span class="icon">
+        <i class="fas fa-lock"></i></button>
+    </span>
+</a>
+{% endif %}
