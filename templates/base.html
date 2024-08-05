@@ -47,11 +47,11 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page"
               href="{% url 'home' %}">Home</a>
           </li>
+          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'userprograms' %}active{% endif %}"
               aria-current="page" href="{% url 'userprograms' %}">My Programs</a>
           </li>
-          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'ptsessions' %}active{% endif %}"
               aria-current="page" href="{% url 'ptsessions' %}">Personal Trainer Programs</a>

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from ptsessions.models import PtSessions
+from userprograms.models import MainUserProgram
 
 # Create your views here.
 
@@ -17,6 +18,7 @@ def index(request):
 
     
     sessions = PtSessions.objects.filter(client=request.user)
+    user_sessions = MainUserProgram.objects.filter(user=request.user)
 
     if not sessions.exists():
         messages.warning(request, 'You have no Sessions')
@@ -24,6 +26,7 @@ def index(request):
     context = {
         'profile': profile,
         'sessions': sessions,
+        'usersession': user_sessions,
         'title': title,
         'client_sessions': request.user.username,
     }
