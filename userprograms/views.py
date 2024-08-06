@@ -59,7 +59,7 @@ def mysessions(request, id):
 
 
 def updateView(request, id):
-    queryset =  get_object_or_404 (UserPrograme, id=id)
+    queryset = get_object_or_404 (UserPrograme, id=id)
     form = UserSessionsForm(instance=queryset)
     if request.method == 'POST':
         form = UserSessionsForm(request.POST, instance=queryset)
@@ -72,7 +72,7 @@ def updateView(request, id):
     return render(request, template_name, {'form':form})
 
 def deleteView(request, id):
-    queryset =  get_object_or_404 (UserPrograme, id=id)
+    queryset = get_object_or_404 (UserPrograme, id=id)
     if request.method == 'POST':
         queryset.delete()
         return redirect('userprograms')
