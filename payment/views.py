@@ -12,6 +12,22 @@ import stripe
 import json
 
 @require_POST
+def Cache_Payment_data(request):
+    try:
+        payment_id = request.POST.get('client_secret').split('_secret')
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(payment_id,metadata={
+            'basket':json.dumps(request.session.get('basket',{})),
+            'save_info':request.POST.get('save_info'),
+            'user':request.user,
+        })
+        return HttpResponse (status=200)
+
+    except Exception as e:
+        messages.error(request,'Payment Failed')
+        return HttpResponse(content=e, status=400)
+
+
 def Checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
