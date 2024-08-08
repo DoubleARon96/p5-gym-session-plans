@@ -6,6 +6,8 @@ from payment.webhook_handler import stripeWeb_handler
 
 import stripe
 
+@require_POST
+@csrf_exempt
 def webhook (request):
     '''
     this will listen for webhooks from stripe
