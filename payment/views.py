@@ -31,7 +31,11 @@ def Checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')
+            order.stripe_pid = pid
+            order.original_basket = json.dumps(basket)
+            order.save()
             for session_id, session_data in items.items():
                 try:
                     product = PtSessions.objects.get(id=session_id)
