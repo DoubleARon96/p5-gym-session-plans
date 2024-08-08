@@ -20,7 +20,7 @@ def webhook (request):
 
     try:
         event = stripe.Webhook.construct_event(
-        payload, sig_header, wh_secret
+            payload, sig_header, wh_secret
         )
     except ValueError as e:
         # Declined payload
@@ -31,7 +31,6 @@ def webhook (request):
     except Exception as e:
         return HttpResponse(content=e, status=400)
 
-    print('success')
     return HttpResponse(content=e, status=200)
     
 
