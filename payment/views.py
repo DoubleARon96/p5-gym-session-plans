@@ -105,7 +105,7 @@ def Checkout_success (request, order_number):
     return render(request, template, content)  
 
 @require_POST
-def Cache_Checkout_data(request):
+def Cache_Payment_data(request):
     try:
         payment_id = request.POST.get('client_secret').split('_secret')
         stripe.api_key = settings.STRIPE_SECRET_KEY
