@@ -12,22 +12,6 @@ import stripe
 import json
 
 @require_POST
-def Cache_Payment_data(request):
-    try:
-        payment_id = request.POST.get('client_secret').split('_secret')
-        stripe.api_key = settings.STRIPE_SECRET_KEY
-        stripe.PaymentIntent.modify(payment_id,metadata={
-            'basket':json.dumps(request.session.get('basket',{})),
-            'save_info':request.POST.get('save_info'),
-            'user':request.User,
-        })
-        return HttpResponse (status=200)
-
-    except Exception as e:
-        messages.error(request,'Payment Failed')
-        return HttpResponse(content=e, status=400)
-
-
 def Checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -48,9 +32,9 @@ def Checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
-            pid = request.POST.get('client_secret').split('_secret')
+            pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_basket = json.dumps(basket)
+            order.original_basket = json.dumps(items)  # Use 'items' instead of 'basket'
             order.save()
             for session_id, session_data in items.items():
                 try:
@@ -104,6 +88,7 @@ def Checkout(request):
             'client_secret': intent.client_secret,
         }
         return render(request, template, context)
+
     
 def Checkout_success (request, order_number):
     """
