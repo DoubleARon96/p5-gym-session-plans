@@ -17,31 +17,28 @@
             </thead>
             <tbody>
                 {% for item in basket_items %}
-                {% if item.session.user == user %}
                 <form method="post" action="{% url 'adjust_basket' item.session_id %}">
-                <tr>
-                    <td>{{ item.session.session_name }}</td>
-                    <td>{{ item.session.item_price }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>
-                        
+                    <tr>
+                        <td>{{ item.session.session_name }}</td>
+                        <td>{{ item.session.item_price }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>
+
                             {% csrf_token %}
                             <button class="button button-font btn-delete"
                                 data-basket_item_id="{{ item.session_id }}">Delete</button>
-                        
-                    </td>
-                </tr>
-                <hr />
-                {% else %}
-                <p>you have nothing in your basket</p>
-                {% endif %}
-            </form>
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        </td>
+                    </tr>
+                    <hr />
+                </form>
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="deleteModalLabel">Delete Question?</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 Are you sure you want to delete This Exercise?
