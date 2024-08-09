@@ -23,7 +23,7 @@ class MainUserProgram(models.Model):
     def __str__(self):
         return f"{self.session_name} | Made by {self.user}"
 
-class UserPrograme(models.Model):
+class UserProgram(models.Model):
     session = models.ForeignKey(MainUserProgram, on_delete=models.CASCADE)
     exercise_name = models.TextField()
     reps = models.IntegerField()

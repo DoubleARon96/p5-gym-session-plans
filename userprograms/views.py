@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404,redirect,reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import MainUserProgram, UserPrograme
+from .models import MainUserProgram, UserProgram
 from .forms import UserSessionsForm, MainUserProgramForm
 
 def index(request):
@@ -37,7 +37,7 @@ def mysessions(request, id):
     View to show template
     """
     session = get_object_or_404(MainUserProgram, id = id)
-    mysessions = UserPrograme.objects.filter(session_id = id)
+    mysessions = UserProgram.objects.filter(session_id = id)
     usersessions_form = UserSessionsForm(request.POST or None)  
     title = session.session_name
     
@@ -48,18 +48,18 @@ def mysessions(request, id):
             user_program.post = session
             user_program.save()
             usersessions_form = UserSessionsForm()
+
+    content= {'main_program': session,
+            "usersessions_form": usersessions_form,
+            "title" : title,
+            "mysessions" :mysessions,}
             
 
-    return render(request, "userprograms/user-sessions.html", {
-        'main_program': session,
-        'usersessions_form': usersessions_form,
-        "title" : title,
-        "mysessions" :mysessions
-    })
+    return render(request, "userprograms/user-sessions.html",content)
 
 
 def updateView(request, id):
-    queryset = get_object_or_404 (UserPrograme, id=id)
+    queryset = get_object_or_404 (UserProgram, id=id)
     form = UserSessionsForm(instance=queryset)
     if request.method == 'POST':
         form = UserSessionsForm(request.POST, instance=queryset)
@@ -71,11 +71,13 @@ def updateView(request, id):
     template_name = 'userprograms/user-sessions-update.html'
     return render(request, template_name, {'form':form})
 
-def deleteView(request, id):
-    queryset = get_object_or_404 (UserPrograme, id=id)
+def deleteView(request, id, session_id):
+    queryset = MainUserProgram.objects.all()
+    main_program= get_object_or_404(queryset, id=id)
+    exercise = get_object_or_404 (UserProgram, pk=session_id)
     if request.method == 'POST':
-        queryset.delete()
-        return redirect('userprograms')
+        exercise.delete()
+        return HttpResponseRedirect(reverse('mysessions', args=[id]))
     else:
          messages.error(request, "Exercise couldn't be deleted!")
     

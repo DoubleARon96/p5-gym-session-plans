@@ -45,7 +45,8 @@
                     </tr>
                 </thead>
                 {% for content in mysessions %}
-                <tbody id="exercise id_exercise">
+                {{content.id}}
+                <tbody id="exercise_{{ content.id }}">
                     <tr>
                         <td>{{ content.exercise_name }}</td>
                         <td>{{ content.reps }}</td>
@@ -53,16 +54,25 @@
                         <td>{{ content.weight }}</td>
                         <td>{{ content.comment }}</td>
                         <td>
-                            <button class="button btn-edit">
-                                <a class="button-font" href="{% url 'userprograms_update_url' id=content.id %}">
+                            <form method="post" action="{% url 'userprograms_update_url' id=content.id %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="session_id" value="{{ content.id }}">
+                                <button type="submit" class="button btn-edit">
                                     Change
-                                </a>
-                            </button>
-                            <button class="btn-delete" data-exercise_id="{{ content.id }}">Delete</button>
+                                </button>
+                            </form>
+                                <form method="post" action="{% url 'delete_exercise' id=main_program.id session_id=content.id %}">
+                                    {% csrf_token %}
+                                <button type="submit" class="btn-delete button btn-edit">
+                                    Delete
+                                </button>
                             </form>
                         </td>
                     </tr>
                 </tbody>
+                {% endfor %}
+
+                <!-- Delete Modal -->
                 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -82,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+
             </table>
         </div>
     </div>
@@ -90,7 +100,7 @@
 <div class="container border">
     <div class="row text-center">
         <div class="col col-6 d-inline text-center">
-            <form id="usersessions-form" action="#" method="post">
+            <form id="usersessions-form" action="#" method="POST">
                 {{ usersessions_form | crispy }}
                 {% csrf_token %}
                 <button id="submitButton" type="submit" class="btn button-font button-sub-btn btn-signup btn-lg">Add
