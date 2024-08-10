@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col border m-2">
+            <h1>Bad Request</h1>
+            <p><strong>Error 500</strong></p>
+            <a class="button button-font m-1" href="{% url 'home' %}">Go Back TO Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
