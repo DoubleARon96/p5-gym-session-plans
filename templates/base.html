@@ -72,10 +72,12 @@
               href="{% url 'account_login' %}">Login</a>
           </li>
           {% endif %}
+          {% if user.is_authenticated %}
           <li class="nav-item ">
             <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}"
               aria-current="page" href="{% url 'profile_page' %}">Profile</a>
           </li>
+          {% endif %}
           <li class="list-inline-item">
             <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link {% if request.resolver_match.url_name == 'basket' %}active{% endif %}"
               href="{% url 'basket' %}">
