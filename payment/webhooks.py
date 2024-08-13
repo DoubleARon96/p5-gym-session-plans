@@ -38,7 +38,7 @@ def webhook (request):
     
 
     #Set up a webhook handler
-    handler = StripeWH_Handler(request)
+    handler = stripeWeb_handler(request)
 
     #Map webhook events to relevant handler functions
     event_map = {

@@ -31,7 +31,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com','localhost:8000','localhost','127.0.0.1' ]
 
@@ -71,8 +71,6 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
     
 ]
-
-#MESSAGE_STORAGE = 'django.contrib.messages.storage.sessions.SessionStorage'
 
 ROOT_URLCONF = 'trainingbase.urls'
 
@@ -139,6 +137,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 WSGI_APPLICATION = 'trainingbase.wsgi.application'
 
