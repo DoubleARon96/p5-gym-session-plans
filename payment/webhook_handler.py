@@ -8,7 +8,7 @@ import stripe
 import json
 import time
 
-class stripeWeb_handler:
+class StripeWH_Handler:
     '''
     this class will listen to stripe
     '''
