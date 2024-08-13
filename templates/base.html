@@ -111,15 +111,6 @@
       </div>
     </div>
   </header>
-  {% if messages %}
-  <div class="container message-container">
-    {% for message in messages %}
-
-    {% include 'includes/toasts/toast_succsess.html' %}
-
-    {% endfor %}
-  </div>
-  {% endif %}
 
   {% block page_header %}
   {% endblock %}
@@ -169,6 +160,13 @@
         <nav></nav>
       </div>
     </div>
+    {% if messages %}
+  <div class="container message-container">
+      {% for message in messages %}
+        {% include 'includes/toasts/toast_succsess.html' %}
+      {% endfor %}
+    </div>
+    {% endif %}
   </footer>
 
   {% block load_js %}

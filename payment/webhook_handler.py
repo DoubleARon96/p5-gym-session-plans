@@ -121,6 +121,7 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
+    
     def handelEvent(self,event):
         '''
         this function handles the events

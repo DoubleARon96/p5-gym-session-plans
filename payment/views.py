@@ -50,7 +50,7 @@ def Checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_basket = json.dumps(items)  # Use 'items' instead of 'basket'
+            order.original_basket = json.dumps(items)  
             order.save()
             for session_id, session_data in items.items():
                 try:
@@ -60,7 +60,7 @@ def Checkout(request):
                             order=order,
                             product=product,
                             quantity=session_data,
-                            line_price_total=product.item_price * session_data  # Use the correct field name
+                            line_price_total=product.item_price * session_data
                         )
                         order_line_item.save()
                     else:
@@ -69,7 +69,7 @@ def Checkout(request):
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                line_price_total=product.item_price * quantity  # Use the correct field name
+                                line_price_total=product.item_price * quantity
                             )
                             order_line_item.save()
                 except PtSessions.DoesNotExist:
