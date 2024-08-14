@@ -40,7 +40,7 @@ form.addEventListener('submit', function(ev) {
             payment_method: {
                 card: card,
                 billing_details: {
-                    full_name: $.trim(form.full_name.value),
+                    name: $.trim(form.full_name.value),
                     email: $.trim(form.email.value),
                     phone: $.trim(form.phone_number.value),
                     address: {
@@ -51,18 +51,18 @@ form.addEventListener('submit', function(ev) {
                         state: $.trim(form.county.value),
                         postal_code: $.trim(form.post_code.value)
                     }
-                },
-                shipping: {
-                    name: $.trim(form.full_name.value),
-                    phone: $.trim(form.phone_number.value),
-                    address: {
-                        country: $.trim(form.country.value),
-                        city: $.trim(form.town_or_city.value),
-                        line1: $.trim(form.first_line_of_address.value),
-                        line2: $.trim(form.second_line_of_address.value),
-                        state: $.trim(form.county.value),
-                        postal_code: $.trim(form.post_code.value)
-                    }
+                }
+            },
+            shipping: {
+                name: $.trim(form.full_name.value),
+                phone: $.trim(form.phone_number.value),
+                address: {
+                    country: $.trim(form.country.value),
+                    city: $.trim(form.town_or_city.value),
+                    line1: $.trim(form.first_line_of_address.value),
+                    line2: $.trim(form.second_line_of_address.value),
+                    state: $.trim(form.county.value),
+                    postal_code: $.trim(form.post_code.value)
                 }
             }
         }).then(function(result) {
