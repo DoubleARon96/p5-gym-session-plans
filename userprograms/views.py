@@ -87,6 +87,7 @@ def mainDeleteView(request, id):
     queryset =  get_object_or_404 (MainUserProgram, id=id)
     if request.method == 'GET':
         queryset.delete()
+        messages.success(request, "Exercise was deleted!")
         return redirect('userprograms')
     else:
          messages.error(request, "Exercise couldn't be deleted!")

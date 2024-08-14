@@ -50,8 +50,9 @@ h1,h2,h3,h4 {
     position: fixed;
     bottom: 72px;
     right: 15px;
-    z-index: 9999999999;   
+    z-index: 9999999999; 
 }
+
 /*---------------------------------------------------------home*/
 .news-block,
 .ptsessions,
