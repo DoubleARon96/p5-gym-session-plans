@@ -36,19 +36,14 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
-
-    #this is to help counter the email issue i have been getting
-        if hasattr(shipping_details, 'email'):
-            email = shipping_details.email
-        else:
-            email = None 
+        
         order_exists = False
         attempt = 1
         while attempt <= 5:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
-                    email__iexact=shipping_details.email,
+                    email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
                     post_code__iexact=shipping_details.address.postal_code,
