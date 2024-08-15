@@ -24,7 +24,7 @@ class StripeWH_Handler:
         '''
         intent = event.data.object
         pid = intent.id
-        bag = intent.metadata.bag
+        bag = intent.metadata.basket
         save_info = intent.metadata.save_info
 
         # Get the Charge object
