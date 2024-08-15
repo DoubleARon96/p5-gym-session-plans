@@ -51,7 +51,7 @@ class StripeWH_Handler:
                     first_line_of_address__iexact=shipping_details.address.line1,
                     second_line_of_address__iexact=shipping_details.address.line2,
                     county__iexact=shipping_details.address.state,
-                    grand_total=grand_total,
+                    total=grand_total,
                     original_basket=bag,
                     stripe_pid=pid,
                 )
