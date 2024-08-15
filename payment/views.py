@@ -87,12 +87,9 @@ def Checkout(request):
         total = active_basket['grand_total']
         stripe_cost = round(total * 100)
         stripe.api_key = stripe_secret_key
-        
         intent = stripe.PaymentIntent.create(
             amount=stripe_cost,
             currency=settings.STRIPE_CURRENCY,
-            shipping_detail={form_data},
-
         )
 
         order_form = OrderForm()
