@@ -55,7 +55,6 @@ form.addEventListener('submit', function(ev) {
             },
             shipping: {
                 name: $.trim(form.full_name.value),
-                email: $.trim(form.email.value),
                 phone: $.trim(form.phone_number.value),
                 address: {
                     country: $.trim(form.country.value),
