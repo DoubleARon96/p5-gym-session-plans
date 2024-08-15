@@ -72,7 +72,6 @@ class StripeWH_Handler:
                 for session_id, session_data in json.loads(bag).items():
                     order = Order.objects.create(
                         full_name=shipping_details.name,
-                        email=shipping_details.email,
                         phone_number=shipping_details.phone,
                         country=shipping_details.address.country,
                         post_code=shipping_details.address.postal_code,
