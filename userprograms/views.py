@@ -23,6 +23,7 @@ def index(request):
             user_session.user = request.user  
             user_session.post = content
             user_session.save()
+            messages.success(request, "Session Was Successfully Made !")
             mainsessions_form = MainUserProgramForm()
 
     viewbag = {"contents": content,
@@ -47,8 +48,9 @@ def mysessions(request, id):
         if usersessions_form.is_valid():
             user_program = usersessions_form.save(commit=False)  
             user_program.user = request.user  
-            user_program.post = session
+            user_program.session = session
             user_program.save()
+            messages.success(request, "Exercise Was Successfully Made !")
             usersessions_form = UserSessionsForm()
 
     content= {'main_program': session,
@@ -67,9 +69,11 @@ def updateView(request, id):
         form = UserSessionsForm(request.POST, instance=queryset)
         if form.is_valid():
             form.save()
+            messages.success(request, "Exercise Was Updated Successfully !")
             return redirect('userprograms')
         else:
             form = UserSessionsForm(instance=queryset)
+            messages.error(request, "Exercise Was Not Updated !")
     template_name = 'userprograms/user-sessions-update.html'
     return render(request, template_name, {'form':form})
 
@@ -79,6 +83,7 @@ def deleteView(request, id, session_id):
     exercise = get_object_or_404 (UserProgram, pk=session_id)
     if request.method == 'POST':
         exercise.delete()
+        messages.success(request, "Exercise Was Deleted Successfully !")
         return HttpResponseRedirect(reverse('mysessions', args=[id]))
     else:
          messages.error(request, "Exercise couldn't be deleted!")

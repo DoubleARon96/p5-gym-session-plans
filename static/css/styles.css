@@ -97,6 +97,9 @@ h1,h2,h3,h4 {
 .logo-my-session-page { 
     height: 10rem !important;
 }
+.center-boxes {
+    justify-content: center;
+}
 /*---------------------------------------------------------pt sessions page*/
 
 /*---------------------------------------------------------search bar*/
