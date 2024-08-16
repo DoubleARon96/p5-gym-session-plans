@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404,redirect,reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import MainUserProgram, UserProgram
 from .forms import UserSessionsForm, MainUserProgramForm
 
+@login_required
 def index(request):
     """
     view to show template

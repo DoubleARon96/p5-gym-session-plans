@@ -1,8 +1,10 @@
 from django.shortcuts import render,get_object_or_404,redirect,HttpResponse
 from .models import PtSessions,Price
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from basket.models import Basket,BasketItem
 
+@login_required
 def index(request):
     """
     view to show template

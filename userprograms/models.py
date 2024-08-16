@@ -32,5 +32,7 @@ class UserProgram(models.Model):
     comment = models.TextField(max_length=300)
     def __str__(self):
         return f"{self.reps} x {self.sets} x {self.weight} | Comments {self.comment}"
+    
+    
 
     

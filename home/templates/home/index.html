@@ -11,7 +11,8 @@
             <hr />
             <p class="">{{content.content|safe}}</p>
             <p class="text-muted">{{content.updated_on}}</p>
-            {% if user.is_authenticated %}
+            <!--super user only-->
+            {% if user.is_authenticated and user.is_superuser %}
             {% for i in contents %}
             <button class="button"><a href="{% url 'update_url' ids=content.id %}"
                     class="button-font">Update</a></button>
