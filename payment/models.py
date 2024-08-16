@@ -5,7 +5,7 @@ from ptsessions.models import PtSessions
 from basket.models import BasketItem, Basket
 import uuid
 
-# Create your models here.
+
 class Order (models.Model):
     order_number = models.CharField(max_length=32, editable=False, unique=True)
     full_name = models.CharField(max_length=50, blank=False, null=False)

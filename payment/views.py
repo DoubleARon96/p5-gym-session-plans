@@ -117,6 +117,12 @@ def Checkout_success (request, order_number):
                         You will receive a confirmation Email to {order.email}.')
     if 'basket' in request.session:
         del request.session['basket']
+         
+    
+    for order_line_product in order.product_lines.all():
+        pt_session = order_line_product.product
+        # Add the user to the client field of the PtSession
+        pt_session.client.add(request.user)
 
     template = 'payments/checkout_success.html'
     content = {
