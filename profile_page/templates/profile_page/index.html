@@ -45,11 +45,10 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col ptsessions">
-            {% if sessions %}
-                {% if request.user.username == client_sessions %}
-                    <h1>Client Sessions for {{ client_sessions }}</h1>
-                    <ul>
+        <div class="col-6 ptsessions m-0">
+            <h1>Client Sessions for {{ client_sessions }}</h1>
+                {% if sessions %}
+                    {% if request.user.username == client_sessions %}
                         <table class="table">
                             <thead>
                                 <th>Session Name</th>
@@ -67,12 +66,39 @@
                                 {% endfor %}
                             </tbody>
                         </table>
-                    </ul>
                 {% else %}
                     <p>You are not authorized to view sessions for this client.</p>
                 {% endif %}
             {% else %}
                 <p>No sessions found for this client.</p>
+            {% endif %}
+        </div>
+        <div class="col-6 ptsessions m-0">
+            <h1>My Orders Made By {{ user }}</h1>
+                {% if orders %}
+                    {% if request.user.email == user.email %}
+                        <table class="table">
+                            <thead>
+                                <th>Order</th>
+                                <th>Name Of Purchaser</th>
+                                <th>Date Purchased On</th>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                <tr>
+                                    <td>{{ order.order_number }}</td>
+                                    <td>{{ order.full_name }}</td>
+                                    <td>{{ order.date }}</td>
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                {% else %}
+                    <p>You are not authorized to view sessions for this client.</p>
+                {% endif %}
+            {% else %}
+                <p>No Orders have been made.</p>
             {% endif %}
         </div>
     </div>

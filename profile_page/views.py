@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from ptsessions.models import PtSessions
 from userprograms.models import MainUserProgram
+from payment.models import Order
 
 # Create your views here.
 
@@ -20,6 +21,7 @@ def index(request):
     sessions = PtSessions.objects.filter(client=request.user)
     user_sessions = MainUserProgram.objects.filter(user=request.user)
     sessions_count = user_sessions.count
+    orders = Order.objects.filter(email=request.user.email)
 
     if not sessions.exists():
         messages.warning(request, 'You have no Sessions')
@@ -30,6 +32,7 @@ def index(request):
         'user_sessions': user_sessions,
         'title': title,
         'client_sessions': request.user.username,
-        'sessions_count' : sessions_count
+        'sessions_count' : sessions_count,
+        'orders': orders
     }
     return render(request, "profile_page/index.html", context)
