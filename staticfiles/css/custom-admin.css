@@ -7,14 +7,11 @@
     margin: 10px;
     color: none !important;
 }
-#branding {
-
-}
-#site-name {
-    color : white;
-}
 .title,
+#site-name {
+    color : white !important;
+}
 #user-tools {
-    color: black !important;
-    font-weight: bold;
+    color: #fafafa !important;
+    font-weight: bold; 
 }
