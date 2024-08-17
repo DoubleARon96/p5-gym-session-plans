@@ -19,6 +19,7 @@ def index(request):
     
     sessions = PtSessions.objects.filter(client=request.user)
     user_sessions = MainUserProgram.objects.filter(user=request.user)
+    sessions_count = user_sessions.count
 
     if not sessions.exists():
         messages.warning(request, 'You have no Sessions')
@@ -26,8 +27,9 @@ def index(request):
     context = {
         'profile': profile,
         'sessions': sessions,
-        'usersession': user_sessions,
+        'user_sessions': user_sessions,
         'title': title,
         'client_sessions': request.user.username,
+        'sessions_count' : sessions_count
     }
     return render(request, "profile_page/index.html", context)

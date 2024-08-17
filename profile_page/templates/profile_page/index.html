@@ -8,10 +8,10 @@
             {% if profile %}
                 <h1>Welcome, {{ request.user.username }}!</h1>
                 <p>Email: {{ request.user.email }}</p>
-                <p>Programs: {{ profile.points }}</p>
             {% else %}
                 <h1>No profile found for {{ request.user.username }}</h1>
             {% endif %}
+            <p>Number Of My Programs: {{ sessions_count }}</p>
         </div>
     </div>
 </div>
@@ -21,7 +21,23 @@
             <h1>My Recorded Sessions</h1>
             <div class="row">
                 <div class="col">
-                    {{ usersession }}
+                    <table class="table">
+                        <thead>
+                            <th>Session Name</th>
+                            <th>Body Parts</th>
+                            <th>Date Of Session</th>
+                        </thead>
+                        <tbody>
+                            {% for user_session in user_sessions %}
+                            <tr>
+                                <td>{{ user_session.session_name }}</td>
+                                <td>{{ user_session.body_part }}</td>
+                                <td>{{ user_session.created_on }}</td>
+                                <td><a class="button button-font p-1" href="{% url 'mysessions' id=user_session.id %}">Link To Session</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -34,9 +50,23 @@
                 {% if request.user.username == client_sessions %}
                     <h1>Client Sessions for {{ client_sessions }}</h1>
                     <ul>
-                        {% for session in sessions %}
-                            <li><a href="{% url 'ptsession_view' session_id=session.id %}">{{ session.session_name }}</a> - {{ session.date }}</li>
-                        {% endfor %}
+                        <table class="table">
+                            <thead>
+                                <th>Session Name</th>
+                                <th>Body Parts</th>
+                                <th>Created By</th>
+                            </thead>
+                            <tbody>
+                                {% for session in sessions %}
+                                <tr>
+                                    <td>{{ session.session_name }}</td>
+                                    <td>{{ session.body_part }}</td>
+                                    <td>{{ session.user }}</td>
+                                    <td><a class="button button-font p-1" href="{% url 'ptsession_view' session_id=session.id %}">Link To Session</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </ul>
                 {% else %}
                     <p>You are not authorized to view sessions for this client.</p>
