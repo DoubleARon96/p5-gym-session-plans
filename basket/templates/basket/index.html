@@ -17,20 +17,17 @@
             </thead>
             <tbody>
                 {% for item in basket_items %}
-                <form method="post" action="{% url 'adjust_basket' item.session_id %}">
                     <tr>
                         <td>{{ item.session.session_name }}</td>
                         <td>{{ item.session.item_price }}</td>
                         <td>{{ item.quantity }}</td>
                         <td>
-
-                            {% csrf_token %}
+                            
                             <button class="button button-font btn-delete"
                                 data-basket_item_id="{{ item.session_id }}">Delete</button>
                         </td>
                     </tr>
                     <hr />
-                </form>
                 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -44,10 +41,13 @@
                                 Are you sure you want to delete This Exercise?
                                 This action cannot be undone.
                             </div>
+                            <form method="post" action="{% url 'adjust_basket' item.session_id %}"></form>
+                            {% csrf_token %}
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

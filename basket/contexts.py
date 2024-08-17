@@ -9,7 +9,7 @@ def basket_contents(request):
     basket = request.session.get('basket', {})
 
     for session_id, session_data in basket.items():
-        if isinstance(session_data, int):
+        if isinstance(session_data, int) and session_data > 0:  # Ensure quantity is positive
             session = get_object_or_404(PtSessions, id=session_id)
             total += session_data * session.item_price
             product_count += session_data
@@ -17,18 +17,19 @@ def basket_contents(request):
                 'session_id': session_id,
                 'quantity': session_data,
                 'session': session,
-                'price' : session.item_price
+                'price': session.item_price
             })
-        else:
+        elif isinstance(session_data, dict):
             product = get_object_or_404(PtSessions, id=session_id)
             for product_id, quantity in session_data.items():
-                total += quantity * product.price
-                product_count += quantity
-                basket_items.append({
-                    'session_id': session_id,
-                    'quantity': quantity,
-                    'session': product,
-                })
+                if quantity > 0:
+                    total += quantity * product.price
+                    product_count += quantity
+                    basket_items.append({
+                        'session_id': session_id,
+                        'quantity': quantity,
+                        'session': product,
+                    })
 
     grand_total = total
 

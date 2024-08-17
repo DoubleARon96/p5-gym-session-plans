@@ -33,7 +33,6 @@
                                 </thead>
                                 <tbody>
                                     {% for item in basket_items %}
-                                    {% if item.session.user == user %}
                                     <form method="post" action="{% url 'adjust_basket' item.session_id %}">
                                         <tr>
                                             <td>{{ item.session.session_name }}</td>
@@ -43,10 +42,7 @@
                                                 {% csrf_token %}
                                             </td>
                                         </tr>
-                                        <hr />
-                                        {% else %}
-                                        <p>you have nothing in your basket</p>
-                                        {% endif %}
+                                        <hr/>
                                         {% endfor %}
                                     </form>
                                     </tr>

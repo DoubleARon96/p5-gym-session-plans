@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404,redirect,reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
+from django.views.decorators.http import require_POST
 from django.contrib.auth.models import User
 from .models import BasketItem, Basket
 from ptsessions.models import PtSessions
@@ -10,7 +11,6 @@ from ptsessions.models import PtSessions
 
 
 @login_required
-#@permission_required('basket.view_basket', raise_exception=True)
 def basket_view(request):
     items = Basket.objects.filter(user=request.user)
     title = "Basket"
@@ -20,16 +20,6 @@ def basket_view(request):
                 'user': request.user,
                 }
     return render(request, template,content)
-
-def delete_item(request, id):
-    queryset =  get_object_or_404 (BasketItem, id=id)
-    if request.method == 'POST':
-        queryset.delete()
-        return redirect('basket')
-    else:
-         messages.error(request, "Exercise couldn't be deleted!")
-    
-    return render (request, "userprograms/userprograms/delete-failed.html")
 
 def add_to_basket(request, session_id=id):
     """ 
@@ -63,7 +53,8 @@ def adjust_basket(request, session_id=id):
         basket[session_id] = basket.get(session_id, 0)
         
     else:
-        basket.pop (session_id)
+        basket.pop (session_id, None)
+
     request.session['basket']=basket
     return redirect('basket')
     
