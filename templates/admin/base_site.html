@@ -1,0 +1,21 @@
+{% extends "admin/base_site.html" %}
+{% block title %}
+{% load static %}
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom-admin.css' %}">
+{% endblock %}
+{% endblock %}
+    {% if request.user.is_staff %}
+    <h1>Personal Trainers Admin</h1>
+    {% else %}
+    <h1>Admin Page</h1>
+    {% endif %}
+{% block branding %}
+
+{% if request.user.is_staff %}
+    <h1 id="site-name"><a class="title" href="{% url 'admin:index' %}">Personal Trainers Admin</a></h1>
+    {% else %}
+    <h1><a href="{% url 'admin:index' %}">Admin Page</a></h1>
+    {% endif %}
+{% endblock %}

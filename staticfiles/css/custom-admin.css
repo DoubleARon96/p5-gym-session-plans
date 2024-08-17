@@ -1,0 +1,20 @@
+/*-------------------------------------------------------admin page*/
+#header {
+    background-color: #778899;
+    border: 2px solid black !important;
+    box-shadow: 5px 5px green !important;
+    border-radius: 15px !important;
+    margin: 10px;
+    color: none !important;
+}
+#branding {
+
+}
+#site-name {
+    color : white;
+}
+.title,
+#user-tools {
+    color: black !important;
+    font-weight: bold;
+}

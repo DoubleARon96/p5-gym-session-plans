@@ -2,7 +2,7 @@ html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body {
-    background-color: lightslategray !important;
+    background-color: #778899 !important;
 }
 .title {
     color: white;
@@ -45,6 +45,14 @@ h1,h2,h3,h4 {
     color: gray;
     margin: 5px;
 }
+/*---------------------------------------------------------messages*/
+.message-container{
+    position: fixed;
+    bottom: 72px;
+    right: 15px;
+    z-index: 9999999999; 
+}
+
 /*---------------------------------------------------------home*/
 .news-block,
 .ptsessions,
@@ -88,6 +96,9 @@ h1,h2,h3,h4 {
 
 .logo-my-session-page { 
     height: 10rem !important;
+}
+.center-boxes {
+    justify-content: center;
 }
 /*---------------------------------------------------------pt sessions page*/
 

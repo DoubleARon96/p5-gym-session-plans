@@ -49,9 +49,12 @@
         {% endfor %}
     </div>
 </div>
+{% if user.is_authenticated and user.is_staff %}
 <div class="container-fluid">
     <div class="row text-center">
-        <div class="col col-12 col-md-4">
+        <div class="col col-12 col-md-4 border text-center m-auto">
+            <p><a class="button button-font m-2 d-block" href="{% url 'admin:index' %}">Link To Staff Admin Page</a></p>
         </div>
     </div>
+{% endif %}
     {% endblock %}
