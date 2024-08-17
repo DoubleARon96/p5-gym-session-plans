@@ -17,7 +17,7 @@ h1,h2,h3,h4 {
     border-radius: 8px;
     box-shadow: 1px 1px 1px black;
     margin: 2px;
-    background-color: rgb(5, 206, 5);
+    background-color: rgb(5, 206, 5) !important;
     
 }
 .button-font,
@@ -75,6 +75,9 @@ h1,h2,h3,h4 {
     text-decoration: none;
     font-weight: bold;
     color: black;
+}
+.welcome-style {
+    list-style-type: none !important;
 }
 /*--------------------------------------------------------- user sessions*/
 .img-container {
@@ -150,4 +153,7 @@ h1,h2,h3,h4 {
 
 .table-basket-margin{
     margin: auto !important;
+}
+.StripeElement {
+    border: 1px solid black;
 }

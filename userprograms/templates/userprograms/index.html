@@ -3,7 +3,13 @@
 {%load crispy_forms_tags %}
 
 {% block mainsessions %}
-
+<div class="container">
+    <div class="row">
+        <div class="col border text-center fs-4">
+            <p>This Is where you make and plan out your own sessions from <em>back</em> day to <em>leg</em> day lets get <stron>training</stron></p>
+        </div>
+    </div>
+</div>
 <div class="container ">
     <div class="row center-boxes">
             {% for content in contents %}
@@ -42,14 +48,6 @@
             </div>
             {% endif %}
             {% endfor %}
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <p></p>
-            <img src="/" alt="Image will be uploaded by PT">
         </div>
     </div>
 </div>

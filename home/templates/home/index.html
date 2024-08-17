@@ -9,7 +9,7 @@
             {% for content in contents %}
             <h2 class="">{{content.title}}</h2>
             <hr />
-            <p class="">{{content.content|safe}}</p>
+            <p class="welcome-style">{{content.content|safe}}</p>
             <p class="text-muted">{{content.updated_on}}</p>
             <!--super user only-->
             {% if user.is_authenticated and user.is_superuser %}
