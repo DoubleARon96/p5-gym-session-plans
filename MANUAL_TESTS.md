@@ -67,3 +67,34 @@ Only found one issue and that was I tried to set a colour as none. so i deleted 
 ### Stripe Element JS
 ![stripe element](docs/validation-images/stripe-elements-validation.png)
 ## Python Validation
+
+# Light Room
+![Light Room Test](docs/test-images/light-room.png)
+
+# Manuel Testing
+The testing methods I did were pretending to be a customer and using the app as a staff member to.
+this involves going through all the links and pages making programs and deleting them also making orders and making sure they are accessible by the client when brought.
+
+I also sent a live version to a few friends to test it out and give reviews on it.
+
+## Payments Tests
+ 
+1. ![fill out form](docs/readme-images/payment-view.png)
+when doing this I tested to see if they are all required.
+if the email can be skipped by not adding the @ and it stops you.
+![email check](docs/test-images/email-test.png)
+2. ![Enter Card Details](docs/test-images/entering-card-number.png)
+this checks if the card is valid and has a build in save function.
+if you don't put in the right number it will say and give a red warning.
+3. ![Submit the payment](docs/test-images/submit.png)
+this redirects you to a success page or if it fails it will have a warning pop up on the screen.
+4. ![Check stripe](docs/readme-images/succesful-payment-intent.png)
+this is were i checked if the webhooks were working and if the card is failing.
+5. ![final stage](docs/test-images/order-number-succes-page.png)
+if everything goes well you will reach this page.
+
+## User Sessions
+
+## PT Sessions
+
+## Reviews

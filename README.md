@@ -1,9 +1,12 @@
 
 Welcome Aaron storey,
 # Home Page
-
+![home page](docs/readme-images/home-page.png)
 ### Brief description
 the home page is aimed to welcome new people to the app/site so they understand what we as the developers can provide the user.
+
+# Scope
+
 
 ### Plans
 ![home page plan ](docs/readme-images/home-page-plan.jpg)
@@ -56,6 +59,7 @@ def updateView(request, ids):
 instead of having the redirect to home it was using the show View one and this confused me going through and wondering why the form didn't appear
 
 # User Sessions
+![user sessions page](docs/readme-images/user-sessions.png)
 ### js issues
 this issues has been the hardest one so far the image below shows the debugging i was using the console logs where my best friend.
 ![js-issue](docs/readme-images/js-issue-on-html.png)
@@ -97,6 +101,7 @@ this shows that after editing it dose update the exercise.
 
 
 # Pt sessions
+![customer view](docs/readme-images/no-staff-view.png)
 ### Brief description
 This app is for the Pts/admins so they can sell their training sessions and maintain the updates for the clients so they will always have new sessions and learn new ways to try all the time.
 ### issues
@@ -108,20 +113,40 @@ then i was reviewing the walkthrough i saw they have the "+= 1" and thought, tha
 The Tests i did where 
 1. Add Item To Basket
 2. Test Link to the full Session Page
+### Staff/Personal Trainers options
+![staff view](docs/readme-images/staff-view.png)
+the Staff/Personal Trainers will all have access to a restricted version of the admin page.
+the styles on this page is very basic because the customers wont be able to view it so all it needs to be is functional and thats what this image blow shows:
+![staff page for pt's](docs/readme-images/admin-pt-page.png)
+this gives staff the option to make programs up and if they know html they can us that to make a more
+advanced looking program.
+##### Staff help with Html 
+I will when everything else is sorted make a few templates up for staff to use on there programs.(TBC) 
 
 # Basket
+![basket page view](docs/readme-images/basket-page.png)
 ### Brief description
 this app is designed to be for all clients looking to by any sessions the PT/Admins make. it also only keeps the clients items when they keep the page open.
 ### issues
-### Testing
+the only issue I got was the basket would not delete the product from the basket but would set it to 0
+Solution: it was in the view I has not set the value to 1 it was by default 0 so it wouldn't pop it.
 
 # Payments
+![payments view](docs/readme-images/payment-view.png)
 ### Brief description
 this app is to help integrate stripe and make it easier for the users to know exactly what items they are buying 
-### issues
-### Testing
+### Issues
+1. 
+![payment fails](docs/readme-images/failed-to-success.png)
+the main issues i had was the web hooks not working properly.
+![payment sucessful](docs/readme-images/succesful-payment-intent.png)
+this was done when makeing this part of the readme.
+2. 
+![issue with country](docs/readme-images/issue-with-country.png)
+this is the second issue that I had this isn't a big issue but it dose not stick to the norm.
 
-### Key Words
+
+# Key Words/SCO
 
 ## main subjects
 
@@ -220,3 +245,16 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 ## Testing And Validation 
 [Link To Testing](MANUAL_TESTS.md)
+
+# Heroku Deployment
+
+1. Go back to Heroku and when the Project’s page opens up, go to the "settings" tab and scroll down to the “Config Vars” section.
+2. Add all relevant following key-value pairs in the “Config Vars” section. Examples include:
+3. Key = SECRET_KEY : Value = Django Secret Key value obtained from settings.py
+4. Key = DATABASE_URL : Value = ElephantSQL URL from point 5. As well as all the relevant stripe and AWS values.
+5. Go to the “Deploy” tab next and scroll down to the GitHub deployment method.
+6. Search for the suitable repository and then connect to it by selecting the “Connect” button.
+7. Scroll down to the bottom of the “Deploy” Page and select the type of deployment you want to conduct
+8. If you opt to “Automatically Deploy”, it will deploy every time you push new code to your repository
+9. Otherwise, you will have to manually deploy, by selecting the button at the bottom of the page.
+The application is now deployed!
