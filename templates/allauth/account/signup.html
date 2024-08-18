@@ -1,49 +1,37 @@
 {% extends "base.html" %}
-{% load allauth i18n %}
-{% block head_title %}
-    {% trans "Signup" %}
-{% endblock head_title %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
 {% block content %}
-<div class="container">
+<div class="container border">
     <div class="row">
-        <div class="col border m-2">
-            <h1>{% trans "Sign Up" %}</h1>
-            <p>
-                {% blocktranslate %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktranslate %}
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h3>{% trans "Sign Up" %}</h3>
+
+            <p>{% blocktrans %}
+                Welcome back to the code|star blog.
+                Do you already have an account? Then please
+                <a class="link" href="{{ login_url }}">sign in</a>
+                instead.
+                {% endblocktrans %}
             </p>
-            {% if not SOCIALACCOUNT_ONLY %}
-                {% url 'account_signup' as action_url %}
-                <form method="post" action="{{ action_url }}">
-                    {% csrf_token %}
-                    <p>
-                        <label for="id_username">Username:</label>
-                        <input type="text" name="username" placeholder="Username" autocomplete="username" minlength="4" maxlength="150" required id="id_username">
-                    </p>
-                    <p>
-                        <label for="id_password1">Password:</label>
-                        <input type="password" name="password1" placeholder="Password" autocomplete="new-password" required aria-describedby="id_password1_helptext" id="id_password1">
-                    </p>
-                        <div class="helptext" id="id_password1_helptext">
-                            <ul>
-                                <li>Your password can’t be too similar to your other personal information.</li>
-                                <li>Your password must contain at least 8 characters.</li>
-                                <li>Your password can’t be a commonly used password.</li>
-                                <li>Your password can’t be entirely numeric.</li>
-                            </ul>
-                        </div>
-                    
-                    <p>
-                        <label for="id_password2">Password (again):</label>
-                        <input type="password" name="password2" placeholder="Password (again)" autocomplete="new-password" required id="id_password2">
-                    </p>
-                    {{ redirect_field }}
-                    <button class="button button-font" type="submit">Sign Up</button>
-                </form>
-            {% endif %}
-            {% if SOCIALACCOUNT_ENABLED %}
-                {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class=" button btn-signup button-font" type="submit">
+                    {% trans "Sign Up" %} &raquo;</button>
+            </form>
         </div>
     </div>
 </div>
-{% endblock content %}
+
+{% endblock %}
