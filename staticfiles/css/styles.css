@@ -81,7 +81,7 @@ h1,h2,h3,h4 {
     width: 100%;
     display: flex;
     background-image: url("/static/images/assest-images/user-banner.png");
-    object-fit: fit;
+    object-fit: contain;
     background-repeat: no-repeat;
     margin: 5px;
 }
@@ -130,7 +130,7 @@ h1,h2,h3,h4 {
                     }
 /*------------------------------------------------------------------- profile page*/
 .profile-img {
-    border: 1px sold black;
+    border: 1px solid black;
     border-radius: 20px;
     margin: 10px;
 }

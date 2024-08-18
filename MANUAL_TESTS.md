@@ -47,6 +47,23 @@ I had no issues with this only a couple of warnings.
 ![payment validation](docs/validation-images/payment-validation.png)
 ## CSS Validation
 
+### styles .css
+![styles css](docs/validation-images/styles-css.png)
+only had two errors at first one was object-fit:fit instead of contain.
+the other one was I put sold instead of solid on a border.
+
+### Custom Admin
+![admin css](docs/validation-images/admin-css.png)
+Only found one issue and that was I tried to set a colour as none. so i deleted it 
+
 ## Java Script Validation
 
+### Delete Exercise JS
+![delete exercise](docs/validation-images/delete-exercise-validation.png)
+### Delete Item JS
+![delete item](docs/validation-images/delete-item-validation.png)
+### Delete Main Exercise JS
+![delete main exercise](docs/validation-images/delete-main-exercise-validation.png)
+### Stripe Element JS
+![stripe element](docs/validation-images/stripe-elements-validation.png)
 ## Python Validation
