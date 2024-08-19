@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https:https://lets-get-fit-0b60a4063b7b.herokuapp.com/sitemap.xml
