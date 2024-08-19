@@ -17,7 +17,6 @@ def index(request):
     except User.DoesNotExist:
         profile = None
 
-    
     sessions = PtSessions.objects.filter(client=request.user)
     user_sessions = MainUserProgram.objects.filter(user=request.user)
     sessions_count = user_sessions.count
@@ -32,7 +31,7 @@ def index(request):
         'user_sessions': user_sessions,
         'title': title,
         'client_sessions': request.user.username,
-        'sessions_count' : sessions_count,
+        'sessions_count': sessions_count,
         'orders': orders
     }
     return render(request, "profile_page/index.html", context)

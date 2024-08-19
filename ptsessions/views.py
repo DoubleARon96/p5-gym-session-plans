@@ -1,8 +1,9 @@
-from django.shortcuts import render,get_object_or_404,redirect,HttpResponse
-from .models import PtSessions,Price
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
+from .models import PtSessions, Price
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from basket.models import Basket,BasketItem
+from basket.models import Basket, BasketItem
+
 
 @login_required
 def index(request):
@@ -14,13 +15,14 @@ def index(request):
     content = queryset
     title = "PT Sessions For Purchase"
     viewbag = {"contents": content,
-               "price" : price,
+               "price": price,
                "title": title}
-        
-    return render (request, "ptsessions/index.html",viewbag)
 
-def ptsession_view (request, session_id):
-    queryset = get_object_or_404(PtSessions, id = session_id)
+    return render(request, "ptsessions/index.html", viewbag)
+
+
+def ptsession_view(request, session_id):
+    queryset = get_object_or_404(PtSessions, id=session_id)
     mysessions = PtSessions.objects.filter(id=session_id)
     title = queryset.session_name
     template = "ptsessions/pt-sessions.html"
@@ -30,5 +32,4 @@ def ptsession_view (request, session_id):
         'content': queryset,
         'sessions': mysessions
     }
-    return render (request,template, viewbag)
-    
+    return render(request, template, viewbag)
