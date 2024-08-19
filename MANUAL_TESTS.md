@@ -66,7 +66,24 @@ Only found one issue and that was I tried to set a colour as none. so i deleted 
 ![delete main exercise](docs/validation-images/delete-main-exercise-validation.png)
 ### Stripe Element JS
 ![stripe element](docs/validation-images/stripe-elements-validation.png)
+
 ## Python Validation
+When doing the validations I made sure to take screen shots of a few for examples.
+with all files except django generated ones, I also made sure they all conform to to Pep8 rules.
+![home page view first test](docs/validation-images/python-validation/home-page-first-test.png)
+this is an example of what issues you will come across when doing Python validation with pep8 rules.
+![home page view passed](docs/validation-images/python-validation/home-validaion-pass.png)
+Here is the an example of a corrected version of the page.
+![basket context validation](docs/validation-images/python-validation/basket-context-file-validation.png)
+Basket context file
+![home page form validation](docs/validation-images/python-validation/home-form-validation.png)
+Home page form file
+![payment form validation](docs/validation-images/python-validation/payment-form-validation.png)
+Payment form file 
+![user program validation](docs/validation-images/python-validation/user-program-validation.png)
+user program file
+![basket validation](docs/validation-images/python-validation/views-file-basket-validation.png)
+Basket view  file
 
 # Light Room
 ![Light Room Test](docs/test-images/light-room.png)
@@ -77,6 +94,19 @@ this involves going through all the links and pages making programs and deleting
 
 I also sent a live version to a few friends to test it out and give reviews on it.
 
+## Home
+There is only two features to test on this page 
+1. super users are the only ones that can see the update button
+2. the update button takes you to a page that lets you update
+### Update Button Test
+![super user home page](docs/test-images/super-user-home.png)
+### Updating The Message
+![super user home page](docs/test-images/super-user-home.png)
+The button is visible in super user mode
+![title test update](docs/test-images/updating-title.png)
+Link on the button dose take you to the update page and allows you to added and take away text.
+![updated version](docs/test-images/updating-title.png)
+Pressed the update button takes you back to home page and has updated text 
 ## Payments Tests
  
 1. ![fill out form](docs/readme-images/payment-view.png)
