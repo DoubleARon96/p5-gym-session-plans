@@ -120,8 +120,38 @@ the styles on this page is very basic because the customers wont be able to view
 ![staff page for pt's](docs/readme-images/admin-pt-page.png)
 this gives staff the option to make programs up and if they know html they can us that to make a more
 advanced looking program.
-##### Staff help with Html 
-I will when everything else is sorted make a few templates up for staff to use on there programs.(TBC) 
+##### Staff help with Html  
+
+### Example for table in html
+<p>Warm Up</p>
+<p>any Cardio For 10 mins</p>
+<p>Table All Exercises you Should Struggle on the last one.</p>
+<table class="table table-bordered">
+<thead>
+<tr>
+<td>Chest</td>
+<td>Exercise Name</td>
+<td>Reps</td>
+<td>Sets</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bench Press</td>
+<td>3</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Cable Flys</td>
+<td>3</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+
+### Other Tools For Non Html
+![other tools](docs/readme-images/other-tools.png)
+the bar at the top of the program part will help make good looking sessions
 
 # Basket
 ![basket page view](docs/readme-images/basket-page.png)
