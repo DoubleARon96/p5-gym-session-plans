@@ -133,6 +133,10 @@ The user Sessions Tests I will Be doing
 4. if you can make a session the next will be can you use the link to get to the adding exercise page 
 5. when on the adding exercise page i will test if you can add new exercises , update them and delete them.
 ### Making Session & Deleting Test
+the testing of the sessions was easy because it was only create and delete so only two buttons
+* testing the create scroll down and fill in the form and then press the add new button and an alert will show saying it was created and it will show on the page.
+
+* testing the delete click the delete button and then you will get a warning saying are you sure and when you click the delete, it deleted the session and an alert will show.
 ![making session form](docs/test-images/making-session-form.png)
 ![new session made ](docs/test-images/session-made.png)
 ![delete session test](docs/test-images/test-delete.png)
@@ -140,15 +144,27 @@ The user Sessions Tests I will Be doing
 
 ### Making Exercise , Delete & Update
 #### Making A New Exercise
+The Tests I did to make sure that Crud functionality is working in this part I also tested to make sure
+the alerts were working with every test
 ![exercise view](docs/test-images/exercise-page-view.png)
+The link to the page works and the page displays fully
 ![making new exercise](docs/test-images/making-new-exercise.png)
+next step was to check if i could add a new exercise so i scrolled down to the form.
 ![exercise added](docs/test-images/new-exercise-added.png)
+the last step was click the button make and then you will get an alert and then the new exercise was made.
 #### Updating
+when testing the update function I looked out for alerts and if it was successful 
 ![updating session test](docs/test-images/testing-update-exercise.png)
+first I clicked the update button and then it took me to the update page and changed a few things to 
+check if the texts can be changed
 ![update successful](docs/test-images/update-exercise-alert.png)
-#### Deleting 
+the final step is click the update button and then it shows an alert. the new exercise appeared as a table on the grid.
+#### Deleting
+testing the delete button was the easiest because all i had to do is click and see what happens.
 ![testing Delete](docs/test-images/testing-exercise-delete.png)
+first step click on the delete button.
 ![delete success](docs/test-images/delete-test-success.png)
+no warning shows but an alert shows up and the exercise is deleted.
 
 ## PT Sessions
 ## Reviews
