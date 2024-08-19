@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, redirect, render,HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render, HttpResponse
 from django.urls import reverse
 from django.conf import settings
 from django.views.decorators.http import require_POST
@@ -11,20 +11,21 @@ from .forms import OrderForm
 import stripe
 import json
 
+
 @require_POST
 def Cache_Payment_data(request):
     try:
         payment_id = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        stripe.PaymentIntent.modify(payment_id,metadata={
-            'basket':json.dumps(request.session.get('basket',{})),
-            'save_info':request.POST.get('save_info'),
-            'user':request.user,
+        stripe.PaymentIntent.modify(payment_id, metadata={
+            'basket': json.dumps(request.session.get('basket', {})),
+            'save_info': request.POST.get('save_info'),
+            'user': request.user,
         })
-        return HttpResponse (status=200)
+        return HttpResponse(status=200)
 
     except Exception as e:
-        messages.error(request,'Payment Failed')
+        messages.error(request, 'Payment Failed')
         return HttpResponse(content=e, status=400)
 
 
@@ -50,7 +51,7 @@ def Checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_basket = json.dumps(items)  
+            order.original_basket = json.dumps(items)
             order.save()
             for session_id, session_data in items.items():
                 try:
@@ -73,11 +74,12 @@ def Checkout(request):
                             )
                             order_line_item.save()
                 except PtSessions.DoesNotExist:
-                    messages.error(request, 'Sorry, we could not find this session.')
+                    messages.error(request,
+                                   'Sorry, we could not find this session.')
                     order.delete()
                     return redirect(reverse('basket'))
-        request.session['save_info'] = 'save_info' in request.POST       
-        return redirect(reverse('payment_success', args=[order.order_number]))  
+        request.session['save_info'] = 'save_info' in request.POST
+        return redirect(reverse('payment_success', args=[order.order_number]))
     else:
         if not items:
             messages.error(request, "You have an empty basket.")
@@ -94,7 +96,9 @@ def Checkout(request):
 
         order_form = OrderForm()
         if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. Did you forget to set it?')
+            messages.warning(request,
+                             'Stripe public key is missing'
+                             'Did you forget to set it?')
 
         template = 'payments/index.html'
         context = {
@@ -105,20 +109,19 @@ def Checkout(request):
         }
         return render(request, template, context)
 
-    
-def Checkout_success (request, order_number):
+
+def Checkout_success(request, order_number):
     """
     this handles successful transactions
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Your purchase has been processed! \
-                     Your order number is {order_number}. \
-                        You will receive a confirmation Email to {order.email}.')
+                    Your order number is {order_number}. \
+                    You will receive a confirmation Email to {order.email}.')
     if 'basket' in request.session:
         del request.session['basket']
-         
-    
+
     for order_line_product in order.product_lines.all():
         pt_session = order_line_product.product
         # Add the user to the client field of the PtSession
@@ -129,5 +132,4 @@ def Checkout_success (request, order_number):
         'order': order,
         'title': 'Thank You',
     }
-    return render(request, template, content)  
-
+    return render(request, template, content)

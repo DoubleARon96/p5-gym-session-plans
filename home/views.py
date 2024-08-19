@@ -7,6 +7,7 @@ from django.views.generic import ListView
 from .forms import NewsForm
 from .models import HomeNews
 
+
 def index(request):
     """
     view to show template
@@ -16,8 +17,9 @@ def index(request):
     title = "Welcome To The Home"
     viewbag = {"contents": content,
                "title": title}
-        
-    return render (request, "home/index.html",viewbag)
+
+    return render(request, "home/index.html", viewbag)
+
 
 def NewsFormView(request):
     form = NewsForm()
@@ -32,6 +34,7 @@ def NewsFormView(request):
                "title": title}
     return render(request, template_name, context)
 
+
 def showView(request):
     storyShow = HomeNews.objects.all()
     template_name = 'home/show.html'
@@ -40,7 +43,7 @@ def showView(request):
 
 
 def updateView(request, ids):
-    queryset =  get_object_or_404 (HomeNews, id=ids)
+    queryset = get_object_or_404(HomeNews, id=ids)
     form = NewsForm(instance=queryset)
     if request.method == 'POST':
         form = NewsForm(request.POST, instance=queryset)
@@ -49,8 +52,7 @@ def updateView(request, ids):
             messages.success(request, "Message Was Updated Successfully !")
             return redirect('home')
         else:
-            form = NewsForm(instance = queryset)
+            form = NewsForm(instance=queryset)
             messages.error(request, "Message Was Not Updated !")
     template_name = 'home/crud.html'
-    return render(request, template_name, {'form':form})
-    
+    return render(request, template_name, {'form': form})

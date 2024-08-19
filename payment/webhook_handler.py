@@ -8,20 +8,19 @@ import stripe
 import json
 import time
 
+
 class StripeWH_Handler:
     '''
     this class will listen to stripe
     '''
-    def __init__(self,request):
-        self.request=request
-    
-    
-    
+    def __init__(self, request):
+        self.request = request
+
     def handle_payment_intent_succeeded(self, event):
-        '''
+        """
         This function handles what happens when the payment is
         successful from the Stripe website.
-        '''
+        """
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.basket
@@ -36,7 +35,7 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
-        
+
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -48,8 +47,8 @@ class StripeWH_Handler:
                     country__iexact=shipping_details.address.country,
                     post_code__iexact=shipping_details.address.postal_code,
                     town_or_city__iexact=shipping_details.address.city,
-                    first_line_of_address__iexact=shipping_details.address.line1,
-                    second_line_of_address__iexact=shipping_details.address.line2,
+                    first_line_address__iexact=shipping_details.address.line1,
+                    second_line_address__iexact=shipping_details.address.line2,
                     county__iexact=shipping_details.address.state,
                     total=grand_total,
                     original_basket=bag,
@@ -63,7 +62,8 @@ class StripeWH_Handler:
 
         if order_exists:
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | Success: Verified order in database',
+                content=f'Webhook received: {event["type"]} | \
+                Success: Verified order in database',
                 status=200
             )
         else:
@@ -77,8 +77,8 @@ class StripeWH_Handler:
                         country=shipping_details.address.country,
                         post_code=shipping_details.address.postal_code,
                         town_or_city=shipping_details.address.city,
-                        first_line_of_address=shipping_details.address.line1,
-                        second_line_of_address=shipping_details.address.line2,
+                        first_line_address=shipping_details.address.line1,
+                        second_line_address=shipping_details.address.line2,
                         county=shipping_details.address.state,
                         original_basket=bag,
                         stripe_pid=pid,
@@ -103,25 +103,27 @@ class StripeWH_Handler:
                             order_line_item.save()
             except Exception as e:
                 return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | Error: {str(e)}',
+                    content=f'Webhook received: {event["type"]} | \
+                    Error: {str(e)}',
                     status=500
                 )
 
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | Success: Created order in webhook',
+            content=f'Webhook received: {event["type"]} | \
+            Success: Created order in webhook',
             status=200
         )
 
-    def handle_payment_intent_payment_failed(self,event):
+    def handle_payment_intent_payment_failed(self, event):
         '''
-        this function handles the what happens when the payment 
+        this function handles the what happens when the payment
         has failed to work form the stripe website
         '''
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
-    
-    def handelEvent(self,event):
+
+    def handelEvent(self, event):
         '''
         this function handles the events
         '''

@@ -246,6 +246,27 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 ## Testing And Validation 
 [Link To Testing](MANUAL_TESTS.md)
 
+# Technolagy Used
+
+## Tools 
+* Django – The framework used in this project to join the databases with a website.
+* Crispy Forms – Formats the models into forms on webpages.
+* Gitpod – Used as the development environment.
+* GitHub – The project’s Version Control.
+* Heroku – To deploy the webpage.
+* git commits - I used this to help word and set out my commits
+
+## Styling
+* Bootstrap – To provide extra styling and positioning.
+* Font Awesome – For the icons and symbols.
+
+## Validation
+* [W3C HTML Validation Service](https://validator.w3.org/ "W3C HTML") – To validate all the HTML files, including the templates from Django itself, due to editing them.
+* [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS") – To validate the base.css and the admin page.
+* [Python Validation](https://www.codewof.co.nz/style/python3/ "Python Syntax Checker PEP8") – To validate all the Python files, making sure they align with PEP8.
+* [Web AIM](https://webaim.org/resources/contrastchecker/ "Web AIM") – To analyse the colour contrast properties between colours.
+* [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en "Lighthouse") – To check the website’s performance and accessibility, making sure the best practices are used.
+
 # Heroku Deployment
 
 1. Go back to Heroku and when the Project’s page opens up, go to the "settings" tab and scroll down to the “Config Vars” section.
