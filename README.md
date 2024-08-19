@@ -13,7 +13,7 @@ the home page is aimed to welcome new people to the app/site so they understand 
 ![image of data plan ](docs/readme-images/home-data-plan.png)
 
 ### Thoughts 
-this is a basic model i set up thinking that it would be nice to be able to edit for super users but i thought if i keep it to only one and make it so only devs and the client can change.
+this is a basic model i set up thinking that it would be nice to be able to edit for super users but i thought if i keep it to only one and make it so only developers and the client can change.
 
 i also made it so its crud function is only to be updated so its easy to track and make sure not to much writing is on the home.
 
@@ -36,7 +36,7 @@ MIDDLEWARE = [
 ]
 
 2. update / edit the new story
-*  I had an issue with getting the news story to upadate so i had to do some research and the problem was i had the urls set up wrong so it was using the wrong views function
+*  I had an issue with getting the news story to update so i had to do some research and the problem was i had the urls set up wrong so it was using the wrong views function
 
 >Urls.py
 path('sv/', views.showView, name='show_url'),
@@ -139,8 +139,8 @@ this app is to help integrate stripe and make it easier for the users to know ex
 1. 
 ![payment fails](docs/readme-images/failed-to-success.png)
 the main issues i had was the web hooks not working properly.
-![payment sucessful](docs/readme-images/succesful-payment-intent.png)
-this was done when makeing this part of the readme.
+![payment successful](docs/readme-images/succesful-payment-intent.png)
+this was done when making this part of the readme.
 2. 
 ![issue with country](docs/readme-images/issue-with-country.png)
 this is the second issue that I had this isn't a big issue but it dose not stick to the norm.
@@ -246,7 +246,7 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 ## Testing And Validation 
 [Link To Testing](MANUAL_TESTS.md)
 
-# Technolagy Used
+# Technology Used
 
 ## Tools 
 * Django – The framework used in this project to join the databases with a website.

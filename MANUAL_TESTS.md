@@ -100,15 +100,17 @@ There is only two features to test on this page
 2. the update button takes you to a page that lets you update
 ### Update Button Test
 ![super user home page](docs/test-images/super-user-home.png)
+Non super user view
+![non super user view](docs/test-images/non-super-user-view.png)
 ### Updating The Message
 ![super user home page](docs/test-images/super-user-home.png)
-The button is visible in super user mode
+The button is visible in super user mode.
 ![title test update](docs/test-images/updating-title.png)
 Link on the button dose take you to the update page and allows you to added and take away text.
 ![updated version](docs/test-images/updating-title.png)
-Pressed the update button takes you back to home page and has updated text 
+Pressed the update button takes you back to home page and has updated text.
 ## Payments Tests
- 
+Payment test involves making sure all the buttons and links go to the right page, all forms are fill able and will let the user continue on to the payment and then check that the payment goes through the stripe payment system correctly.
 1. ![fill out form](docs/readme-images/payment-view.png)
 when doing this I tested to see if they are all required.
 if the email can be skipped by not adding the @ and it stops you.
@@ -124,7 +126,29 @@ this is were i checked if the webhooks were working and if the card is failing.
 if everything goes well you will reach this page.
 
 ## User Sessions
+The user Sessions Tests I will Be doing
+1. Making sure the link to the page works
+2. make sure page displays 
+3. make sure the user can make a session 
+4. if you can make a session the next will be can you use the link to get to the adding exercise page 
+5. when on the adding exercise page i will test if you can add new exercises , update them and delete them.
+### Making Session & Deleting Test
+![making session form](docs/test-images/making-session-form.png)
+![new session made ](docs/test-images/session-made.png)
+![delete session test](docs/test-images/test-delete.png)
+![delete session test alert](docs/test-images/delete-session-alert.png)
+
+### Making Exercise , Delete & Update
+#### Making A New Exercise
+![exercise view](docs/test-images/exercise-page-view.png)
+![making new exercise](docs/test-images/making-new-exercise.png)
+![exercise added](docs/test-images/new-exercise-added.png)
+#### Updating
+![updating session test](docs/test-images/testing-update-exercise.png)
+![update successful](docs/test-images/update-exercise-alert.png)
+#### Deleting 
+![testing Delete](docs/test-images/testing-exercise-delete.png)
+![delete success](docs/test-images/delete-test-success.png)
 
 ## PT Sessions
-
 ## Reviews
