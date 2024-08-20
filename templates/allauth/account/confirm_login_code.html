@@ -1,10 +1,16 @@
-{% extends "account/base_entrance.html" %}
+{% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 {% load allauth account %}
 {% block head_title %}
     {% translate "Sign In" %}
 {% endblock head_title %}
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col border">
+
+        
     {% element h1 %}
         {% translate "Enter Sign-In Code" %}
     {% endelement %}
@@ -34,4 +40,7 @@
             {% translate "Other sign-in options" %}
         {% endelement %}
     {% endelement %}
+        </div>
+    </div>
+</div>
 {% endblock content %}
