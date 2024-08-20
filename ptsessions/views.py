@@ -16,7 +16,8 @@ def index(request):
     title = "PT Sessions For Purchase"
     viewbag = {"contents": content,
                "price": price,
-               "title": title}
+               "title": title,
+               }
 
     return render(request, "ptsessions/index.html", viewbag)
 

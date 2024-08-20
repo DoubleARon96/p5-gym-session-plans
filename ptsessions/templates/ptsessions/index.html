@@ -17,23 +17,18 @@
     </div>
 </div>
 <div class="container">
-    <div class="row ">
+    <div class="row">
         {% for content in contents %}
-        <div class="col ptsessions ">
-            {% if  contents %}
-                {% if content.client == user %}
+        <div class="col ptsessions">
+            {% if request.user == content.client %}
                 <h1><a href="{% url 'ptsession_view' session_id=content.id %}">{{ content.session_name }}</a></h1>
-                {% else %}
+            {% else %}
                 <h1>{{ content.session_name }}</h1>
-                {% endif %}
-
+            {% endif %}
             <ul>
                 <li>{{ content.body_part }}</li>
                 <li>£{{ content.item_price }}</li>
             </ul>
-            {% else %}
-            <p>No sessions found.</p>
-            {% endif %}
             <div class="row text-center">
                 <div class="col">
                     <form action="{% url 'add_to_basket' content.id %}" method="post">
@@ -46,6 +41,7 @@
         {% endfor %}
     </div>
 </div>
+
 {% if user.is_authenticated and user.is_staff %}
 <div class="container-fluid">
     <div class="row text-center">

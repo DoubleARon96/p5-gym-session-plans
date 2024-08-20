@@ -1,11 +1,17 @@
 
-Welcome Aaron storey,
+# Welcome To Valkan Fitness ReadMe
+Link To Website
+[live site](https://lets-get-fit-0b60a4063b7b.herokuapp.com/)
+Link To Repository 
+[link to repo](https://github.com/DoubleARon96/p5-gym-session-plans)
 # Home Page
 ![home page](docs/readme-images/home-page.png)
 ### Brief description
 the home page is aimed to welcome new people to the app/site so they understand what we as the developers can provide the user.
 
 # Scope
+
+# UX
 
 
 ### Plans
@@ -104,6 +110,9 @@ this shows that after editing it dose update the exercise.
 ![customer view](docs/readme-images/no-staff-view.png)
 ### Brief description
 This app is for the Pts/admins so they can sell their training sessions and maintain the updates for the clients so they will always have new sessions and learn new ways to try all the time.
+### Staff Permissions
+Staff permissions will be set by a admin when they are hired to join our team
+![staff permissions](docs/readme-images/staff-rules.png)
 ### issues
 ![wrong syntax](docs/readme-images/add-to-basket-wrong.png)
 when trying to debug i couldn't understand why it wasn't adding anything but!!!
@@ -113,14 +122,8 @@ then i was reviewing the walkthrough i saw they have the "+= 1" and thought, tha
 The Tests i did where 
 1. Add Item To Basket
 2. Test Link to the full Session Page
-### Staff/Personal Trainers options
-![staff view](docs/readme-images/staff-view.png)
-the Staff/Personal Trainers will all have access to a restricted version of the admin page.
-the styles on this page is very basic because the customers wont be able to view it so all it needs to be is functional and thats what this image blow shows:
-![staff page for pt's](docs/readme-images/admin-pt-page.png)
-this gives staff the option to make programs up and if they know html they can us that to make a more
-advanced looking program.
-##### Staff help with Html  
+
+## Staff help with Html 
 
 ### Example for table in html
 <p>Warm Up</p>
@@ -285,6 +288,11 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 * GitHub – The project’s Version Control.
 * Heroku – To deploy the webpage.
 * git commits - I used this to help word and set out my commits
+* jQuery - To conduct some of the form and stripe checkout logic
+
+## Database
+* SQLite - The default database on Django.
+* ElephantSQL – The final database used for the deployed project.
 
 ## Styling
 * Bootstrap – To provide extra styling and positioning.
@@ -293,8 +301,7 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 ## Validation
 * [W3C HTML Validation Service](https://validator.w3.org/ "W3C HTML") – To validate all the HTML files, including the templates from Django itself, due to editing them.
 * [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS") – To validate the base.css and the admin page.
-* [Python Validation](https://www.codewof.co.nz/style/python3/ "Python Syntax Checker PEP8") – To validate all the Python files, making sure they align with PEP8.
-* [Web AIM](https://webaim.org/resources/contrastchecker/ "Web AIM") – To analyse the colour contrast properties between colours.
+* [Python Validation](https://pep8ci.herokuapp.com/ "Python Syntax Checker PEP8") – To validate all the Python files, making sure they align with PEP8.
 * [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en "Lighthouse") – To check the website’s performance and accessibility, making sure the best practices are used.
 
 # Heroku Deployment

@@ -86,6 +86,12 @@ user program file
 Basket view  file
 
 # Light Room
+I ran a light room test because its a good way to test the website in multiply ways in one test.
+
+* Performance – Based on how fast the website loads and contributes to the overall UX.
+* Accessibility – Based on how easy it is to use the website regardless if people might use a screen reader, etc.
+* Best Practices – Based on the best practices used in industry.
+* SEO Performance – Based on how useful the meta tags and labels are throughout the website.
 ![Light Room Test](docs/test-images/light-room.png)
 
 # Manuel Testing
@@ -167,4 +173,36 @@ first step click on the delete button.
 no warning shows but an alert shows up and the exercise is deleted.
 
 ## PT Sessions
+Testing the Pt session includes
+1. making sure the admin button appears only for super users
+2. items can be brought by users logged in
+3. when on the super user page they only have access to the pt sessions
+4. final but big test is to check that i can create a pt session and it appear on the pt session page.
+### Staff/Personal Trainers options
+![staff view](docs/readme-images/staff-view.png)
+the Staff/Personal Trainers will all have access to a restricted version of the admin page.
+![client view](docs/readme-images/client-view.png)
+this shows that the admin button is not showing means that it has passed this test.
+### Staff/Personal Trainer Page
+the styles on this page is very basic because the customers wont be able to view it so all it needs to be is functional and thats what this image blow shows:
+![staff page for pt's](docs/readme-images/admin-pt-page.png)
+this gives staff the option to make programs up and if they know html they can us that to make a more
+advanced looking program.
+### Making A PT Session
+1. First check the link works.
+2. no other pt sessions are appearing from other pt's
+![filter working and link works](docs/readme-images/adim-view-with-filter.png)
+this shows that the admin has given the right access.
+Making a new session in the menu the link works and the view is limited to only session made by the current user logged in
+![making a new session](docs/test-images/making-a-session.png)
+next i filled out the form and check all the required and tested what clients can add the session to.
+![filling out form](docs/test-images/filling-out-form.png)
+now to check if the session will be added after I confirm the form.
+![form added](docs/test-images/new-session-added.png)
+The next check is to make sure its on the market place and adding to basket works too.
+![added to market place](docs/test-images/new-session-on-market.png)
+the last check is to see if you can view the session from you profile where it is stored
+![final view](docs/test-images/final-view.png)
+##### issues
+while testing this the only issue i can think of is that you can add anyone as the user but this will be counted because all members of staff will be trained to use this and if they select the wrong person we have a admin team to fix the issue.
 ## Reviews
