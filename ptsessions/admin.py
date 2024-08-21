@@ -16,7 +16,7 @@ class PostAdmin(SummernoteModelAdmin):
         only see items and programs that are attached to your user
         """
         admin_content = super().get_queryset(request)
-        if request.user.is_staff:
+        if request.user.is_staff and not request.user.is_superuser:
             return admin_content.filter(user=request.user)
         return admin_content
 
