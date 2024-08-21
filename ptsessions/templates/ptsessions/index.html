@@ -19,9 +19,9 @@
 <div class="container">
     <div class="row">
         {% for content in contents %}
-        <div class="col ptsessions">
-            {% if request.user == content.client %}
-                <h1><a href="{% url 'ptsession_view' session_id=content.id %}">{{ content.session_name }}</a></h1>
+        <div class="col ptsessions d-inline-grid">
+            {% if user in content.client.all %}
+                <h1>{{ content.session_name }}</h1>
             {% else %}
                 <h1>{{ content.session_name }}</h1>
             {% endif %}
@@ -31,17 +31,20 @@
             </ul>
             <div class="row text-center">
                 <div class="col">
+                    {% if user not in content.client.all %}
                     <form action="{% url 'add_to_basket' content.id %}" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="button add-to-basket-btn">Add to Basket</button>
+                        <button type="submit" class="button button-font add-to-basket-btn">Add to Basket</button>
                     </form>
+                    {% else %}
+                    <p class="text-center"><a class="button button-font" href="{% url 'ptsession_view' session_id=content.id %}">Link To Session</a></p>
+                    {% endif %}
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
-
 {% if user.is_authenticated and user.is_staff %}
 <div class="container-fluid">
     <div class="row text-center">

@@ -40,7 +40,6 @@
   {% block navbar %}
   <nav class="navbar navbar-expand-lg bg-body-tertiary text-center">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -148,9 +147,9 @@
       <div class="row">
         <div class="col col-4 d-inline brands-logo text-start border ">
           <ul class="brands-logo-list">
-            <li><a class="link-font" href="https://www.facebook.com/profile.php?id=61563488895244"><i class="fa-brands fs-1 fa-square-facebook"></i> Facebook Link</a></li>
-            <li><a class="link-font" href="https://www.youtube.com/watch?v=ixkQaZXVQjs"><i class="fa-brands fs-1 fa-youtube"></i>Youtube Link For Beginners To Follow</a></li>
-            <li><a class="link-font" href="https://www.freeprivacypolicy.com/live/e1703400-f47b-43ae-9e2b-2fff519f101b"><i class="fa-solid fa-brands fs-1 fa-file-lines"></i></i>Private Policy</a></li>
+            <li><a class="link-font" target="_blank" href="https://www.facebook.com/profile.php?id=61563488895244"><i class="fa-brands fs-1 fa-square-facebook"></i> Facebook Link</a></li>
+            <li><a class="link-font" target="_blank" href="https://www.youtube.com/watch?v=ixkQaZXVQjs"><i class="fa-brands fs-1 fa-youtube"></i>Youtube Link For Beginners To Follow</a></li>
+            <li><a class="link-font" target="_blank" href="https://www.freeprivacypolicy.com/live/e1703400-f47b-43ae-9e2b-2fff519f101b"><i class="fa-solid fa-brands fs-1 fa-file-lines"></i></i>Private Policy</a></li>
           </ul>
         </div>
         <div class="col border">
@@ -188,7 +187,7 @@
 
   {% block load_js %}
   {% endblock %}
-  <script type="text/javascript">
+  <script>
     $(document).ready(function() {
             $('.toast').toast('show');
         });

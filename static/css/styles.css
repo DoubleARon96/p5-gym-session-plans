@@ -140,9 +140,15 @@ h1,h2,h3,h4 {
 /*------------------------------------------------------------------Toast styles*/
 .my-toast {
     z-index: 99;
+    position: fixed !important;
+    top: 15px;
+    right: 20px;
+}
+.toast-body {
     position: fixed;
     top: 15px;
-    right: 15px;
+    right: 20px;
+    background-color: azure;
 }
 /*------------------------------------------------------------------- Payments*/
 .basket-in-payment{

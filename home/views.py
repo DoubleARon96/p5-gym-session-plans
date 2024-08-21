@@ -14,7 +14,7 @@ def index(request):
     """
     queryset = HomeNews.objects.all()
     content = queryset
-    title = "Welcome To The Home"
+    title = "Welcome To Valkan Fitness"
     viewbag = {"contents": content,
                "title": title}
 

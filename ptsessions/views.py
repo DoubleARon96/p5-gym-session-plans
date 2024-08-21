@@ -8,18 +8,22 @@ from basket.models import Basket, BasketItem
 @login_required
 def index(request):
     """
-    view to show template
+    View to show template
     """
     queryset = PtSessions.objects.all()
     price = Price.objects.all()
     content = queryset
     title = "PT Sessions For Purchase"
-    viewbag = {"contents": content,
-               "price": price,
-               "title": title,
-               }
+    viewbag = {
+        "contents": content,
+        "price": price,
+        "title": title,
+        "user": request.user,
+    }
 
     return render(request, "ptsessions/index.html", viewbag)
+
+
 
 
 def ptsession_view(request, session_id):
