@@ -1,0 +1,1 @@
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QAs the creator, I want to allows Staff to Add/Edit/Delete PT Sessions.\\E$"}

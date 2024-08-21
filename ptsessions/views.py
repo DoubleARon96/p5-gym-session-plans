@@ -24,8 +24,6 @@ def index(request):
     return render(request, "ptsessions/index.html", viewbag)
 
 
-
-
 def ptsession_view(request, session_id):
     queryset = get_object_or_404(PtSessions, id=session_id)
     mysessions = PtSessions.objects.filter(id=session_id)

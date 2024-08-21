@@ -37,7 +37,7 @@
                         <button type="submit" class="button button-font add-to-basket-btn">Add to Basket</button>
                     </form>
                     {% else %}
-                    <p class="text-center"><a class="button button-font" href="{% url 'ptsession_view' session_id=content.id %}">Link To Session</a></p>
+                    <p class="text-center"><a class="button button-font p-1" href="{% url 'ptsession_view' session_id=content.id %}">Link To Session</a></p>
                     {% endif %}
                 </div>
             </div>
@@ -52,5 +52,6 @@
             <p><a class="button button-font m-2 d-block" href="{% url 'admin:index' %}">Link To Staff Admin Page</a></p>
         </div>
     </div>
+</div>
 {% endif %}
     {% endblock %}

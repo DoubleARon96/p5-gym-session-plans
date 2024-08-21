@@ -3,50 +3,28 @@
 ## Manuel Testing
 
 ## HTML Validation
-
+![Validation](docs/validation-images/clear-validation.png)
 ### Home Page
-![home page view](docs/validation-images/home-page.png)
-![home page validation](docs/validation-images/home-page-validation.png)
 The only issue I had was the welcome message on the home page it was putting an extra P element 
-
-### Basket Page
-![basket page](docs/validation-images/basket-page.png)
-![basket validation](docs/validation-images/basket-validation.png)
-No issues where found only a couple of warnings
+but fixed issue quicky.
 
 ## Sign Up Page
-![sign up page](docs/validation-images/sign-out-page.png)
-![no errors but dose not work page](docs/validation-images/passes-validation-dose-not-work.png)
 ![error but working page](docs/validation-images/errors-for-signup-valdidation.png)
 
-the issues with page come from generated code from alluth/Django. 
+the issues with page come from generated code from alluth/Django.
+none of the errors come from my personal coding. 
 1. unordered list in a span element is not allowed but generates as one 
 2. A P element is not connecting to the other 
 
-## PT Sessions
-![Main PT sessions](docs/validation-images/pt-session-page.png)
-![Main PT Validation](docs/validation-images/pt-session-validation.png)
-I had no issues with this only a couple of warnings.
-![Single PT session](docs/validation-images/pt-session-page-view.png)
-![Single PT session](docs/validation-images/pt-session-page-view.png)
-I had no issues with this only a couple of warnings.
+#### All Pages Tested
+* Basket Page
+* PT Sessions
+* User Sessions
+* Profile Page
+* Payment Page
+No issues where found when validating.
 
-## User Sessions
-![user sessions  main view](docs/validation-images/user-programs-main-page.png)
-![user validation](docs/validation-images/user-main-validation.png)
-I had no issues with this only a couple of warnings.
-![exercises page](docs/validation-images/user-exercise-page.png)
-![exercise page Validation](docs/validation-images/user-exercise-validation.png)
-
-## Profile Page
-![profile page](docs/validation-images/profile-page.png)
-![profile page Validation](docs/validation-images/profile-page-validation.png)
-
-## Payment Page
-![payment page](docs/validation-images/payment-page.png)
-![payment validation](docs/validation-images/payment-validation.png)
 ## CSS Validation
-
 ### styles .css
 ![styles css](docs/validation-images/styles-css.png)
 only had two errors at first one was object-fit:fit instead of contain.
@@ -203,6 +181,51 @@ The next check is to make sure its on the market place and adding to basket work
 ![added to market place](docs/test-images/new-session-on-market.png)
 the last check is to see if you can view the session from you profile where it is stored
 ![final view](docs/test-images/final-view.png)
-##### issues
-while testing this the only issue i can think of is that you can add anyone as the user but this will be counted because all members of staff will be trained to use this and if they select the wrong person we have a admin team to fix the issue.
+
+
+# Issues
+### Static Files Not Working
+1. the first issue i has was getting the static files to work on the deployed version. 
+is would have the bootstrap styles but no css, js or media I had made. 
+* Solution
+I forgot to download and set up whitenoise to the middle ware   
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+#   'whitenoise.middleware.WhiteNoiseMiddleware', 
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
+]
+
+2. update / edit the new story
+*  I had an issue with getting the news story to update so i had to do some research and the problem was i had the urls set up wrong so it was using the wrong views function
+
+>Urls.py
+path('sv/', views.showView, name='show_url'),
+
+>views.py
+
+def updateView(request, ids):
+    queryset =  get_object_or_404 (HomeNews, id=ids)
+    form = NewsForm(instance=queryset)
+    if request.method == 'POST':
+        form = NewsForm(request.POST, instance=queryset)
+        if form.is_valid():
+            form.save()
+#            return redirect('home')
+        else:
+            form = NewsForm(instance=queryset)
+    template_name = 'home/crud.html'
+    return render(request, template_name, {'form':form})
+
+instead of having the redirect to home it was using the show View one and this confused me going through and wondering why the form didn't appear
+
+### Potential Issue 
+while testing this the only issue I can think of is that you can add anyone as the user, but this will be counted because all members of staff will be trained to use this and if they select the wrong person we have an admin team to fix the issue.
+
 ## Reviews

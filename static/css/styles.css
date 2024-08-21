@@ -59,7 +59,7 @@ h1,h2,h3,h4 {
 .border {
     background-color: #fff;
     border: 2px solid black !important;
-    box-shadow: 5px 5px green !important;
+    box-shadow: 5px 5px #008000 !important;
     border-radius: 15px !important;
     margin: 10px;
 }
@@ -121,7 +121,7 @@ h1,h2,h3,h4 {
     justify-content: center !important;
     display: flex !important;
     border: 2px solid black !important;
-    box-shadow: 2px 2px green !important;
+    box-shadow: 2px 2px rgb(0, 128, 0) !important;
     border-radius: 15px !important;
 }
 #mc_embed_signup {

@@ -29,8 +29,11 @@
   <script src="https://kit.fontawesome.com/3ec10b2c97.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
 
 
   {% endblock %}
@@ -114,7 +117,6 @@
       </div>
     </div>
   </header>
-
   {% block page_header %}
   {% endblock %}
   {% block content %}
@@ -147,50 +149,48 @@
       <div class="row">
         <div class="col col-4 d-inline brands-logo text-start border ">
           <ul class="brands-logo-list">
-            <li><a class="link-font" target="_blank" href="https://www.facebook.com/profile.php?id=61563488895244"><i class="fa-brands fs-1 fa-square-facebook"></i> Facebook Link</a></li>
-            <li><a class="link-font" target="_blank" href="https://www.youtube.com/watch?v=ixkQaZXVQjs"><i class="fa-brands fs-1 fa-youtube"></i>Youtube Link For Beginners To Follow</a></li>
-            <li><a class="link-font" target="_blank" href="https://www.freeprivacypolicy.com/live/e1703400-f47b-43ae-9e2b-2fff519f101b"><i class="fa-solid fa-brands fs-1 fa-file-lines"></i></i>Private Policy</a></li>
+            <li><a class="link-font" target="_blank" href="https://www.facebook.com/profile.php?id=61563488895244"><i
+                  class="fa-brands fs-1 fa-square-facebook"></i> Facebook Link</a></li>
+            <li><a class="link-font" target="_blank" href="https://www.youtube.com/watch?v=ixkQaZXVQjs"><i
+                  class="fa-brands fs-1 fa-youtube"></i>Youtube Link For Beginners To Follow</a></li>
+            <li><a class="link-font" target="_blank"
+                href="https://www.freeprivacypolicy.com/live/e1703400-f47b-43ae-9e2b-2fff519f101b"><i
+                  class="fa-solid fa-brands fs-1 fa-file-lines"></i>Private Policy</a></li>
           </ul>
         </div>
         <div class="col border">
           <h4>About</h4>
-          <p>this site was made to help both <strong>Personal trainers</strong> and people looking to train or track there progress, we
-            also made it so the personal trainers can sell training sessions and offer their services viva the <strong> PT sessions tab</strong>.</p>
+          <p>this site was made to help both <strong>Personal trainers</strong> and people looking to train or track
+            there progress, we
+            also made it so the personal trainers can sell training sessions and offer their services viva the <strong>
+              PT sessions tab</strong>.</p>
         </div>
-      </div>
-      
-      
-      <div class="col">
-        <nav></nav>
       </div>
     </div>
     {% if messages %}
-  <div class="container message-container">
+    <div class="container message-container">
       {% for message in messages %}
-          {% with message.level as level %}
-            {% if level == 40 %}
-              {% include 'includes/toasts/toast_error.html' %}
-            {% elif level == 30 %}
-              {% include 'includes/toasts/toast_warning.html' %}
-            {% elif level == 25 %}
-              {% include 'includes/toasts/toast_succsess.html' %}
-            {% else %}
-              {% include 'includes/toasts/toast_info.html' %}
-            {% endif %}  
-          {% endwith %}
-        
+      {% with message.level as level %}
+      {% if level == 40 %}
+      {% include 'includes/toasts/toast_error.html' %}
+      {% elif level == 30 %}
+      {% include 'includes/toasts/toast_warning.html' %}
+      {% elif level == 25 %}
+      {% include 'includes/toasts/toast_succsess.html' %}
+      {% else %}
+      {% include 'includes/toasts/toast_info.html' %}
+      {% endif %}
+      {% endwith %}
       {% endfor %}
     </div>
     {% endif %}
   </footer>
- 
-
   {% block load_js %}
   {% endblock %}
   <script>
-    $(document).ready(function() {
-            $('.toast').toast('show');
-        });
+    $(document).ready(function () {
+      $('.toast').toast('show');
+    });
   </script>
   <script src="https://kit.fontawesome.com/3ec10b2c97.js" crossorigin="anonymous"></script>
 </body>

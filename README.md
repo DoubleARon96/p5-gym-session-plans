@@ -1,17 +1,125 @@
 
-# Welcome To Valkan Fitness ReadMe
+# Welcome To Valkan Fitness
 Link To Website
 [live site](https://lets-get-fit-0b60a4063b7b.herokuapp.com/)
-Link To Repository 
-[link to repo](https://github.com/DoubleARon96/p5-gym-session-plans)
-# Home Page
-![home page](docs/readme-images/home-page.png)
-### Brief description
-the home page is aimed to welcome new people to the app/site so they understand what we as the developers can provide the user.
+
+
+# Introduction
+This project was an idea I have had for a while and now studying under coding institute I have the skills
+to execute it.
+
+This project is for people looking into starting to get fit and learn more about fitness. My aim is to bring a simple and easy way to record training sessions and for Personal trainers to sell programs to clients, it also will make it easy for users to get sessions that have been planned by qualified Trainers.
+
+##Stripe Test Integration
+
+This project is in test mode, so no real money will be transferred.
 
 # Scope
 
-# UX
+# UX-User Experience Design
+The ideas behind the design comes from the Xbox colour scheme, the newer ones which is a darker base colour with a nice glow to appear like the on button.
+
+Thinking about how to make it a nice experience using the app, I made the design nice and simple so that It's not over loading the user with lots of images links or other features on one page.
+
+The UX can be broken down into
+* The Strategy Plane
+* The Scope Plane
+* The Structure Plane
+* The Skeleton Plane
+* The Surface Plane
+
+## Strategy Plane
+Creator Aims:
+As the creator, I want the site to be easy to navigate.
+As the creator, I want to allow user to record there gym sessions.
+As the creator, I want to provide users with alerts when they make actions to items one the site.
+As the creator, I want to allows Staff to Add/Edit/Delete PT Sessions.
+
+### User Stories
+Client Side User Stories:
+As a site user, I want the site to be inviting and simple to use.
+As a site user, I want to be able to navigate across the site, so that I can view different pages on the site.
+As a site user, I want to be able to sign up, so that I can have a personal account on the site.
+As a site user, I want to be able to receive an email confirmation after registering.
+
+### Customer Client Stories
+As a Client, I want to be to view all products, so that I can decide what I want to buy.
+As a Client, I want to be able to record my sessions to see progression.
+As a Client, I want to be able to see a confirmation page and see the product in my account.
+As a Client, I want to be able to view my basket, so that I can see what is in my basket and adjust quantities.
+
+### The Scope Plane
+The features that I had thought about when planning this project couldn't be made in the time I had planned, but I Could get a functional Site with the main components of the plan.
+
+My plan for a phased deployment,
+
+#### Phase 1
+
+* A project that would satisfy my user stories.
+* Home Page with an introduction
+* Navbar allowing the user to navigate to different pages
+* Products page allowing users to view all sessions made by the personal trainers.
+* E-commerce functionality allowing the user to make purchases.
+#### Phase 2
+
+Building upon the Phase 1 project with additional features.
+A functional Profile app that allows users to have account that link to purchase and programs made.
+Allow users to build their own programs.
+#### Phase 3
+
+My final planned phase would focus on user feedback
+Review feedback gathered to understand what can be improved.
+
+## The Structure Plane
+#008000
+
+I used this green because it was close to the Xbox colour green on the consoles when turning on and i choose green because combined with a box shadow it gives a nice glow effect.
+#778899
+
+I Chose this grey because it is still bright and dose just the right amount of contrast with the other colours so it makes the others stand out.
+
+#fff
+This White was chosen to make sure the writing on it would stick out and make it easy to read.
+
+#### Fonts - Verdana
+
+I chose Verdana as my font throughout the project. The font is easily readable and simple. I opted to have a single font in this project simply because the project as a whole is not text-heavy, and chose to instead use a heavier font weight for headings.
+
+#### Images
+the images I chose for the website were gym based, so the banner has a dumbbell in it and the three sessions on the home page are just sessions made in Canva.
+
+Database Design
+SQLElephant was used during development.
+
+Database Diagram
+Data base plan
+![data base plan](docs/readme-images/data-base-plan.png)
+
+#### Key Models
+##### Profile 
+
+The user profile is connected to the User model created by Allauth on registration.
+This lets all users have pt sessions and user programs linked to their account.
+
+##### Orders
+
+The order model is connected to the User Profile, allows the user to view their previous orders.
+The order model acts as a container for the order line items. Although is the item is stored within the OrderLineProducts model, having them connected allows to retrieve the item purchased.
+
+##### PT Sessions
+
+This model is how the pt session are made and make it easy to store on the database.
+It also has summer notes added to the admin page, so the trainer can customise the programs to look more professional.
+##### User Programs 
+
+User Programs are made up of two models the main session to hold the user and the clients for the session and the model contained in it is the exercise model that lets you make single exercises with reps, sets and comments.
+
+## The Skeleton Plane
+
+
+
+
+
 
 
 ### Plans
@@ -23,61 +131,25 @@ this is a basic model i set up thinking that it would be nice to be able to edit
 
 i also made it so its crud function is only to be updated so its easy to track and make sure not to much writing is on the home.
 
-# issues
-1. the first issue i has was getting the static files to work on the deployed version. 
-is would have the bootstrap styles but no css, js or media I had made. 
-* Solution
-I forgot to download and set up whitenoise to the middle ware   
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-#   'whitenoise.middleware.WhiteNoiseMiddleware', 
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "allauth.account.middleware.AccountMiddleware",
-]
+# Features
+## Home Page
+![home page](docs/readme-images/home-page.png)
 
-2. update / edit the new story
-*  I had an issue with getting the news story to update so i had to do some research and the problem was i had the urls set up wrong so it was using the wrong views function
-
->Urls.py
-path('sv/', views.showView, name='show_url'),
-
->views.py
-
-def updateView(request, ids):
-    queryset =  get_object_or_404 (HomeNews, id=ids)
-    form = NewsForm(instance=queryset)
-    if request.method == 'POST':
-        form = NewsForm(request.POST, instance=queryset)
-        if form.is_valid():
-            form.save()
-#            return redirect('home')
-        else:
-            form = NewsForm(instance=queryset)
-    template_name = 'home/crud.html'
-    return render(request, template_name, {'form':form})
-
-instead of having the redirect to home it was using the show View one and this confused me going through and wondering why the form didn't appear
-
-# User Sessions
+## User Sessions
 ![user sessions page](docs/readme-images/user-sessions.png)
 ### js issues
 this issues has been the hardest one so far the image below shows the debugging i was using the console logs where my best friend.
 ![js-issue](docs/readme-images/js-issue-on-html.png)
-I realised the for loop wasn't correct on the html.
+I realised the for loop wasn't correct on the HTML.
 ![wrong-loop](docs/readme-images/right-loop.png)
-this is the change i had to do to make sure it worked 
+this is the change I had to do to make sure it worked 
 ![correct-loop](docs/readme-images/right-loop.png)
-this shows that it wasn't collecting the delete number to add to the url.
+this shows that it wasn't collecting to delete number to add to the URL.
 ![url-issue](docs/readme-images/url-issue.png)
 
 ### Brief description
-the aim for this page was so that customers can make up there own sessions and record what they have done.
+the aim for this page was so that customers can make up their own sessions and record what they have done.
 
 ### Plans
 ![usersession page plan ]()
