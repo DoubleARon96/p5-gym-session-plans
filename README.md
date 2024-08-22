@@ -76,14 +76,17 @@ Focus on user feedback:
 ## The Structure Plane
 #008000
 ![green colour](docs/readme-images/green-colour.png)
+
 I selected this shade of green because it closely resembles the Xbox console’s power-on colour. Additionally, when combined with a box shadow, it creates an appealing glow effect.
 
 #778899
 ![grey colour](docs/readme-images/grey-colour.png)
+
 I selected this shade of grey because it is bright enough to provide the perfect contrast with the other colours, thereby enhancing their visibility and making them stand out.
 
 #fff
 ![white colour](docs/readme-images/white-colour.png)
+
 I selected this shade of white to ensure that the text stands out clearly, making it easy to read.
 
 #### Fonts - Verdana
