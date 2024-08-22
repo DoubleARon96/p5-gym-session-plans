@@ -116,6 +116,7 @@ The user Sessions Tests I will Be doing
 3. make sure the user can make a session 
 4. if you can make a session the next will be can you use the link to get to the adding exercise page 
 5. when on the adding exercise page i will test if you can add new exercises , update them and delete them.
+
 ### Making Session & Deleting Test
 the testing of the sessions was easy because it was only create and delete so only two buttons
 * testing the create scroll down and fill in the form and then press the add new button and an alert will show saying it was created and it will show on the page.
@@ -227,5 +228,32 @@ instead of having the redirect to home it was using the show View one and this c
 
 ### Potential Issue 
 while testing this the only issue I can think of is that you can add anyone as the user, but this will be counted because all members of staff will be trained to use this and if they select the wrong person we have an admin team to fix the issue.
+# Issues / Bugs
+## User Sessions
+this issues has been the hardest one so far the image below shows the debugging i was using the console logs where my best friend.
+![js-issue](docs/readme-images/js-issue-on-html.png)
+I realised the for loop wasn't correct on the HTML.
+![wrong-loop](docs/readme-images/right-loop.png)
+this is the change I had to do to make sure it worked 
+![correct-loop](docs/readme-images/right-loop.png)
+this shows that it wasn't collecting to delete number to add to the URL.
+![url-issue](docs/readme-images/url-issue.png)
+
+## Basket
+The primary issue encountered was that the basket would not delete a product but instead set its quantity to 0. Solution: The problem was identified in the view, where the default value was set to 0 instead of 1, preventing the item from being removed.
+![wrong syntax](docs/readme-images/add-to-basket-wrong.png)
+when trying to debug i couldn't understand why it wasn't adding anything but!!!
+![correct syntax](docs/readme-images/adding-to-basket-correct.png)
+then i was reviewing the walkthrough i saw they have the "+= 1" and thought, that makes sense how can you add nothing to nothing and then boom it worked.
+
+## Payment
+1. 
+![payment fails](docs/readme-images/failed-to-success.png)
+the main issues i had was the web hooks not working properly.
+![payment successful](docs/readme-images/succesful-payment-intent.png)
+this was done when making this part of the readme.
+2. 
+![issue with country](docs/readme-images/issue-with-country.png)
+this is the second issue that I had this isn't a big issue but it dose not stick to the norm.
 
 ## Reviews
