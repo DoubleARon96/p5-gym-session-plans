@@ -25,6 +25,8 @@ class PtSessions(models.Model):
     item_price = models.DecimalField(max_digits=6,
                                      decimal_places=2, null=False,
                                      blank=False, default=0)
+    description = models.TextField(max_length=2000, null=False,
+                                   blank=False, default="blank")
 
     def __str__(self):
         return f"{self.session_name} Cost £{self.item_price}"
