@@ -17,7 +17,7 @@ h1,h2,h3,h4 {
     border-radius: 8px;
     box-shadow: 1px 1px 1px black;
     margin: 2px;
-    background-color: rgb(5, 206, 5);
+    background-color: rgb(5, 206, 5) !important;
     
 }
 .button-font,
@@ -59,7 +59,7 @@ h1,h2,h3,h4 {
 .border {
     background-color: #fff;
     border: 2px solid black !important;
-    box-shadow: 5px 5px green !important;
+    box-shadow: 5px 5px #008000 !important;
     border-radius: 15px !important;
     margin: 10px;
 }
@@ -76,12 +76,15 @@ h1,h2,h3,h4 {
     font-weight: bold;
     color: black;
 }
+.welcome-style {
+    list-style-type: none !important;
+}
 /*--------------------------------------------------------- user sessions*/
 .img-container {
     width: 100%;
     display: flex;
     background-image: url("/static/images/assest-images/user-banner.png");
-    object-fit: contain;
+    object-fit: fit;
     background-repeat: no-repeat;
     margin: 5px;
 }
@@ -118,7 +121,7 @@ h1,h2,h3,h4 {
     justify-content: center !important;
     display: flex !important;
     border: 2px solid black !important;
-    box-shadow: 2px 2px green !important;
+    box-shadow: 2px 2px rgb(0, 128, 0) !important;
     border-radius: 15px !important;
 }
 #mc_embed_signup {
@@ -130,16 +133,22 @@ h1,h2,h3,h4 {
                     }
 /*------------------------------------------------------------------- profile page*/
 .profile-img {
-    border: 1px solid black;
+    border: 1px sold black;
     border-radius: 20px;
     margin: 10px;
 }
 /*------------------------------------------------------------------Toast styles*/
 .my-toast {
     z-index: 99;
+    position: fixed !important;
+    top: 15px;
+    right: 20px;
+}
+.toast-body {
     position: fixed;
     top: 15px;
-    right: 15px;
+    right: 20px;
+    background-color: azure;
 }
 /*------------------------------------------------------------------- Payments*/
 .basket-in-payment{
@@ -150,4 +159,7 @@ h1,h2,h3,h4 {
 
 .table-basket-margin{
     margin: auto !important;
+}
+.StripeElement {
+    border: 1px solid black;
 }

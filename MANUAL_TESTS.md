@@ -261,4 +261,8 @@ this was done when making this part of the readme.
 ![issue with country](docs/readme-images/issue-with-country.png)
 this is the second issue that I had this isn't a big issue but it dose not stick to the norm.
 
-## Reviews
+# Reviews
+
+# First Review
+![review from friend](docs/test-images/review-from-friend.png)
+All issues that the user has shown I have fixed.
