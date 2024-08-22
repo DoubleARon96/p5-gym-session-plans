@@ -120,40 +120,55 @@ This plan remained largely unchanged, adhering to the primary objectives of simp
 
 ### Payment Wireframes
 ![Payment page plan](docs/readme-images/payment-page-plan.jpg)
+The payment page was designed to closely adhere to the original plan, ensuring it maintains a familiar appearance similar to other company payment pages.
 
 ### PT Sessions Page Wireframes
 ![Pt sessions plan](docs/readme-images/pt-sessions-plan.jpg)
+The personal training session plan remained largely consistent with the original design, although the positioning of the sessions has been adjusted.
 
 ### User Sessions Wireframes
 ![User sessions plan](docs/readme-images/user-sessions-plan.jpg)
+The user session plan has remained largely consistent with the original design, with the addition of the exercise view to reduce the amount of content on a single page.
 
 ### Home Page Wireframes
 ![home page plan ](docs/readme-images/home-page-plan.jpg)
+The home page was the initial design and served as the blueprint for the rest of the site.
 
-
-# Features
-## Home Page
+# The Surface Plane
+## Features
+### Home Page
 ![home page](docs/readme-images/home-page.png)
-### Brief Description
+#### Brief Description
 The objective of this page is to create a welcoming atmosphere and provide basic examples of what users can expect throughout the rest of the site.
 
-## User Sessions
+#### Functions 
+Administrative teams will have the capability to update the home welcome message.
+
+### User Sessions
 ![user session page](docs/readme-images/user-sessions.png)
-### Brief Description
+#### Brief Description
 The purpose of this page is to allow customers to create their own sessions and record their activities.
 
-### Thoughts
+#### Thoughts
 During development, I dedicated significant time to ensuring the CRUD functionality worked correctly for the exercise component. The integration of URLs and JavaScript presented challenges, but overcoming these obstacles has been a valuable learning experience that has greatly enhanced my skills.
+#### Functions
+1. Make a main session.
+2. Users will be able to add exercises to the main sessions.
+3. Full crud functionality on the exercises. 
 
-# Pt sessions
+### Pt sessions
 ![customer view](docs/readme-images/no-staff-view.png)
-## Brief Description
+#### Brief Description
 This app is designed for personal trainers and administrators, enabling them to sell their training sessions and provide continuous updates for clients. This ensures that clients always have access to new sessions and innovative training methods.
+#### Functions
+1. Staff can make Pt sessions.
+2. Users can add sessions to the basket.
+3. If user owns session they can view the whole session.
 
-## Staff Permissions
+#### Staff Permissions
 Staff permissions will be assigned by an administrator upon hiring. Staff members will have access to the admin page, allowing them to add sessions for users to purchase.
-## Staff help with Html 
-### Example for table in html
+#### Staff help with Html 
+##### Example for table in html
 ```
 <p>Warm Up</p>
 <p>any Cardio For 10 mins</p>
@@ -181,15 +196,15 @@ Staff permissions will be assigned by an administrator upon hiring. Staff member
 </tbody>
 </table>
 ```
-### Other Tools For Non Html
+#### Other Tools For Non Html
 ![other tools](docs/readme-images/other-tools.png)
 The bar at the top of the program section enhances the visual appeal of the sessions, ensuring they are well-organized and aesthetically pleasing.
-# Basket
+## Basket
 ![basket page view](docs/readme-images/basket-page.png)
 Brief Description
 This app is designed for all clients interested in purchasing sessions created by personal trainers and administrators. It retains clients’ items only while the page remains open.
 
-# Payments
+## Payments
 ![payments view](docs/readme-images/payment-view.png)
 ### Brief description
 this app is to help integrate stripe and make it easier for the users to know exactly what items they are buying 
