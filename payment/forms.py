@@ -16,7 +16,7 @@ class OrderForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'full_name': 'Full Name',
-            'email': 'Email',
+            'email': 'Email must match the account email',
             'phone_number': 'Phone Number', 
             'country': 'Country',
             'post_code': 'Post Code / Zip Code',
