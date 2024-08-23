@@ -18,7 +18,7 @@ class OrderForm(forms.ModelForm):
             'full_name': 'Full Name',
             'email': 'Email must match the account email',
             'phone_number': 'Phone Number', 
-            'country': 'Country',
+            'country': 'Country code (e.g., “GB” for the UK)',
             'post_code': 'Post Code / Zip Code',
             'town_or_city': 'Town Or City',
             'first_line_of_address': 'First Line Of Address', 
