@@ -47,7 +47,7 @@ As the creator, my objectives for the site are as follows:
 * Allow staff to add, edit, and delete personal training sessions.
 
 ### User Stories
-![link to full users stories](https://github.com/users/DoubleARon96/projects/6 "Link To Full User Stories")
+[link to full users stories](https://github.com/users/DoubleARon96/projects/6 "Link To Full User Stories")
 
 Client Side User Stories:
 
@@ -628,12 +628,6 @@ Facebook is an excellent platform for both free and paid advertising. It offers 
 * Bootstrap – To provide extra styling and positioning.
 * Font Awesome – For the icons and symbols.
 
-## Validation
-* [W3C HTML Validation Service](https://validator.w3.org/ "W3C HTML") – Used to validate all HTML files, including edited Django templates.
-* [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS") – Utilised to validate the base.css and the admin page.
-* [Python Validation](https://pep8ci.herokuapp.com/ "Python Syntax Checker PEP8") – To validate all the Python files, making sure they align with PEP8.
-* [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en "Lighthouse") – Applied to assess the website’s performance and accessibility, ensuring adherence to best practices.
-
 # Heroku
 
 To log into the Heroku tool belt CLI:
@@ -757,11 +751,11 @@ Django Documentation
 
 ### Django 
 Django have amazing documentation with a tutorial project and in depth explanations on core components.
-![django link](https://docs.djangoproject.com/en/5.1/ "Django Documentation Link")
+[django link](https://docs.djangoproject.com/en/5.1/ "Django Documentation Link")
 
 ### Canva 
 Custom images for the project were created using Canva. This tool allowed for the design and editing of visuals to ensure they seamlessly integrated with the project’s aesthetic and functional requirements.
-![canva link](https://www.canva.com/ "Canva Link")
+[canva link](https://www.canva.com/ "Canva Link")
 
 ## Acknowledgements
 
