@@ -15,9 +15,18 @@ The project is designed for individuals who are beginning their fitness journey 
 
 This project is in test mode, so no real money will be transferred.
 
+# Marketing Plans
+The Plans I have put in place are
+- Free Advisement on Social Media:
+    - This will be conducted through Facebook, leveraging the company page that has been set up. Facebook’s integrations with other social media platforms provide extensive reach, allowing us to effectively showcase our offerings to a broad audience of potential users.
+- YouTube and TikTok Ads:
+    - These platforms have been selected for paid advertising due to their substantial daily traffic, providing an excellent opportunity to reach a wide audience.
+- Paid Ads and Posts:
+    - Utilizing Instagram for paid advertisements and posts will significantly enhance brand visibility due to the platform’s high traffic. Additionally, the presence of numerous fitness influencers on Instagram presents opportunities for potential collaborations and promotions, further boosting the company’s reach.
+
 # Scope
 
-# UX-User Experience Design
+## UX-User Experience Design
 The design inspiration stems from the Xbox colour scheme, particularly the newer models, which feature a darker base colour complemented by a subtle glow reminiscent of the power button.
 
 To enhance the user experience, I focused on creating a clean and straightforward design. This approach ensures that the app is not cluttered with excessive images, links, or features on a single page, thereby providing a seamless and enjoyable user experience.
@@ -38,6 +47,8 @@ As the creator, my objectives for the site are as follows:
 * Allow staff to add, edit, and delete personal training sessions.
 
 ### User Stories
+![link to full users stories](https://github.com/users/DoubleARon96/projects/6 "Link To Full User Stories")
+
 Client Side User Stories:
 
 * As a site user, I want the site to be inviting and simple to use.
@@ -161,7 +172,8 @@ During development, I dedicated significant time to ensuring the CRUD functional
 3. Full crud functionality on the exercises. 
 
 ### Pt sessions
-![customer view](docs/readme-images/no-staff-view.png)
+![staff view](docs/test-images/updated-version.png "Staff View")
+
 #### Brief Description
 This app is designed for personal trainers and administrators, enabling them to sell their training sessions and provide continuous updates for clients. This ensures that clients always have access to new sessions and innovative training methods.
 #### Functions
@@ -228,52 +240,342 @@ this app is to help integrate stripe and make it easier for the users to know ex
 
 ## Short Tail Key Words:
 Any key word with this ~ around it means that word I choose to go on the website as a key word.
-~ Fitness ~
-Training 
-~ Muscles ~
-Exercises
-Personal Training
-~ Chest ~
-~ Back ~
-~ Legs ~
-~ Biceps ~
-~ Triceps ~
-~ Full Body ~
-Hit Training
-Health
-Goals
-Sessions
-weight loss
-cutting weight
-~ lose weight ~
-~gym~ 
+- ~ Fitness ~
+- Training 
+- ~ Muscles ~
+- Exercises
+- Personal Training
+- ~ Chest ~
+- ~ Back ~
+- ~ Legs ~
+- ~ Biceps ~
+- ~ Triceps ~
+- ~ Full Body ~
+- Hit Training
+- Health
+- Goals
+- Sessions
+- weight loss
+- cutting weight
+- ~ lose weight ~
+- ~gym~ 
 
 Long tail Key Words:
 
-~Personal Training Sessions~
-Custom-made sessions and free recording of sessions
-many Different styles of training e.g Hit, Full Body and Steady State
-Sessions for any needs or goals 
-~buy personal training sessions~
-record my gym program
+- ~Personal Training Sessions~
+- Custom-made sessions and free recording of sessions
+- Many Different styles of training e.g Hit, Full Body and Steady State
+- Sessions for any needs or goals 
+- ~Buy personal training sessions~
+- Record my gym program
 
 
 
 ## All Key Words That Will Be On The Site:
 
-Custom-made sessions and free recording of sessions
-many Different styles of training e.g Hit, Full Body and Steady State
-Sessions for any needs or goals 
-Record My Gym Program
-Hit Training
-Health
-Goals
-Sessions
-weight loss
-cutting weight
-Exercises
-Personal Training
+- Custom-made sessions and free recording of sessions
+- many Different styles of training e.g Hit, Full Body and Steady State
+- Sessions for any needs or goals 
+- Record My Gym Program
+- Hit Training
+- Health
+- Goals
+- Sessions
+- weight loss
+- cutting weight
+- Exercises
+- Personal Training
 
+# Models 
+## Pt Sessions Model
+```
+class PtSessions(models.Model):
+    BODY_PART = (
+        ('Legs', 'Legs'),
+        ('Chest', 'Chest'),
+        ('Back', 'Back'),
+        ('Abs', 'Abs'),
+        ('Shoulders', 'Shoulders'),
+        ('All Body', 'All Body')
+    )
+    session_name = models.TextField(max_length=30,
+                                    null=False, blank=False)
+    program = models.TextField(max_length=4000)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             null=False, blank=False,
+                             related_name='user_sessions')
+    body_part = models.CharField(max_length=40,
+                                 null=False, blank=False,
+                                 choices=BODY_PART, default='All Body')
+    client = models.ManyToManyField(User, blank=True,
+                                    related_name='client_sessions')
+    item_price = models.DecimalField(max_digits=6,
+                                     decimal_places=2, null=False,
+                                     blank=False, default=0)
+    description = models.TextField(max_length=2000, null=False,
+                                   blank=False, default="blank")
+
+    def __str__(self):
+        return f"{self.session_name} Cost £{self.item_price}"
+```
+- session_name: A TextField with a maximum length of 30 characters. This field is required and cannot be null or blank. It stores the name of the session.
+
+- program: A TextField with a maximum length of 4000 characters. This field stores the details of the training program.
+
+- user: A ForeignKey to the User model. This field is required and cannot be null or blank. It establishes a many-to-one relationship with the User model, indicating the user who created the session. The related_name is set to 'user_sessions'.
+
+- body_part: A CharField with a maximum length of 40 characters. This field is required and cannot be null or blank. It uses the BODY_PART choices to specify the targeted body part for the session. The default value is 'All Body'.
+
+- client: A ManyToManyField to the User model. This field is optional and can be blank. It establishes a many-to-many relationship with the User model, indicating the clients associated with the session. The related_name is set to 'client_sessions'.
+
+- item_price: A DecimalField with a maximum of 6 digits and 2 decimal places. This field is required and cannot be null or blank. It stores the price of the session. The default value is 0.
+
+- description: A TextField with a maximum length of 2000 characters. This field is required and cannot be null or blank. It stores a description of the session. The default value is "blank".
+Methods
+- __str__: Returns a string representation of the session, including the session name and its cost.
+
+## User Sessions Model
+```
+class MainUserProgram(models.Model):
+    BODY_PART = (
+        ('Legs', 'Legs'),
+        ('Chest', 'Chest'),
+        ('Back', 'Back'),
+        ('Abs', 'Abs'),
+        ('Shoulders', 'Shoulders'),
+        ('All Body', 'All Body')
+    )
+
+    session_name = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    body_part = models.CharField(max_length=40,
+                                 choices=BODY_PART, default='All Body')
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"{self.session_name} | Made by {self.user}"
+
+
+class UserProgram(models.Model):
+    session = models.ForeignKey(MainUserProgram, on_delete=models.CASCADE)
+    exercise_name = models.TextField()
+    reps = models.IntegerField()
+    sets = models.IntegerField()
+    weight = models.IntegerField()
+    comment = models.TextField(max_length=300)
+
+    def __str__(self):
+        return f"{self.reps} x {self.sets} x {self.weight} | \
+        Comments {self.comment}"
+
+```
+ The MainUserProgram model represents a user’s main training program. It includes details about the program, such as the session name, associated user, targeted body part, and creation date.
+
+### Fields
+- session_name: A TextField that stores the name of the session.
+
+- user: A ForeignKey to the User model. This field establishes a many-to-one relationship with the User model, indicating the user who created the program. The on_delete=models.CASCADE ensures that if the user is deleted, the associated programs are also deleted.
+
+- body_part: A CharField with a maximum length of 40 characters. It uses the BODY_PART choices to specify the targeted body part for the program. The default value is 'All Body'.
+
+- created_on: A DateTimeField that automatically records the date and time when the program is created.
+
+### Meta Options
+- ordering: Specifies that the programs should be ordered by the created_on field in descending order.
+Methods
+- __str__: Returns a string representation of the program, including the session name and the user who created it.
+## UserProgram Model
+The UserProgram model represents individual exercises within a user’s main training program. It includes details about the exercise, such as the name, repetitions, sets, weight, and any comments.
+
+### Fields
+- session: A ForeignKey to the MainUserProgram model. This field establishes a many-to-one relationship with the MainUserProgram model, indicating the main program to which the exercise belongs. The on_delete=models.CASCADE ensures that if the main program is deleted, the associated exercises are also deleted.
+
+- exercise_name: A TextField that stores the name of the exercise.
+
+- reps: An IntegerField that stores the number of repetitions for the exercise.
+
+- sets: An IntegerField that stores the number of sets for the exercise.
+
+- weight: An IntegerField that stores the weight used for the exercise.
+
+- comment: A TextField with a maximum length of 300 characters. This field stores any comments related to the exercise.
+
+#### Methods
+__str__: Returns a string representation of the exercise, including the repetitions, sets, weight, and any comments.
+
+## Payment 
+```
+class Order (models.Model):
+    order_number = models.CharField(max_length=32, editable=False, unique=True)
+    full_name = models.CharField(max_length=50, blank=False, null=False)
+    email = models.EmailField(max_length=300, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
+    country = models.CharField(max_length=50, null=True, blank=False)
+    post_code = models.CharField(max_length=10, null=True, blank=False)
+    town_or_city = models.CharField(max_length=50, null=False, blank=False)
+    first_line_of_address = models.CharField(max_length=80,
+                                             null=False, blank=False)
+    second_line_of_address = models.CharField(max_length=80,
+                                              null=True, blank=False)
+    county = models.CharField(max_length=50, null=True, blank=False)
+    date = models.DateTimeField(auto_now_add=True)
+    product_total = models.DecimalField(max_digits=10,
+                                        decimal_places=2,
+                                        null=False, default=0)
+    total = models.DecimalField(max_digits=10,
+                                decimal_places=2, null=False, default=0)
+    original_basket = models.TextField(null=False, blank=False, default="")
+    stripe_pid = models.CharField(max_length=254,
+                                  null=False, blank=False, default="")
+
+    def _generate_order_number(self):
+        """
+        this will make a order number using UUID
+        """
+        return uuid.uuid4().hex.upper()
+
+    def update_total(self):
+        """
+        this function will add up the total of
+        each product line
+        """
+        self.product_total = (
+            self.product_lines.aggregate(Sum('line_price_total'))
+            ['line_price_total__sum'] or 0)
+        self.total = self.product_total
+        self.save()
+
+    def save(self, *args, **kwargs):
+        """
+        this function over writes the save method to set a order number
+        that hasn't been used already
+        """
+        if not self.order_number:
+            self.order_number = self._generate_order_number()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.order_number
+
+
+class OrderLineProduct(models.Model):
+    order = models.ForeignKey(Order,
+                              null=False, blank=False,
+                              on_delete=models.CASCADE,
+                              related_name="product_lines")
+    product = models.ForeignKey(PtSessions,
+                                null=False, blank=False,
+                                on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    line_price_total = models.DecimalField(max_digits=6,
+                                           decimal_places=2, null=False,
+                                           blank=False, editable=False)
+
+    def save(self, *args, **kwargs):
+        """
+        this function over writes the save method and sets line price total
+        and updates the total
+        """
+        self.line_price_total = self.product.item_price * self.quantity
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return (
+            f'Program Title {self.product.session_name} '
+            f'with Order Number {self.ord.order_number}'
+        )
+
+```
+### Order Model
+The Order model represents a customer’s order in the application. It includes details about the order, such as the order number, customer information, address, date, product totals, and payment details.
+
+#### Fields
+- order_number: A CharField with a maximum length of 32 characters. This field is unique and not editable. It stores the unique order number.
+
+- full_name: A CharField with a maximum length of 50 characters. This field is required and cannot be null or blank. It stores the full name of the customer.
+
+- email: An EmailField with a maximum length of 300 characters. This field is required and cannot be null or blank. It stores the customer’s email address.
+
+- phone_number: A CharField with a maximum length of 20 characters. This field is required and cannot be null or blank. It stores the customer’s phone number.
+
+- country: A CharField with a maximum length of 50 characters. This field can be null but cannot be blank. It stores the customer’s country.
+
+- post_code: A CharField with a maximum length of 10 characters. This field can be null but cannot be blank. It stores the customer’s postal code.
+
+- town_or_city: A CharField with a maximum length of 50 characters. This field is required and cannot be null or blank. It stores the customer’s town or city.
+
+- first_line_of_address: A CharField with a maximum length of 80 characters. This field is required and cannot be null or blank. It stores the first line of the customer’s address.
+
+- second_line_of_address: A CharField with a maximum length of 80 characters. This field can be null but cannot be blank. It stores the second line of the customer’s address.
+
+- county: A CharField with a maximum length of 50 characters. This field can be null but cannot be blank. It stores the customer’s county.
+
+- date: A DateTimeField that automatically records the date and time when the order is created.
+product_total: A DecimalField with a maximum of 10 digits and 2 decimal places. This field is required and cannot be null or blank. It stores the total price of the products in the order. The default value is 0.
+
+- total: A DecimalField with a maximum of 10 digits and 2 decimal places. This field is required and cannot be null or blank. It stores the total price of the order. The default value is 0.
+
+- original_basket: A TextField that stores the original basket details. This field is required and cannot be null or blank. The default value is an empty string.
+
+- stripe_pid: A CharField with a maximum length of 254 characters. This field is required and cannot be null or blank. It stores the Stripe payment ID. The default value is an empty string.
+
+#### Methods
+- _generate_order_number: Generates a unique order number using UUID.
+Python
+```
+def _generate_order_number(self):
+    """
+    Generates a unique order number using UUID.
+    """
+    return uuid.uuid4().hex.upper()
+```
+- update_total: Updates the total price of the order by summing the total price of each product line.
+Python
+```
+def update_total(self):
+    """
+    Updates the total price of the order by summing the total price of each product line.
+    """
+    self.product_total = (
+        self.product_lines.aggregate(Sum('line_price_total'))
+        ['line_price_total__sum'] or 0)
+    self.total = self.product_total
+    self.save()
+```
+
+- save: Overrides the save method to set a unique order number if it hasn’t been set already.
+Python
+```
+def save(self, *args, **kwargs):
+    """
+    Overrides the save method to set a unique order number if it hasn't been set already.
+    """
+    if not self.order_number:
+        self.order_number = self._generate_order_number()
+    super().save(*args, **kwargs)
+
+__str__: Returns a string representation of the order, which is the order number.
+```
+### OrderLineProduct Model
+The OrderLineProduct model represents individual products within an order. It includes details about the product, such as the associated order, product, quantity, and total price for the line.
+
+#### Fields
+- order: A ForeignKey to the Order model. This field is required and cannot be null or blank. It establishes a many-to-one relationship with the Order model, indicating the order to which the product line belongs. The related_name is set to 'product_lines'.
+
+- product: A ForeignKey to the PtSessions model. This field is required and cannot be null or blank. It establishes a many-to-one relationship with the PtSessions model, indicating the product in the order.
+
+- quantity: An IntegerField that stores the quantity of the product. This field is required and cannot be null or blank. The default value is 0.
+
+- line_price_total: A DecimalField with a maximum of 6 digits and 2 decimal places. This field is required and cannot be null or blank. It stores the total price for the product line. This field is not editable.
+
+#### Methods
+- save: Overrides the save method to set the total price for the product line and update the order total.
+Python
+
+- __str__: Returns a string representation of the product line, including the program title and order number.
 # Facebook Page
 
 ![facebook-header](docs/readme-images/facebook-header.png)
@@ -438,3 +740,34 @@ git commit -m "Initial commit"
 git push
 ```
 Your deployed site can be launched by clicking Open App from its page within Heroku.
+
+# Credits
+
+A large amount of code came from the Code Institute, Boutique Ado Project.
+Code Institute, Boutique Ado
+Boutique Ado is a walkthrough project by Code Institute, this project gave students an introduction to Django/Stripe/
+The core functionality of the strip and baskets is all taken from the Boutique Ado project.
+
+### Bootstrap
+
+The Bootstrap Library was used through the project. The project used version 5.3.3
+Bootstrap
+Toasts/Navigation Bar/Forms/Dropdown Menu/Buttons, the core elements mentioned are all found in the Bootstrap components section and built upon.
+Django Documentation
+
+### Django 
+Django have amazing documentation with a tutorial project and in depth explanations on core components.
+![django link](https://docs.djangoproject.com/en/5.1/ "Django Documentation Link")
+
+### Canva 
+Custom images for the project were created using Canva. This tool allowed for the design and editing of visuals to ensure they seamlessly integrated with the project’s aesthetic and functional requirements.
+![canva link](https://www.canva.com/ "Canva Link")
+
+## Acknowledgements
+
+- Harry Dhillon
+    Harry provided invaluable assistance by resolving issues that could have caused problems during submission. Additionally, he offered excellent advice on improving the README and manual test files.
+- Ciaran Merrit 
+    Ciaran assisted with testing this project and provided a comprehensive review, ensuring it met the required standards for submission.
+- Robert Glover 
+    Robert provided valuable insights on how to effectively record sessions and enhance the site’s appeal to users.

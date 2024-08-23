@@ -14,8 +14,7 @@
             <!--super user only-->
             {% if user.is_authenticated and user.is_superuser %}
             {% for i in contents %}
-            <button class="button"><a href="{% url 'update_url' ids=content.id %}"
-                    class="button-font">Update</a></button>
+            <a class="button button-font m-2" href="{% url 'update_url' ids=content.id %}">Update</a>
             {% endfor %}
             {% endif %}
             {% endfor %}
@@ -95,8 +94,8 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-<script type="text/javascript">
+<script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+<script>
     (function ($) {
         window.fnames = new Array();
         window.ftypes = new Array();
