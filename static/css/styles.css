@@ -38,10 +38,22 @@ h1,h2,h3,h4 {
     list-style: none;
 }
 .fa-brands {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
     color: rgb(5, 206, 5);
     margin: 5px;
 }
+.fa-solid, .fas {
+    font-weight: 900;
+    color: chocolate;
+}
+
 .fa-brands:hover {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    color: gray;
+    margin: 5px;
+}
+.link-font:hover {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
     color: gray;
     margin: 5px;
 }
