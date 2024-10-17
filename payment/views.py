@@ -7,6 +7,7 @@ from ptsessions.models import PtSessions
 from basket.contexts import basket_contents
 from .models import Order, OrderLineProduct
 from .forms import OrderForm
+from .emails import send_confirmation_email
 
 import stripe
 import json
@@ -28,6 +29,12 @@ def Cache_Payment_data(request):
         messages.error(request, 'Payment Failed')
         return HttpResponse(content=e, status=400)
 
+def purchase_view(request):
+    # Handle purchase logic here
+
+    
+
+    return redirect('purchase_success')
 
 def Checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -126,6 +133,8 @@ def Checkout_success(request, order_number):
         pt_session = order_line_product.product
         # Add the user to the client field of the PtSession
         pt_session.client.add(request.user)
+        user_email = request.user.email
+        send_confirmation_email(user_email)
 
     template = 'payments/checkout_success.html'
     content = {

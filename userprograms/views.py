@@ -34,7 +34,7 @@ def index(request):
 
     return render(request, "userprograms/index.html", viewbag)
 
-
+@login_required
 def mysessions(request, id):
     """
     View to show template
@@ -60,7 +60,7 @@ def mysessions(request, id):
 
     return render(request, "userprograms/user-sessions.html", content)
 
-
+@login_required
 def updateView(request, id):
     queryset = get_object_or_404(UserProgram, id=id)
     form = UserSessionsForm(instance=queryset)
@@ -76,7 +76,7 @@ def updateView(request, id):
     template_name = 'userprograms/user-sessions-update.html'
     return render(request, template_name, {'form': form})
 
-
+@login_required
 def deleteView(request, id, session_id):
     queryset = MainUserProgram.objects.all()
     main_program = get_object_or_404(queryset, id=id)
@@ -90,7 +90,7 @@ def deleteView(request, id, session_id):
 
     return render(request, "userprograms/delete-failed.html")
 
-
+@login_required
 def mainDeleteView(request, id):
     queryset = get_object_or_404(MainUserProgram, id=id)
     if request.method == 'GET':
