@@ -117,10 +117,14 @@ def Checkout(request):
         return render(request, template, context)
 
 
+# In your_app/views.py
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from .emails import send_confirmation_email
+from .models import Order
+
 def Checkout_success(request, order_number):
-    """
-    this handles successful transactions
-    """
+    """This handles successful transactions."""
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Your purchase has been processed! \
@@ -128,14 +132,12 @@ def Checkout_success(request, order_number):
                     You will receive a confirmation Email to {order.email}.')
     if 'basket' in request.session:
         del request.session['basket']
-
     for order_line_product in order.product_lines.all():
         pt_session = order_line_product.product
         # Add the user to the client field of the PtSession
         pt_session.client.add(request.user)
         user_email = request.user.email
-        send_confirmation_email(user_email)
-
+        send_confirmation_email(user_email, order_number)
     template = 'payments/checkout_success.html'
     content = {
         'order': order,
